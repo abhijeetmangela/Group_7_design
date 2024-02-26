@@ -1,13 +1,20 @@
-\documentclass{article}
+\documentclass[12 pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{multirow}
 \usepackage{caption}
+\usepackage{subcaption}
 \usepackage{hyperref}
 \usepackage{pgf}
 \usepackage{pgfpages}
+\usepackage{textcomp}
+\usepackage{lscape}
+\usepackage{geometry}
+\usepackage{pdflscape} 
+\usepackage{placeins}
+%\usepackage[a4paper,margin=1in]{geometry}
 
 \pgfpagesdeclarelayout{boxed}
 {
@@ -42,7 +49,7 @@
 \begin{titlepage}
 \begin{center}
 
-\textbf{\huge Design project report Group 7 \\ \vspace{0.4 cm} Week 1} \\
+\textbf{\huge Design project report Group 7 \\ \vspace{0.4 cm} Week 2} \\
 
 \vspace{2 cm}
 
@@ -52,7 +59,7 @@
 
 \vspace{1cm}
 
-\textbf{Abhijeet Mangela AE21B040 \\ Navin Yadav AE23M803 \\ Balamurugan S AE23M009 \\ Samarth R Krishna AE23M032 \\ Senthil B AE23M035 \\ Rajentran Anandhu Nair AE23M009 }
+\textbf{Abhijeet Mangela AE21B040 \\ Navin Yadav AE23M803 \\ Balamurugan S AE23M009 \\ Samarth R Krishna AE23M032 \\ Senthil B AE23M035 \\ Rajendran Anandhu Nair AE23M027 }
 
 \vspace{0.5cm}
 
@@ -73,6 +80,12 @@ India
 \newpage
 
 \section{Introduction}
+
+\subsection{Objective}
+The primary objective of this design project is to design and fly a fixed wing UAV that can survey wildlife and monitor plastic free zones/environment in amusement parks, zoos and wildlife sanctuaries.
+
+
+\subsection{Abstract}
 Air quality is an essential measure of the quality of life of any living being. A decrease in air quality is easily linked with a reduction in the life expectancy of various plants and animals.
 
 As a result, we are focused on working on a drone that will give us an insight into the air quality of a region. 
@@ -85,32 +98,31 @@ These complications can be reduced by using a fixed-wing UAV instead of ground s
 
 The UAV will also carry out visual surveillance of the land it is flying. A direct flight will provide a better and more frequent information intake than satellite imagery.
 
-\section{Mission Profile and requirements}
+\subsection{Mission Profile and requirements}
 
-\subsection{Mission Requirement}
+\subsubsection{Mission Requirement}
 %Our objective is to detect the gases present near the aeroplane. It should detect elements including PM2.5, PM10, O3, NO2, SO2, CO, VOCs, H2S, NH3, HCl, CxHy, H2 and more.
 In the event of a crowd gathering, ensuring the cleanliness of a natural environment conducive to the dwelling of fauna is challenging. To overcome this problem steadfastly without affecting the crowd's morale, instead of acting as an entertainment element in satisfying the objective above, UAVs are identified as the best choices amidst these situations. 
 
 
 The UAV will be equipped with air quality sensors and cameras to understand the terrain better. Thus, knowledge about plastics and unpleasant atmospheres will help develop a quick action plan for maintaining the flora and fauna from foreign hazards.
 
-\subsection{Aircraft Charesteristics}
+\subsection{Aircraft Characteristics}
 \begin{table}[h]
 \centering
-\resizebox{0.8\textwidth}{!}{%
+\resizebox{0.6\textwidth}{!}{%
 \begin{tabular}{|c|c|}
 \hline
 \textbf{Estimated MTOW}            & 8 – 10 kg                \\ \hline
 \textbf{Maximum Payload Weight}    & 1 – 1.5 kg               \\ \hline
-\textbf{Estimated Endurance}       & 45 minutes               \\ \hline
+\textbf{Estimated Endurance}       & 30 minutes               \\ \hline
 \textbf{Mission ceiling}           & 0 - 250 m                \\ \hline
-\textbf{Desired Operational Speed} & 11 m/s                   \\ \hline
+\textbf{Desired Operational Speed} & 27 m/s                   \\ \hline
 \textbf{Transmitter Range}         & 4 km                     \\ \hline
 \end{tabular}%
 }
 \end{table}
 
-\newpage
 \subsection{Payload measure}
 The payload of UAVs consists of a camera and a sensor module used to measure air quality. The camera will be a Hontral B0BMV12VYJ HD Camera weighing 492 g. The sensor module comprises Arduino MKR Proto Large Shield TSX00002, weighing about 200 g and sensors such as MQ-7 CO Carbon Monoxide, MG811 Air Carbon Dioxide, etc., weighing about 320 g.
 
@@ -118,261 +130,337 @@ The payload of UAVs consists of a camera and a sensor module used to measure air
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=\linewidth]{Mission Profile.png}
+    \includegraphics[width = \linewidth]{Drawing1-Model_final.pdf}
+    \caption{Caption}
+    \label{fig:enter-label}
 \end{figure}
+
+
+\subsubsection{Ground run}
+The take-off ground run distance is approximately 60 metres and estimated take-off velocity is 10 m/s. \ref{Development of the Brican TD100 Small UAS and Payload Trials}
+
+$$ (V_{TO})_{_{Bricans \: Td100}} = 19 \: m/s$$
+$$ (W_{TO})_{_{Bricans \: Td100}} = 22.67 \: kg$$
+
+Since $ V_{TO} \: \alpha \: \sqrt{W_{TO}} $ for given $C_L$ , S (applicable for initial estimate)
+
+$$ (V_{TO})_{_{des}} = (V_{TO})_{_{Bricans \: Td100}} \times \sqrt{\frac{(W_{TO})_{_{des}}}{(W_{TO})_{_{Bricans \: TD \: 100}}}} $$
+
+$$ = 19 \times \sqrt{\frac{5.6 \times 9.81}{22.67 \times 9.81}} = 9.94 \: m/s \approx 10 \: m/s $$
+
+\subsubsection{Climb {[\ref{3}]} }
+The UAV will climb at an estimated velocity of 17.6 m/s to operating altitude of 250 m AMSL. The rate of climb is about 3.06 m/s. Time spent here 81.7 s
+
+Calculation :- 
+$$ (V_{TO})_{_{des}} = 10 \: m/s \Rightarrow (V_{stall})_{_{des}} = \frac{(V_{TO})_{_{des}}}{1.2} = 8.33 \: m/s $$
+$$ (V_{md})_{_{des}} = 1.6 \times V_{stall} = 13.33 \: m/s $$
+$$ (V_{ROC})_{_{max}} = 1.32 \times V_{md} = 17.6 \: m/s $$
+
+\subsubsection{Cruise {[\ref{4}]}}
+The UAV will perform aerial surveillance and environmentally monitor for areas of plastics and solid waste with an estimated cruise speed of 17 m/s for 20 km range. Time spent here is 1176 s.
+
+\subsubsection{Descent to Mission Height}
+The UAV will descend to 150 m altitude AMSL to study air quality at a sinking speed of 20.52 m/s for 5 km range. Time spent here is 28 s.
+
+Calculation: - 
+$$ (V_{cr,lo})_{_{design}} = 0.76 \times (V_{cr})_{_{des}} \;  (initial \: estimate) $$
+$$ = 20.52 \: m/s $$
+
+\subsubsection{Descent to land {[\ref{5}]}}
+The UAV will descend at an estimated velocity of 10.13 m/s. To close ground proximity, the UAV is gradually decelerated to an estimated touchdown velocity of 8.61 m/s. Time spent here is 80 s.
+Calculation: - 
+$$(V_des)_{_{design}} = (V_{mg})_{_{design}} = (V_{mg})_{_{design}} \times 0.76 = 10.13 \: m/s $$
+
+\subsubsection{Landing run}
+The landing ground run distance is approximately 80 metres and estimated touchdown velocity is 8.61 m/s.
+
+Calculation: - 
+$$ (V_{TD})_{_{design}} = 0.85 \times (V_{des})_{_{design}} = 8.61 \: m/s  $$
+$$ \text{Vertical component of } (V_{TD})_{_{design}} = 8.61 \times \sin{10^{\circ}} $$
+$$ = 1.495 \: m/s \leq 4 \: m/s \; \text{(For smooth landing)} $$
+
+
 
 \section{Data collection}
-Here is the list of similar airplanes:-
 
+The data of all the parameters:-
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+SI no &
+  UAV Name &
+  \begin{tabular}[c]{@{}c@{}}MTOW \\ Kg\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Empty Weight\\ kg\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Battery Weight\\ kg\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Payload Weight\\ kg\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Range \\ km\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Endurance\\ min\end{tabular} \\ \hline
+1 & Wingtraone                & 4.5 & 2.387 & 0.604       & 1.509 &     & 59  \\ \hline
+2 & Albatross                 & 10  & 3.5   & 2.4         & 4.1   & 250 & 240 \\ \hline
+3 & Azimut   2                & 9   & 2.5   & 2.8         & 3.7   &     &     \\ \hline
+4 & Dragonfly   Tango 2       & 5   & 3     & 0.595+0.595 & 1.5   & 5   & 120 \\ \hline
+5 & Nostromo   Defensa Cabure & 5   & 3.4   & 0.604       & 1     & 15  & 1.5 \\ \hline
+6 & SPY   LITE                & 9.5 & 4.5   & 1.5         & 1.35  & 80  & 240 \\ \hline
+7 & Skylark I-LEX             & 7.5 & 5.5   & 0.8         & 1.2   & 40  & 180 \\ \hline
+\end{tabular}%
+}
+\caption{Data part one}
+\label{tab:my-table}
+\end{table}
 
-\subsection{WingtraOne}
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+SI no &
+  UAV Name &
+  \begin{tabular}[c]{@{}c@{}}Service Ceiling\\ m\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Maximum Ceiling\\ m\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Cruise speed\\ km/hr\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Max Speed\\ km/hr\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Longitudinal Length\\ cm\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Wing Span\\ cm\end{tabular} &
+  AR &
+  L/D \\ \hline
+1 & Wingtraone                & 120  & 2500   to 5000 & 35.8 &     &     & 125 & 1.838 &                \\ \hline
+2 & Albatross                 &      &                & 68   & 129 &     & 300 &       & 28:1   to 30:1 \\ \hline
+3 & Azimut   2                &      &                &      &     &     &     &       &                \\ \hline
+4 & Dragonfly   Tango 2       &      &                & 43.2 & 100 &     &     &       &                \\ \hline
+5 & Nostromo   Defensa Cabure & 4000 &                & 70   & 105 &     &     &       &                \\ \hline
+6 & SPY   LITE                &      &                &      & 120 & 135 & 275 &       &                \\ \hline
+7 & Skylark I-LEX             & 4572 &                & 37   & 74  & 220 & 300 &       &                \\ \hline
+\end{tabular}%
+}
+\caption{Additional data}
+\label{tab:my-table}
+\end{table}
 
-\begin{figure}[h]
-    \begin{minipage}[b]{.45\linewidth}
-        \centering
-        \includegraphics[width=0.7\linewidth]{Aircraft pics/WingtraOne.png}
-        
-    \end{minipage}\hfill
-    \begin{minipage}[b]{0.45\linewidth}
-        \begin{itemize}
-            \item [-] Takeoff weight: 4.2 kg
-            \item [-] Powerplant: Electric motors
-            \item [-] Max speed: 150 km/h 
-            \item [-] Cruising speed: 85 kph 
-            \item [-] Endurance: 55 minutes
-        \end{itemize}
-    \end{minipage}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Aircraft pics/WingtraOne.png}
+    \caption{Wingtraone}
+    \label{fig:enter-label}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Aircraft pics/Albatross.jpg}
+    \caption{Albatross}
+    \label{fig:enter-label}
 \end{figure}
 
 \vspace{\fill}
 
-\clearpage
+\newpage
 
-\subsection{Phoenix Ace Core}
-\begin{figure}[h]
-    \begin{minipage}[b]{.45\linewidth}
-        \centering
-        \includegraphics[width=0.7\linewidth]{Aircraft pics/Pheonix Ace core.png}       
-    \end{minipage}\hfill
-    \begin{minipage}[b]{0.45\linewidth}
-        \begin{itemize}
-            \item [-] Takeoff weight: 6.2 kg
-            \item [-] Powerplant: Electric motors
-            \item [-] Max speed: 95 km/h 
-            \item [-] Cruising speed: 90 kph 
-            \item [-] Endurance: 75 minutes
-        \end{itemize}
-    \end{minipage}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.35\linewidth]{Aircraft pics/Azimut.jpg}
+    \caption{Azimut 2}
+    \label{fig:enter-label}
 \end{figure}
 
-\vspace{\fill}
-
-\subsection{Trimble UX5 HP}
-\begin{figure}[h]
-    \begin{minipage}[b]{.45\linewidth}
-        \centering
-        \includegraphics[width=0.7\linewidth]{Aircraft pics/Trimble Ux5 hp.png}
-        
-    \end{minipage}\hfill
-    \begin{minipage}[b]{0.45\linewidth}
-        \begin{itemize}
-            \item [-] Takeoff weight: 2 kg
-            \item [-] Powerplant: Electric motors
-            \item [-] Max speed: 90 km/h 
-            \item [-] Cruising speed: 72 kph 
-            \item [-] Endurance: 50 minutes
-        \end{itemize}
-    \end{minipage}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.55\linewidth]{Aircraft pics/Dragonfly.png}
+    \caption{Dragonfly Tango 2}
+    \label{fig:enter-label}
 \end{figure}
 
-\vspace{\fill}
-
-\subsection{Sensefly eBee Classic}
-\begin{figure}[h]
-    \begin{minipage}[b]{.45\linewidth}
-        \centering
-        \includegraphics[width=0.7\linewidth]{Aircraft pics/Sensefly ebee classic.png}
-    \end{minipage}\hfill
-    \begin{minipage}[b]{0.45\linewidth}
-        \begin{itemize}
-            \item [-] Takeoff weight: 0.7 kg
-            \item [-] Powerplant: Electric motors
-            \item [-] Max speed: 90 km/h 
-            \item [-] Cruising speed: 45-55 km/h 
-            \item [-] Endurance: 45 minutes
-        \end{itemize}
-    \end{minipage}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.45\linewidth]{Aircraft pics/Nostroma.jpg}
+    \caption{Nostroma Defensa Cadambra}
+    \label{fig:enter-label}
 \end{figure}
 
-\vspace{\fill}
-\clearpage
-
-\subsection{Zala 421-08}
 \begin{figure}[h]
-    \begin{minipage}[b]{.45\linewidth}
-        \centering
-        \includegraphics[width=0.7\linewidth]{Aircraft pics/zala 421-08.png}
-    \end{minipage}\hfill
-    \begin{minipage}[b]{0.45\linewidth}
-        \begin{itemize}
-            \item [-] Takeoff weight: 5.3 kg
-            \item [-] Powerplant: Gasoline
-            \item [-] Max speed: 130 km/h 
-            \item [-] Cruising speed: 40-50 km/h 
-            \item [-] Endurance: 5 hours
-        \end{itemize}
-    \end{minipage}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Aircraft pics/spylite.png}
+    \caption{Spylite}
+    \label{fig:enter-label}
 \end{figure}
 
-\vspace{\fill}
-
-
-\subsection{IAI Bird Eye 650}
 \begin{figure}[h]
-    \begin{minipage}[b]{.45\linewidth}
-        \centering
-        \includegraphics[width=0.7\linewidth]{Aircraft pics/IAI Bird Eye 650.png}
-    \end{minipage}\hfill
-    \begin{minipage}[b]{0.45\linewidth}
-        \begin{itemize}
-            \item [-] Takeoff weight: 6.5 kg
-            \item [-] Powerplant: Gasoline Engine
-            \item [-] Max speed: 120 km/h 
-            \item [-] Cruising speed: 50-55 km/h 
-            \item [-] Endurance: 4 hours
-        \end{itemize}
-    \end{minipage}
+    \centering
+    \includegraphics[width=0.3\linewidth]{Aircraft pics/Skylark.jpg}
+    \caption{Skylark}
+    \label{fig:enter-label}
 \end{figure}
 
-\vspace{\fill}
+\newpage
 
-\subsection{Albatross fixed wing UAV}
+%\Floatbarrier
+%\vspace{\vfill}
+
+\section{Weight estimation}
+
+Weight estimation is divided into various sections
+\subsubsection{Payload weight estimation}
+Rough estimate for payload
+\begin{table}[h]
+\centering
+\resizebox{0.6\textwidth}{!}{%
+\begin{tabular}{|c|c|}
+\hline
+Purpose                            & Weight \\ \hline
+Camera                             & 492 g  \\ \hline
+Sensor module                      & 520 g  \\ \hline
+Bulk Tolerance (Wiring, Actuation) & 388 g  \\ \hline
+Total Payload Estimate             & 1400 g \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\hfill
+
+
+\subsection{Empty weight estimation}
+The empty weight ratio can be estimated from the previous data. We have to fit the data in the curve of $y = A x^c$ with A and C as variables.
+
+In our Data A is 1.7086 and C is -0.67155.
+
 \begin{figure}[h]
-    \begin{minipage}[b]{.45\linewidth}
-        \centering
-        \includegraphics[width=0.7\linewidth]{Aircraft pics/Albatross Fixed wing UAV.png}
-    \end{minipage}\hfill
-    \begin{minipage}[b]{0.45\linewidth}
-        \begin{itemize}
-            \item [-] Range : 100 km
-            \item [-] Takeoff weight: 10 kg
-            \item [-] Powerplant: Battery power single propeller
-            \item [-] Max speed: 140 km/h 
-            \item [-] Cruising speed: 64 km/h 
-            \item [-] Endurance: 5 hours
-        \end{itemize}
-    \end{minipage}
+    \centering
+    \includegraphics[width = \linewidth]{Regression.png}
+    \caption{Empty weight estimation}
+    \label{fig:enter-label}
 \end{figure}
 
-\vspace{\fill}
-\clearpage
+\newpage
 
-\subsection{Skyle 2 electric UAV}
-\begin{figure}[h]
-    \begin{minipage}[b]{.45\linewidth}
-        \centering
-        \includegraphics[width=0.7\linewidth]{Aircraft pics/Skyeye.png}
-    \end{minipage}\hfill
-    \begin{minipage}[b]{0.45\linewidth}
-        \begin{itemize}
-            \item [-] Takeoff weight: 12 kg
-            \item [-] Powerplant: Battery powered single propeller
-            \item [-] Max speed: 100 km/h 
-            \item [-] Payload weight : 3 kg
-%            \item [-] Cruising speed: 50-55 km/h 
-            \item [-] Endurance: 1 hours
-        \end{itemize}
-    \end{minipage}
+\subsection{Battery weight estimation}
+
+For calculating Battery weight estimation we have to first find out the total energy required for each Major phase on flight.
+
+\subsubsection{Cruise}
+Now for a level flight,
+$$ L = D \; \; , \; \; T = D$$
+
+$$ W = \frac{1}{2} \rho V^2 S C_L $$
+$$ C_L = \frac{W}{\frac{1}{2} \rho V^2 S}$$
+So,
+$$ C_D = C_{D_0} + \frac{C_L^2}{\pi 2 AR} $$
+Now 
+$$ P = TV = DV $$
+
+So, 
+$$ P_R = \frac{1}{2}\rho V^3 S C_{D_o} + \frac{2 W^2}{ (\rho V S) \pi e AR} $$
+
+$$P_R = f(W,\rho,V,C_{D_o},S,e,AR)$$
+
+Taking approximations and inputting mission profile conditions
+
+$$ P_R = f(W) $$
+
+We will consider Loitor phase as cruise too.
+
+\subsubsection{Climb }
+Power required for climb is given by 
+$$ P = W \times R.O.C + P_R $$
+
+\subsubsection{Descent}
+Power required for descent is 
+$$ P = P_R - W \times Rate\: of\: descent$$
+We need to take care that the power does not go negative here or make it zero while estimating energy.
+
+\subsubsection{Battery weight}
+
+We can calculate the energy by multiplying power required times the amount of time spent in that phase. From energy we can get battery weight by dividing it with energy density. 
+
+For lithium polymer batteries, the energy density is around 273600.
+
+\section{Total weight estimation}
+
+The total weight is given as :- 
+$$ W_0 = W_{pl} + W_{e} + W_{f} $$
+Where,
+\begin{itemize}
+    \item[-] $W_0$ is the total design weight.
+    \item [-] $W_{pl}$ is the payload weight.
+    \item [-] $W_{e}$ is the empty weight.
+    \item [-] $W_{f}$ is the fuel weight (Battery in our case).
+\end{itemize}
+
+It can be transformed into :- 
+$$W_{0} = \frac{W_{pl}}{1 - \frac{W_{e}}{W_{0}} - \frac{W_{f}}{W_0}}$$
+
+If we have an initial approximation, we can run an iteration algorithm to find out design weight when we keep empty weight ratio as a variable.
+
+Generally we take an initial estimate to be 4 times the payload weight. Taking the correct initial weight is very important or the code may blow up.
+
+In our case the design weight came out to be 5.27 kg.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\linewidth]{Mission profile pics/weight.png}
+    \caption{Enter Caption}
+    \label{fig:enter-label}
 \end{figure}
 
-\vspace{\fill}
-
-
-\subsection{Skyeye 50CC Teaching Plane}
-\begin{figure}[h]
-    \begin{minipage}[b]{.45\linewidth}
-        \centering
-        \includegraphics[width=0.7\linewidth]{Aircraft pics/. SKYEYE 50CC.png}
-    \end{minipage}\hfill
-    \begin{minipage}[b]{0.45\linewidth}
-        \begin{itemize}
-            \item [-] Takeoff weight: 15 kg
-            \item [-] Powerplant: 50CC Gasoline Engine
-%            \item [-] Max speed: 120 km/h 
-            \item [-] Cruising speed: 100 km/h 
-            \item [-] Payload Weight : 6 kg
-%            \item [-] Endurance: 4 hours
-        \end{itemize}
-    \end{minipage}
-\end{figure}
-
-\vspace{\fill}
-
-\subsection{Makefly FIghter}
-\begin{figure}[h]
-    \begin{minipage}[b]{.45\linewidth}
-        \centering
-        \includegraphics[width=0.7\linewidth]{Aircraft pics/MAKEFLYEASY FIGHTER.png}
-    \end{minipage}\hfill
-    \begin{minipage}[b]{0.45\linewidth}
-        \begin{itemize}
-            \item [-] Takeoff weight: 11.5 kg
-            \item [-] Powerplant: Battery powered two propeller
-            \item [-] Cruising speed : 72 km/h 
-            \item [-] Range : 250 km 
-            \item [-] Payload weight : 1.5 kg
-        \end{itemize}
-    \end{minipage}
-\end{figure}
-
-\vspace{\fill}
-\clearpage
-
-\subsection{Skyeye Swallow fixed wing UAV}
-\begin{figure}[h]
-    \begin{minipage}[b]{.45\linewidth}
-        \centering
-        \includegraphics[width=0.7\linewidth]{Aircraft pics/SKYEYE SWALLOW.png}
-    \end{minipage}\hfill
-    \begin{minipage}[b]{0.45\linewidth}
-        \begin{itemize}
-            \item [-] Takeoff weight: 9 kg
-            \item [-] Powerplant: Battery powered Single propeller
-            \item [-] Payload weight : 4 kg
-%            \item [-] Cruising speed: 50-55 km/h 
-            \item [-] Endurance: 2 hours
-        \end{itemize}
-    \end{minipage}
-\end{figure}
-
-\vspace{\fill}
-
-
-\subsection{UAVOS Sitaria E^{\ref{MFD}}}
-\begin{figure}[h]
-    \begin{minipage}[b]{.45\linewidth}
-        \centering
-        \includegraphics[width=0.7\linewidth]{Aircraft pics/UAVOS SITARIA E.png}
-    \end{minipage}\hfill
-    \begin{minipage}[b]{0.45\linewidth}
-        \begin{itemize}
-            \item [-] Range : 240 km
-            \item [-] Takeoff weight: 18 kg
-            \item [-] Powerplant: Battery powered 2 propellers
-            \item [-] Payload weight : 8 kg
-            \item [-] Cruising speed: 80 km/h 
-            \item [-] Endurance: 3 hours
-        \end{itemize}
-    \end{minipage}
-\end{figure}
-
-
-
-\vspace{\fill}
+\newpage
 
 \section{References}
 \begin{enumerate}
-    \item \label{MFD} \href{https://www.uavmodel.com/collections/fixed-wing/products/mfd-crosswind-nimbus-pro-v2-binary-1900mm-uav-fixed-wing}{MFD}
+    \item \label{MFD} https://www.uavmodel.com/collections/fixed-wing/products/mfd-crosswind-nimbus-pro-v2-binary-1900mm-uav-fixed-wing \href{https://www.uavmodel.com/collections/fixed-wing/products/mfd-crosswind-nimbus-pro-v2-binary-1900mm-uav-fixed-wing}{MFD}
+    \item \label{Development of the Brican TD100 Small UAS and Payload Trials} B. Eggleston, B.McLuckie, W.R. Koski, D. Bird, C. Patterson, D. Bohdanov, H. Liu, T. Mathewsa , G. Gamagea., ‘Development of the Brican TD100 Small UAS and Payload Trials’., International Conference on Unmanned Aerial Vehicles in Geomatics, 30 Aug–02 Sep 2015 – Table 8: Performance Estimates for TD100, Pg no: 146.
+    \item \label{3} 1000 Questions Answers and Explanations for JAR ATPL (A) and CPL (A) General Navigation by Keith Williams., Himalayan Books – Chapter 06: Climb.
+    \item \label{4} Khalid Al-Hajjaji, Mouadh Ezzin, Husain Khamdan, Abdelhakim El Hassani., ‘Design, Development and Evaluation of a UAV to Study Air Quality in Qatar’., Department of Electrical Engineering, Qatar University – Table 2.3: Design Constraints, Pg no:8.
+    \item \label{5} Introduction to Flight, 8th edition, JD Anderson.
+    \item \label{6} https://wingtra.com/mapping-drone-wingtraone/technical-specifications/
+    \item \label{7} https://www.unmannedsystemstechnology.com/wp-content/uploads/2018/11/Albatross-UAV-Datasheet.pdf
+    \item \label{8} https://pdf.aeroexpo.online/pdf/draganfly-drones/draganflyer-tango2-technical-specs/175762-19392.html
+    \item \label{9} https://avia-pro.net/blog/nostromo-cabure-tehnicheskie-harakteristiki-foto
+    \item \label{10} https://bluebird-uav.com/spylite-uav/
+    \item \label{11} https://elbitsystems.com/product/skylark-i-lex/
+    \item \label{12} https://www.aeroexpo.online/prod/alcoretech/product-181454-18406.html
 \end{enumerate}
+
+\newpage
+
+\section{Changes}
+\begin{enumerate}
+    \item Data collection part was completely changed.
+    \item The general design of pdf was changed.
+    \item More data was added along with a table for better comparison.
+    \item Battery performance was estimated.
+    \item Weight was estimated.
+    \item References were added.
+    \item The Mission profile was updated.
+    \item Details on mission profile were added.
+\end{enumerate}
+
+\section{Contributions}
+\subsection{Abhijeet Mangela AE21B040}
+Wrote full Latek report, Drew the mission profile with Inkscape and Autocad, Empty weight Fraction estimation, Final weight estimation with Senthil
+
+\subsection{Navin Yadav AE23M803}
+
+Data Collection; Literature Survey
+
+\subsection{Balamurugan S AE23M009}
+
+Data Collection; Literature Survey
+
+\subsection{Samarth R Krishna AE23M032}
+
+Data Collection; Literature Survey
+
+\subsection{Senthil B AE23M035}
+
+Detailed Mission Profile; Preliminary Weight Estimation (only iteration) ; Battery weight estimation.
+
+\subsection{Rajendran Anandhu Nair AE23M027}
+
+Data Collection; Literature Survey
+
+\section{Current estimates}
 
 \end{document}
