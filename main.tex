@@ -287,28 +287,14 @@ SI no &
         \includegraphics[width = 0.8\linewidth]{Aircraft pics/Skylark.jpg}
         \caption{Skylark}
     \end{subfigure}
+    \caption{List of drones studied}
 \end{figure}
+
 
 \vspace{\fill}
 
 \newpage
 
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.5\linewidth]{Aircraft pics/spylite.png}
-    \caption{Spylite}
-    \label{fig:enter-label}
-\end{figure}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.3\linewidth]{Aircraft pics/Skylark.jpg}
-    \caption{Skylark}
-    \label{fig:enter-label}
-\end{figure}
-
-\newpage
 
 %\Floatbarrier
 %\vspace{\vfill}
@@ -347,6 +333,8 @@ In our Data A is 1.7086 and C is -0.67155.
     \label{fig:enter-label}
 \end{figure}
 
+The empty weight in our drone came out to be 3.1746 kg.
+
 \newpage
 
 \subsection{Battery weight estimation}
@@ -377,14 +365,18 @@ $$ P_R = f(W) $$
 
 We will consider Loitor phase as cruise too.
 
+For our cruise phase of 17 m/s we will need a power of 63.42 W.
+
 \subsubsection{Climb }
 Power required for climb is given by 
 $$ P = W \times R.O.C + P_R $$
 
+Climbing is also the portion where we need a good amount of power. For our estimated weight we need a preliminary power of 87 W.
+
 \subsubsection{Descent}
 Power required for descent is 
 $$ P = P_R - W \times Rate\: of\: descent$$
-We need to take care that the power does not go negative here or make it zero while estimating energy.
+We need to take care that the power does not go negative here or make it zero while estimating energy. The power actually consumed will be taken care by the extra allowance which we give.
 
 \subsubsection{Take off and Landing}
 The Segments of take off and landing do not take that much time in general. Also it is harder to get an accurate estimate of the energy spent in takeoff and landing due to the carrying power needs. So we will take a excess power of 20 percent to account for the errors in different power situations.
@@ -400,11 +392,21 @@ We will use a lithium polymer battery for our aircraft. Some of the advantages o
     \label{fig:enter-label}
 \end{figure}
 
+Lithium Polymer batteries are rechargeable  batteries which transmit electricity due to difference in charge between Cathode and Anode part of the battery. While pretty safe to handle care should be taken to not get the battery near any fore source or else it has a tendency to catch fire.
+
+We can estimate the energy in a battery by using this formula \cite{Lipobattery} :-
+
+$$ \text{Battery Capacity} = \sigma \times \text{M}_\text{battery} $$
+
+We used a commercially available battery to calculate battery energy density of it \cite{Batteryref}. The energy density came out to be 237600 J/kg.
+
 \subsubsection{Battery weight}
 
 We can calculate the energy by multiplying power required times the amount of time spent in that phase. From energy we can get battery weight by dividing it with energy density. 
 
-For lithium polymer batteries, the energy density is around 273600.
+In our case the battery weight came out to be 0.933 kg
+
+%For lithium polymer batteries, the energy density is around 273600.
 
 \subsection{Total weight estimation}
 
@@ -423,9 +425,15 @@ $$W_{0} = \frac{W_{pl}}{1 - \frac{W_{e}}{W_{0}} - \frac{W_{f}}{W_0}}$$
 
 If we have an initial approximation, we can run an iteration algorithm to find out design weight when we keep empty weight ratio as a variable.
 
-Generally we take an initial estimate to be 4 times the payload weight. Taking the correct initial weight is very important or the code may blow up.
+%Generally we take an initial estimate to be 4 times the payload weight. Taking the correct initial weight is very important or the code may blow up.
 
-In our case the design weight came out to be 5.27 kg.
+In our case we use a special algorithm where we preserve the momentum of the descent from the previous iteration. This is done because otherwise the code will blow up and reach a negative value. 
+
+$$ W_o = W_{\text{Previous iteration}} + W_{\text{New iteration}} $$
+
+The code for the algorithm is mentioned below in the github reference.
+
+In our case the design weight came out to be 6.6102 kg.
 
 \begin{figure}
     \centering
@@ -450,6 +458,8 @@ In our case the design weight came out to be 5.27 kg.
 
 \bibliographystyle{IEEEtran}
 \bibliography{References}
+
+
 
 \newpage
 
