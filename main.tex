@@ -16,7 +16,10 @@
 \usepackage{placeins}
 \usepackage{url}
 \usepackage{natbib}
+\usepackage[paper=A4]{typearea}
 %\usepackage[a4paper,margin=1in]{geometry}
+
+
 
 \pgfpagesdeclarelayout{boxed}
 {
@@ -51,7 +54,7 @@
 \begin{titlepage}
 \begin{center}
 
-\textbf{\huge Design project report Group 7 \\ \vspace{0.4 cm} Week 2} \\
+\textbf{\huge Design project report Group 7 \\ \vspace{0.4 cm} Week 3} \\
 
 \vspace{2 cm}
 
@@ -80,6 +83,7 @@ India
 \tableofcontents
 
 \newpage
+
 
 \section{Introduction}
 
@@ -244,44 +248,51 @@ SI no &
 \label{tab:my-table}
 \end{table}
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.7\linewidth]{Aircraft pics/WingtraOne.png}
-    \caption{Wingtraone}
-    \label{fig:enter-label}
-\end{figure}
 
 \begin{figure}[h!]
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[width = 0.8\linewidth]{Aircraft pics/WingtraOne.png}
+        \caption{Wingtraone}
+    \end{subfigure}
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[width = 0.8\linewidth]{Aircraft pics/Albatross.jpg}
+        \caption{Wingtraone}
+    \end{subfigure}
+    \begin{subfigure}{.4\textwidth}
     \centering
-    \includegraphics[width=0.7\linewidth]{Aircraft pics/Albatross.jpg}
-    \caption{Albatross}
+    \includegraphics[width=0.8\linewidth]{Aircraft pics/Azimut.jpg}
+    \caption{Azimut 2}
     \label{fig:enter-label}
+    \end{subfigure}
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[width = 0.8\linewidth]{Aircraft pics/Dragonfly.png}
+        \caption{Dragonfly Tango 2}
+    \end{subfigure}
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[width = 0.8\linewidth]{Aircraft pics/Nostroma.jpg}
+        \caption{Nostroma Defensa Cadambra}
+    \end{subfigure}
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[width = 0.8\linewidth]{Aircraft pics/spylite.png}
+        \caption{Spylite}
+    \end{subfigure}
+    \centering
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[width = 0.8\linewidth]{Aircraft pics/Skylark.jpg}
+        \caption{Skylark}
+    \end{subfigure}
 \end{figure}
 
 \vspace{\fill}
 
 \newpage
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.35\linewidth]{Aircraft pics/Azimut.jpg}
-    \caption{Azimut 2}
-    \label{fig:enter-label}
-\end{figure}
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.55\linewidth]{Aircraft pics/Dragonfly.png}
-    \caption{Dragonfly Tango 2}
-    \label{fig:enter-label}
-\end{figure}
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.45\linewidth]{Aircraft pics/Nostroma.jpg}
-    \caption{Nostroma Defensa Cadambra}
-    \label{fig:enter-label}
-\end{figure}
 
 \begin{figure}[h]
     \centering
@@ -378,9 +389,16 @@ We need to take care that the power does not go negative here or make it zero wh
 \subsubsection{Take off and Landing}
 The Segments of take off and landing do not take that much time in general. Also it is harder to get an accurate estimate of the energy spent in takeoff and landing due to the carrying power needs. So we will take a excess power of 20 percent to account for the errors in different power situations.
 
-\subsubsection{Battery type selection}
+\subsubsection{Battery type selection \cite{Lipobattery}}
 
-We will use a lithium polymer battery for our aircraft. 
+We will use a lithium polymer battery for our aircraft. Some of the advantages offered by a lithium polymer battery is that it is less likely to leak away and are still rivals Lithium ion battery in terms of energy density. It is more bulkier by volume but by weight it is comparable.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Extra pics/LiPo_battery_diagram.png}
+    \caption{Enter Caption}
+    \label{fig:enter-label}
+\end{figure}
 
 \subsubsection{Battery weight}
 
@@ -388,7 +406,7 @@ We can calculate the energy by multiplying power required times the amount of ti
 
 For lithium polymer batteries, the energy density is around 273600.
 
-\section{Total weight estimation}
+\subsection{Total weight estimation}
 
 The total weight is given as :- 
 $$ W_0 = W_{pl} + W_{e} + W_{f} $$
@@ -417,6 +435,10 @@ In our case the design weight came out to be 5.27 kg.
 \end{figure}
 
 \vfill
+
+\newpage
+
+\section{Powerplant and Battery Selection}
 
 \newpage
 
