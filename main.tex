@@ -116,7 +116,7 @@ The UAV will be equipped with air quality sensors and cameras to understand the 
 \subsubsection{Aircraft Characteristics}
 \begin{table}[h]
 \centering
-\resizebox{0.6\textwidth}{!}{%
+\resizebox{0.55\textwidth}{!}{%
 \begin{tabular}{|c|c|}
 \hline
 \textbf{Estimated MTOW}            & 8 – 10 kg                \\ \hline
@@ -127,6 +127,8 @@ The UAV will be equipped with air quality sensors and cameras to understand the 
 \textbf{Transmitter Range}         & 4 km                     \\ \hline
 \end{tabular}%
 }
+\caption{Initial Mission Requirements}
+\label{Mission Requirements}
 \end{table}
 
 \subsubsection{Payload measure}
@@ -137,8 +139,8 @@ The payload of UAVs consists of a camera and a sensor module used to measure air
 \begin{figure}[h]
     \centering
     \includegraphics[width = \linewidth]{Drawing1-Model_final.pdf}
-    \caption{Caption}
-    \label{fig:enter-label}
+    \caption{Mission Profile}
+    \label{Mission Profile}
 \end{figure}
 
 
@@ -215,7 +217,7 @@ SI no &
 \end{tabular}%
 }
 \caption{Data part one}
-\label{tab:my-table}
+\label{Data part one}
 \end{table}
 
 % Please add the following required packages to your document preamble:
@@ -245,7 +247,7 @@ SI no &
 \end{tabular}%
 }
 \caption{Additional data}
-\label{tab:my-table}
+\label{Data part 2}
 \end{table}
 
 
@@ -254,40 +256,47 @@ SI no &
         \centering
         \includegraphics[width = 0.8\linewidth]{Aircraft pics/WingtraOne.png}
         \caption{Wingtraone}
+        \label{Wingtra one}
     \end{subfigure}
     \begin{subfigure}{.4\textwidth}
         \centering
         \includegraphics[width = 0.8\linewidth]{Aircraft pics/Albatross.jpg}
-        \caption{Wingtraone}
+        \caption{Albatross}
+        \label{Albatross}
     \end{subfigure}
     \begin{subfigure}{.4\textwidth}
     \centering
     \includegraphics[width=0.8\linewidth]{Aircraft pics/Azimut.jpg}
     \caption{Azimut 2}
-    \label{fig:enter-label}
+    \label{Azimut 2}
     \end{subfigure}
     \begin{subfigure}{.4\textwidth}
         \centering
         \includegraphics[width = 0.8\linewidth]{Aircraft pics/Dragonfly.png}
         \caption{Dragonfly Tango 2}
+        \label{Dragonfly Tango 2}
     \end{subfigure}
     \begin{subfigure}{.4\textwidth}
         \centering
         \includegraphics[width = 0.8\linewidth]{Aircraft pics/Nostroma.jpg}
         \caption{Nostroma Defensa Cadambra}
+        \label{Nostromo Defence Cadambra}
     \end{subfigure}
     \begin{subfigure}{.4\textwidth}
         \centering
         \includegraphics[width = 0.8\linewidth]{Aircraft pics/spylite.png}
         \caption{Spylite}
+        \label{Spylite}
     \end{subfigure}
     \centering
     \begin{subfigure}{.4\textwidth}
         \centering
         \includegraphics[width = 0.8\linewidth]{Aircraft pics/Skylark.jpg}
         \caption{Skylark}
+        \label{Skylark}
     \end{subfigure}
     \caption{List of drones studied}
+    \label{Drone pictures}
 \end{figure}
 
 
@@ -316,6 +325,8 @@ Bulk Tolerance (Wiring, Actuation) & 388 g  \\ \hline
 Total Payload Estimate             & 1400 g \\ \hline
 \end{tabular}%
 }
+\caption{Payload weight estimate}
+\label{Payload weight}
 \end{table}
 
 \hfill
@@ -324,13 +335,13 @@ Total Payload Estimate             & 1400 g \\ \hline
 \subsection{Empty weight estimation}
 The empty weight ratio can be estimated from the previous data. We have to fit the data in the curve of $y = A x^c$ with A and C as variables.
 
-In our Data A is 1.7086 and C is -0.67155.
+In our Data A is 1.3887 and C is -0.5155
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width = \linewidth]{Regression.png}
+    \includegraphics[width = 0.8\linewidth]{code}
     \caption{Empty weight estimation}
-    \label{fig:enter-label}
+    \label{Empty Weight estimation}
 \end{figure}
 
 The empty weight in our drone came out to be 3.1746 kg.
@@ -388,8 +399,8 @@ We will use a lithium polymer battery for our aircraft. Some of the advantages o
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\linewidth]{Extra pics/LiPo_battery_diagram.png}
-    \caption{Enter Caption}
-    \label{fig:enter-label}
+    \caption{Lithium Polymer battery}
+    \label{Lithium Polymer battery}
 \end{figure}
 
 Lithium Polymer batteries are rechargeable  batteries which transmit electricity due to difference in charge between Cathode and Anode part of the battery. While pretty safe to handle care should be taken to not get the battery near any fore source or else it has a tendency to catch fire.
@@ -438,8 +449,8 @@ In our case the design weight came out to be 6.6102 kg.
 \begin{figure}
     \centering
     \includegraphics[width=0.75\linewidth]{Codes/Week 2/weight.png}
-    \caption{Enter Caption}
-    \label{fig:enter-label}
+    \caption{Weight Estimation}
+    \label{Weight Estimation}
 \end{figure}
 
 \vfill
@@ -459,7 +470,11 @@ In our case the design weight came out to be 6.6102 kg.
 \bibliographystyle{IEEEtran}
 \bibliography{References}
 
+\vspace{10 pt}
 
+The github account having all the codes can be accessed as : - 
+
+\href{https://github.com/abhijeetmangela/Group_7_design.git}{\text{https://github.com/abhijeetmangela/Group\textunderscore 7\textunderscore design.git}}
 
 \newpage
 
@@ -514,12 +529,12 @@ Data Collection; Literature Survey
 \subsection{Week 3}
 
 \subsubsection{Abhijeet Mangela AE21B040}
-
+Changed the Mission Profile, Converted references to bibtex, Did some clean up of document, did the Preliminary weight estimate which was wrong last week, Power estimation for cruise and climb, Linked all files internally in Github for easy connectivity
 
 \subsubsection{Navin Yadav AE23M803}
 
 
-\subssubection{Balamurugan S AE23M009}
+\subsubsection{Balamurugan S AE23M009}
 
 
 
