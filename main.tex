@@ -14,6 +14,8 @@
 \usepackage{geometry}
 \usepackage{pdflscape} 
 \usepackage{placeins}
+\usepackage{url}
+\usepackage{natbib}
 %\usepackage[a4paper,margin=1in]{geometry}
 
 \pgfpagesdeclarelayout{boxed}
@@ -107,7 +109,7 @@ In the event of a crowd gathering, ensuring the cleanliness of a natural environ
 
 The UAV will be equipped with air quality sensors and cameras to understand the terrain better. Thus, knowledge about plastics and unpleasant atmospheres will help develop a quick action plan for maintaining the flora and fauna from foreign hazards.
 
-\subsection{Aircraft Characteristics}
+\subsubsection{Aircraft Characteristics}
 \begin{table}[h]
 \centering
 \resizebox{0.6\textwidth}{!}{%
@@ -123,7 +125,7 @@ The UAV will be equipped with air quality sensors and cameras to understand the 
 }
 \end{table}
 
-\subsection{Payload measure}
+\subsubsection{Payload measure}
 The payload of UAVs consists of a camera and a sensor module used to measure air quality. The camera will be a Hontral B0BMV12VYJ HD Camera weighing 492 g. The sensor module comprises Arduino MKR Proto Large Shield TSX00002, weighing about 200 g and sensors such as MQ-7 CO Carbon Monoxide, MG811 Air Carbon Dioxide, etc., weighing about 320 g.
 
 \subsection{Mission Profile}
@@ -137,7 +139,7 @@ The payload of UAVs consists of a camera and a sensor module used to measure air
 
 
 \subsubsection{Ground run}
-The take-off ground run distance is approximately 60 metres and estimated take-off velocity is 10 m/s. \ref{Development of the Brican TD100 Small UAS and Payload Trials}
+The take-off ground run distance is approximately 60 metres and estimated take-off velocity is 10 m/s. \cite{EgglestonUnknownTitle2015}
 
 $$ (V_{TO})_{_{Bricans \: Td100}} = 19 \: m/s$$
 $$ (W_{TO})_{_{Bricans \: Td100}} = 22.67 \: kg$$
@@ -148,7 +150,7 @@ $$ (V_{TO})_{_{des}} = (V_{TO})_{_{Bricans \: Td100}} \times \sqrt{\frac{(W_{TO}
 
 $$ = 19 \times \sqrt{\frac{5.6 \times 9.81}{22.67 \times 9.81}} = 9.94 \: m/s \approx 10 \: m/s $$
 
-\subsubsection{Climb {[\ref{3}]} }
+\subsubsection{Climb \cite{1000_questions} }
 The UAV will climb at an estimated velocity of 17.6 m/s to operating altitude of 250 m AMSL. The rate of climb is about 3.06 m/s. Time spent here 81.7 s
 
 Calculation :- 
@@ -156,7 +158,7 @@ $$ (V_{TO})_{_{des}} = 10 \: m/s \Rightarrow (V_{stall})_{_{des}} = \frac{(V_{TO
 $$ (V_{md})_{_{des}} = 1.6 \times V_{stall} = 13.33 \: m/s $$
 $$ (V_{ROC})_{_{max}} = 1.32 \times V_{md} = 17.6 \: m/s $$
 
-\subsubsection{Cruise {[\ref{4}]}}
+\subsubsection{Cruise \cite{alhajjaji2017design}}
 The UAV will perform aerial surveillance and environmentally monitor for areas of plastics and solid waste with an estimated cruise speed of 17 m/s for 20 km range. Time spent here is 1176 s.
 
 \subsubsection{Descent to Mission Height}
@@ -166,7 +168,7 @@ Calculation: -
 $$ (V_{cr,lo})_{_{design}} = 0.76 \times (V_{cr})_{_{des}} \;  (initial \: estimate) $$
 $$ = 20.52 \: m/s $$
 
-\subsubsection{Descent to land {[\ref{5}]}}
+\subsubsection{Descent to land \cite{Anderson1}}
 The UAV will descend at an estimated velocity of 10.13 m/s. To close ground proximity, the UAV is gradually decelerated to an estimated touchdown velocity of 8.61 m/s. Time spent here is 80 s.
 Calculation: - 
 $$(V_des)_{_{design}} = (V_{mg})_{_{design}} = (V_{mg})_{_{design}} \times 0.76 = 10.13 \: m/s $$
@@ -181,7 +183,7 @@ $$ = 1.495 \: m/s \leq 4 \: m/s \; \text{(For smooth landing)} $$
 
 
 
-\section{Data collection}
+\subsection{Data collection}
 
 The data of all the parameters:-
 % Please add the following required packages to your document preamble:
@@ -199,13 +201,13 @@ SI no &
   \begin{tabular}[c]{@{}c@{}}Payload Weight\\ kg\end{tabular} &
   \begin{tabular}[c]{@{}c@{}}Range \\ km\end{tabular} &
   \begin{tabular}[c]{@{}c@{}}Endurance\\ min\end{tabular} \\ \hline
-1 & Wingtraone                & 4.5 & 2.387 & 0.604       & 1.509 &     & 59  \\ \hline
-2 & Albatross                 & 10  & 3.5   & 2.4         & 4.1   & 250 & 240 \\ \hline
-3 & Azimut   2                & 9   & 2.5   & 2.8         & 3.7   &     &     \\ \hline
-4 & Dragonfly   Tango 2       & 5   & 3     & 0.595+0.595 & 1.5   & 5   & 120 \\ \hline
-5 & Nostromo   Defensa Cabure & 5   & 3.4   & 0.604       & 1     & 15  & 1.5 \\ \hline
-6 & SPY   LITE                & 9.5 & 4.5   & 1.5         & 1.35  & 80  & 240 \\ \hline
-7 & Skylark I-LEX             & 7.5 & 5.5   & 0.8         & 1.2   & 40  & 180 \\ \hline
+1 & Wingtraone   \cite{Wingtra}             & 4.5 & 2.387 & 0.604       & 1.509 &     & 59  \\ \hline
+2 & Albatross    \cite{Albatross}             & 10  & 3.5   & 2.4         & 4.1   & 250 & 240 \\ \hline
+3 & Azimut   2    \cite{Azimut}            & 9   & 2.5   & 2.8         & 3.7   &     &     \\ \hline
+4 & Dragonfly   Tango 2  \cite{Dragonfly}      & 5   & 3     & 0.595+0.595 & 1.5   & 5   & 120 \\ \hline
+5 & Nostromo   Defensa Cabure \cite{Nostromo} & 5   & 3.4   & 0.604       & 1     & 15  & 1.5 \\ \hline
+6 & SPY   LITE    \cite{Bluebird}            & 9.5 & 4.5   & 1.5         & 1.35  & 80  & 240 \\ \hline
+7 & Skylark I-LEX   \cite{Skylark}          & 7.5 & 5.5   & 0.8         & 1.2   & 40  & 180 \\ \hline
 \end{tabular}%
 }
 \caption{Data part one}
@@ -300,10 +302,10 @@ SI no &
 %\Floatbarrier
 %\vspace{\vfill}
 
-\section{Weight estimation}
+\section{Preliminary Weight estimation}
 
 Weight estimation is divided into various sections
-\subsubsection{Payload weight estimation}
+\subsection{Payload weight estimation}
 Rough estimate for payload
 \begin{table}[h]
 \centering
@@ -338,6 +340,8 @@ In our Data A is 1.7086 and C is -0.67155.
 
 \subsection{Battery weight estimation}
 
+Battery is an important criteria for design of any drone. We should optimise the battery weight in accordance with the Mission profile we have. That way we will not be carrying unnecessary dead weight with us.
+
 For calculating Battery weight estimation we have to first find out the total energy required for each Major phase on flight.
 
 \subsubsection{Cruise}
@@ -370,6 +374,9 @@ $$ P = W \times R.O.C + P_R $$
 Power required for descent is 
 $$ P = P_R - W \times Rate\: of\: descent$$
 We need to take care that the power does not go negative here or make it zero while estimating energy.
+
+\subsection{Take off and Landing}
+The Segments of take off and landing do not take that much time in general. Also it is harder to get an accurate estimate of the energy spent in takeoff and landing due to the carrying power needs. So we will take an 
 
 \subsubsection{Battery weight}
 
@@ -405,27 +412,24 @@ In our case the design weight came out to be 5.27 kg.
     \label{fig:enter-label}
 \end{figure}
 
+\vfill
+
+\newpage
+
+\appendix
+
 \newpage
 
 \section{References}
-\begin{enumerate}
-    \item \label{MFD} https://www.uavmodel.com/collections/fixed-wing/products/mfd-crosswind-nimbus-pro-v2-binary-1900mm-uav-fixed-wing \href{https://www.uavmodel.com/collections/fixed-wing/products/mfd-crosswind-nimbus-pro-v2-binary-1900mm-uav-fixed-wing}{MFD}
-    \item \label{Development of the Brican TD100 Small UAS and Payload Trials} B. Eggleston, B.McLuckie, W.R. Koski, D. Bird, C. Patterson, D. Bohdanov, H. Liu, T. Mathewsa , G. Gamagea., ‘Development of the Brican TD100 Small UAS and Payload Trials’., International Conference on Unmanned Aerial Vehicles in Geomatics, 30 Aug–02 Sep 2015 – Table 8: Performance Estimates for TD100, Pg no: 146.
-    \item \label{3} 1000 Questions Answers and Explanations for JAR ATPL (A) and CPL (A) General Navigation by Keith Williams., Himalayan Books – Chapter 06: Climb.
-    \item \label{4} Khalid Al-Hajjaji, Mouadh Ezzin, Husain Khamdan, Abdelhakim El Hassani., ‘Design, Development and Evaluation of a UAV to Study Air Quality in Qatar’., Department of Electrical Engineering, Qatar University – Table 2.3: Design Constraints, Pg no:8.
-    \item \label{5} Introduction to Flight, 8th edition, JD Anderson.
-    \item \label{6} https://wingtra.com/mapping-drone-wingtraone/technical-specifications/
-    \item \label{7} https://www.unmannedsystemstechnology.com/wp-content/uploads/2018/11/Albatross-UAV-Datasheet.pdf
-    \item \label{8} https://pdf.aeroexpo.online/pdf/draganfly-drones/draganflyer-tango2-technical-specs/175762-19392.html
-    \item \label{9} https://avia-pro.net/blog/nostromo-cabure-tehnicheskie-harakteristiki-foto
-    \item \label{10} https://bluebird-uav.com/spylite-uav/
-    \item \label{11} https://elbitsystems.com/product/skylark-i-lex/
-    \item \label{12} https://www.aeroexpo.online/prod/alcoretech/product-181454-18406.html
-\end{enumerate}
+
+\bibliographystyle{IEEEtran}
+\bibliography{References}
 
 \newpage
 
 \section{Changes}
+
+\subsection{Week 2}
 \begin{enumerate}
     \item Data collection part was completely changed.
     \item The general design of pdf was changed.
@@ -437,29 +441,63 @@ In our case the design weight came out to be 5.27 kg.
     \item Details on mission profile were added.
 \end{enumerate}
 
+\subsection{Week 3}
+
+\newpage
+
 \section{Contributions}
-\subsection{Abhijeet Mangela AE21B040}
+
+\subsection{Week 2}
+
+\subsubsection{Abhijeet Mangela AE21B040}
 Wrote full Latek report, Drew the mission profile with Inkscape and Autocad, Empty weight Fraction estimation, Final weight estimation with Senthil
 
-\subsection{Navin Yadav AE23M803}
+\subsubsection{Navin Yadav AE23M803}
 
 Data Collection; Literature Survey
 
-\subsection{Balamurugan S AE23M009}
+\subsubection{Balamurugan S AE23M009}
 
 Data Collection; Literature Survey
 
-\subsection{Samarth R Krishna AE23M032}
+\subsubsection{Samarth R Krishna AE23M032}
 
 Data Collection; Literature Survey
 
-\subsection{Senthil B AE23M035}
+\subsubsection{Senthil B AE23M035}
 
 Detailed Mission Profile; Preliminary Weight Estimation (only iteration) ; Battery weight estimation.
 
-\subsection{Rajendran Anandhu Nair AE23M027}
+\subsubsection{Rajendran Anandhu Nair AE23M027}
 
 Data Collection; Literature Survey
+
+
+
+
+\subsection{Week 3}
+
+\subsubsection{Abhijeet Mangela AE21B040}
+
+
+\subsubsection{Navin Yadav AE23M803}
+
+
+\subssubection{Balamurugan S AE23M009}
+
+
+
+\subsubsection{Samarth R Krishna AE23M032}
+
+
+
+\subsubsection{Senthil B AE23M035}
+
+
+
+\subsubsection{Rajendran Anandhu Nair AE23M027}
+
+
 
 \section{Current estimates}
 
