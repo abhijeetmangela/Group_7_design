@@ -17,6 +17,8 @@
 \usepackage{url}
 \usepackage{natbib}
 \usepackage[paper=A4]{typearea}
+\graphicspath{ {figures/} }
+\usepackage{array}
 %\usepackage[a4paper,margin=1in]{geometry}
 
 
@@ -84,6 +86,11 @@ India
 
 \newpage
 
+\thispagestyle{empty}
+\listoffigures
+\listoftables
+\newpage
+
 
 \section{Introduction}
 
@@ -123,7 +130,7 @@ The UAV will be equipped with air quality sensors and cameras to understand the 
 \textbf{Maximum Payload Weight}    & 1 – 1.5 kg               \\ \hline
 \textbf{Estimated Endurance}       & 30 minutes               \\ \hline
 \textbf{Mission ceiling}           & 0 - 250 m                \\ \hline
-\textbf{Desired Operational Speed} & 27 m/s                   \\ \hline
+\textbf{Desired Operational Speed} & 17 m/s                   \\ \hline
 \textbf{Transmitter Range}         & 4 km                     \\ \hline
 \end{tabular}%
 }
@@ -168,11 +175,11 @@ $$ (V_{ROC})_{_{max}} = 1.32 \times V_{md} = 17.6 \: m/s $$
 The UAV will perform aerial surveillance and environmentally monitor for areas of plastics and solid waste with an estimated cruise speed of 17 m/s for 20 km range. Time spent here is 1176 s.
 
 \subsubsection{Descent to Mission Height}
-The UAV will descend to 150 m altitude AMSL to study air quality at a sinking speed of 20.52 m/s for 5 km range. Time spent here is 28 s.
+The UAV will descend to 150 m altitude AMSL to study air quality at a sinking speed of 12.92 m/s for 5 km range. Time spent here is 28 s.\\
 
 Calculation: - 
 $$ (V_{cr,lo})_{_{design}} = 0.76 \times (V_{cr})_{_{des}} \;  (initial \: estimate) $$
-$$ = 20.52 \: m/s $$
+$$ = 12.92 \: m/s $$
 
 \subsubsection{Descent to land \cite{Anderson1}}
 The UAV will descend at an estimated velocity of 10.13 m/s. To close ground proximity, the UAV is gradually decelerated to an estimated touchdown velocity of 8.61 m/s. Time spent here is 80 s.
@@ -339,7 +346,7 @@ In our Data A is 1.3887 and C is -0.5155
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width = 0.8\linewidth]{code}
+    \includegraphics[width = 0.8\linewidth]{Codes/Week 2/Empty_weight.png}
     \caption{Empty weight estimation}
     \label{Empty Weight estimation}
 \end{figure}
@@ -356,14 +363,14 @@ For calculating Battery weight estimation we have to first find out the total en
 
 \subsubsection{Cruise}
 Now for a level flight,
-$$ L = D \; \; , \; \; T = D$$
+$$ L = W \; \; , \; \; T = D$$
 
 $$ W = \frac{1}{2} \rho V^2 S C_L $$
 $$ C_L = \frac{W}{\frac{1}{2} \rho V^2 S}$$
 So,
-$$ C_D = C_{D_0} + \frac{C_L^2}{\pi 2 AR} $$
+$$ C_D = C_{D_0} + \frac{C_L^2}{\pi e AR} $$
 Now 
-$$ P = TV = DV $$
+$$ P = T\times V = D\times V $$
 
 So, 
 $$ P_R = \frac{1}{2}\rho V^3 S C_{D_o} + \frac{2 W^2}{ (\rho V S) \pi e AR} $$
@@ -444,7 +451,7 @@ $$ W_o = W_{\text{Previous iteration}} + W_{\text{New iteration}} $$
 
 The code for the algorithm is mentioned below in the github reference.
 
-In our case the design weight came out to be 6.6102 kg.
+In our case the design weight came out to be 6.6102 kg after taking a 20 percent leverage over the original weight.
 
 \begin{figure}
     \centering
@@ -458,6 +465,297 @@ In our case the design weight came out to be 6.6102 kg.
 \newpage
 
 \section{Powerplant and Battery Selection}
+
+\subsection{\large Calculation of Aspect Ratio and Lift Coefficient}
+\\ For this week we first started by calculating the wing reference area, wetted area of all our reference UAV's and then proceed to calculate the reference aspect ratio as well as wetted aspect ratio of all the UAV. We have used ImageJ and Fusion 360 software for estimating Reference area and wetted area of all the UAV We \\
+ The aspect ratio of a UAV's wings is crucial as it directly influences its aerodynamic performance and efficiency. Higher aspect ratios generally result in lower induced drag and better lift-to-drag ratios, enabling improved endurance and range, essential factors in UAV design optimization.
+\\ The aspect ratio ($AR$) of a rectangular wing aircraft is calculated using the formula:
+\[
+AR = \frac{{\text{Wingspan}}}{{\text{Mean aerodynamic chord}}}\]
+
+where Wingspan is the distance between the wingtips and the Mean aerodynamic chord is the average chord length of the wing.
+
+\\ By using steady level conditions where Lift = Weight, we have calculated Lift Coefficient at cruise conditions.
+When the lift force ($L$) of an aircraft equals its weight ($W$), the coefficient of lift ($C_L$) can be calculated using the formula:
+\[
+C_{L_{cruise}} = \frac{L}{\frac{1}{2} \times \rho \times V^2 \times S_{\text{ref}}}
+\]
+where $\rho$ is the density of air, $V$ is the velocity of the aircraft, and $S_{\text{ref}}$ is the reference wing area.
+\subsubsection{Sample calculation of Aspect ratio and Lift Coefficient for cruise condition of Wingtraone UAV}
+From the data collection done in week 2, we have estimated cruise velocity for our UAV as $V_{cruise}$ = 16m/s
+\begin{itemize}
+  \item Wingspan ($b$) = 125 cm (got from data collection)
+  \item Reference wing area ($S_{\text{ref}}$) = 5065 cm\textsuperscript{2} (estimated from image processing)
+\end{itemize} 
+
+To calculate the aspect ratio (AR) using the formula $AR = \frac{b^2}{S_{\text{ref}}}$:
+
+\[
+AR = \frac{125^2}{5065} = \frac{15625}{5065} \ =  3.08
+\]
+
+So, the aspect ratio is 3.085.\\
+For cruise condition we know that Lift = Weight
+
+{Calculating Coefficient of Lift for Cruise Conditions}
+
+
+Given:
+\begin{align*}
+    \text{Maximum Takeoff Weight (MTOW)} & = 44.15 \, \text{N} \\
+    \rho & = 1.225 \, \text{kg/m}^3 \\
+    S_{\text{ref}} & = 0.507 \, \text{m}^2 \\
+    v_{\text{cruise}} & = 16 \, \text{m/s}
+\end{align*}
+
+Equating lift to weight for cruise conditions:
+\[
+L = W
+\]
+\[
+\frac{1}{2} \rho v_{\text{cruise}}^2 S_{\text{ref}} C_{L_{\text{cruise}}} = W_{\text{cruise}}
+\]
+
+Substituting the given values:
+\[
+\frac{1}{2} \times 1.225 \times 16^2 \times 0.507 \times C_{L_{\text{cruise}}} = 44.15
+\]
+
+Solving for $C_{L_{\text{cruise}}}$:
+\[
+C_{L_{\text{cruise}}} = \frac{44.15}{\frac{1}{2} \times 1.225 \times 16^2 \times 0.507} = 0.556
+\]
+
+Therefore, the coefficient of lift for cruise conditions is approximately $0.556$.\\
+\\ \\
+
+Now we have
+\begin{itemize}
+    \item${\text{Aspect Ratio (AR)}}_{\text{ref}}$ & = 3.085 \\
+    \item e &= 0.7 [for rectangular wing]
+\end{itemize} \\
+
+For minimum drag condition
+
+
+We need to find the constant \( k \), which is given by:
+\[
+k = \frac{1}{\pi \cdot e \cdot \text{AR}_{\text{ref}}}
+\]
+
+Substituting the given values:
+\[
+k = \frac{1}{{\pi \cdot 0.7 \cdot 3.085}}
+\]
+
+Calculating \( k \):
+\[
+k \= \frac{1}{{\pi \cdot 0.7 \cdot 3.085}} \approx \frac{1}{\num{6.810}} \approx 0.1466
+\]
+
+Therefore, the value of \( k \) is approximately \(0.1475\).\\
+
+Now we have the values of $C_L$ and $k$
+\begin{align*}
+    k & = 0.1475 \\
+    C_L & = 0.556
+\end{align*}
+
+For the minimum drag condition, \( C_{D0} = kC_L^2 \).
+
+Substituting the given values:
+\[
+C_{D0} = 0.1475 \times (0.556)^2
+\]
+
+Calculating \( C_{D0} \):
+\[
+C_{D0} \ = 0.1475 \times (0.556)^2 \ = 0.0461
+\]
+
+Therefore, the minimum drag coefficient is approximately \(0.0461\).\\
+Now Let's calculate \( L/D_{\text{max}} \))
+\begin{align*}
+    k & = 0.1475 \\
+    C_{D0} & = 0.046
+\end{align*}
+
+For maximum lift-to-drag ratio (\( L/D_{\text{max}} \)):
+\[
+\frac{L}{D_{\text{max}}} = \frac{1}{2\sqrt{k \cdot C_{D0}}}
+\]
+
+Substituting the given values:
+\[
+\frac{L}{D_{\text{max}}} = \frac{1}{2\sqrt{0.1475 \cdot 0.046}}
+\]
+
+Calculating \( L/D_{\text{max}} \):
+\[
+\frac{L}{D_{\text{max}}} \ =  \frac{1}{2\sqrt{0.1475 \cdot 0.046}} = 6.103
+\]
+
+\\For minimum drag lift-to-drag ratio (\( L/D_{\text{minimum drag}} \)), it's the same as \( L/D_{\text{max}} \) due to the assumption that \( L/D_{\text{max}} = L/D_{\text{minimum drag}} \).\\ 
+
+Therefore, both \( L/D_{\text{max}} \) and \( L/D_{\text{minimum drag}} \) are approximately \(6.103\).
+
+\begin{table}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+SI no &
+  UAV Name &
+  \begin{tabular}[c]{@{}c@{}}MTOW \\ Kg\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Cruise speed\\ m/s\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}$AR_{ref}$\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Wetted AR\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}$C_{L}{cruise}$\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}L/D_{max}\end{tabular} \\  \hline
+1 & Wingtraone                & 4.5 & 16 & 3.085       & 1.874 &   0.556  & 6.103  \\ \hline
+2 & Albatross                & 10  & 18.89   & 11.688         & 5.939   & 0.583 & 22.047 \\ \hline
+3 & Azimut   2    & 9   & 13.89   & 5.776         & 2.992   & 0.690    &  9.198   \\ \hline
+4 & Birdeye  600        & 8.5   & 20.57    & 8.948 & 4.474   & 0.452   & 21.772 \\ \hline
+5 & Rafael Skylite BR & 8   & 30.56   & 9.969       & 5.145     & 0.608  & 18.024 \\ \hline
+6 & Bluebird  Boomerang             & 9.5 & 22.12   & 5.948         & 3.118  & 0.640  & 10.219 \\ \hline
+\end{tabular}%
+}
+\caption{Data part two}
+\label{Data part two}
+\end{table}
+
+\begin{document}
+\begin{figure}
+    \centering
+    \includegraphics{graph.png}
+    \caption{(L/D)_{max} \text {v/s} $\sqrt{AR_{wet}}$ }
+    \label{fig:enter-label}
+\end{figure}
+\textbf{Aerodynamic Design – Analytical}
+
+\begin{enumerate}
+    \item Chosen NACA 4415 Airfoil
+    \begin{itemize}
+        \item $Cl_{\text{max}} = 1.5$
+        \item $Cl_{\text{max}}$ (with efficiency factor) $= 0.9 \times Cl_{\text{max}} = 0.9 \times 1.5 = 1.35$
+    \end{itemize}
+    \item $V_{\text{stall}}$ is assumed to be $10$ m/s
+    \[
+    V_{\text{stall}} = \sqrt{\frac{2}{\rho} \left( \frac{w}{s} \right) \frac{1}{Cl_{\text{max}}}}
+    \]
+    \[
+    8.333 = \sqrt{\frac{2}{1.225} \left( \frac{w}{s} \right) \frac{1}{1.35}}
+    \]
+    $W/S = 57.417$ N/m\textsuperscript{2}
+    \item Iteration 0: assume $(L/D)_{\text{max}} = 10$
+    \[
+    \text{Reynold Number } Re = \frac{\rho v D}{\mu} = \frac{1.225 \times 10 \times 0.1}{1.48 \times 10^5} = 8.2 \times 10^5
+    \]
+    $C_{f,e} = 0.010$ (from graph)
+    \[
+    \frac{S_{\text{wet}}}{S_{\text{ref}}} = 4 \text{ (assumption)}
+    \]
+    \[
+    Cd,0 = \frac{S_{\text{wet}}}{S_{\text{ref}}} \times C_{f,e} = 4 \times 0.0105 = 0.04
+    \]
+    \[
+    (L/D)_{\text{max}} = \sqrt{\frac{1}{4Cd,oK}
+    \]
+    Assume $(L/D) = 10$
+    \[
+    K = 0.0625
+    \]
+    \[
+    A.R = \frac{1}{\pi e \cdot k} = \frac{1}{3.14 \cdot 0.7 \cdot 0.6725} = 7.28
+    \]
+    \[
+    A.R = \frac{b^2}{S} \quad b = \sqrt{A.R \cdot S} = 1.79 \text{ m}
+    \]
+    \item Iteration 1: put on graph of $S_{\text{wet}}$ vs. $(L/D)_{\text{max}}$
+    \[
+    Swet = 4 \times 0.44 = 1.76 \text{ m}^2
+    \]
+    For $Swet = 1.76$ we get, $A.R_{\text{wet}} = \frac{1.79 \times 1.79}{1.76} = 1.82$
+    For $A.R = 1.82$, $(L/D)_{\text{max}} = 11.5$
+    \item Iteration 2 taking $(L/D) = 11.5$
+    \[
+    K = \frac{1}{11.5^2} \times 0.4 \times 4 = 0.047
+    \]
+    For $A.R = \frac{1}{3.14} \times 0.7 \times 0.047 = 9.675$
+    \[
+    A.R = b^2/S \quad b = \sqrt{A.R \cdot S} = 2.06
+    \]
+    \item Rate of climb
+    \[
+    \frac{\eta_p}{w} = (R/C)_{\text{max}} + \left( 2 \times \frac{\sqrt{\frac{k}{3Cd,0}} \times \sqrt{\frac{W}{S}}}{\sqrt{\rho}} \right)
+    \]
+    \[
+    = 2 + \left[ 2 \times \frac{\sqrt{\frac{0.047}{3 \times 0.04}} \times \sqrt{137.81}}{\sqrt{1.225}} \right] \times \frac{1.55}{11.5}
+    \]
+    Assume $\eta_{pr} = 0.9$
+    \[
+    P = \frac{3.6 \times 6.2 \times 9.81}{0.9} = 243.29 \text{ W}
+    \]
+    \item Thrust at level Flight 
+    Assume cruise speed $17$ m/s
+    \[
+    T = D = \frac{1}{2} \rho V^2 S Cd,0 + 2K S \frac{\rho V^2}{(W/S)^2}
+    \]
+    \[
+    = 0.5 \times 1.225 \times 17^2 \times 0.44 \times 0.04+2 \times 0.047 \times 0.44 / 1.225 \times 17^2 \times (137.81)^2
+    \]
+    \[
+    = 5.33 \text{ N}
+    \]
+    \[
+    P = T V = 5.33 \times 17 = 90.68 \text{ W}
+    \]
+    8) Iteration for $V(R/C)_{\text{max}}$ and $(R/C)_{\text{max}}$
+\[
+V(R/C)_{\text{max}} = \left( \frac{2}{\rho} \times \sqrt{\frac{k}{3Cd,0}} \times \sqrt{\frac{W}{S}} \right)^{0.5}
+\]
+\[
+= \left( \frac{2}{1.225} \times \sqrt{\frac{0.047}{3 \times 0.04}} \times \sqrt{137.81} \right)^{0.5} = 11.87 \, \text{m/s}
+\]
+\[
+(R/C)_{\text{max}} = \eta_{pr} \frac{p}{w} - \left( \frac{2}{\rho} \times \sqrt{\frac{k}{3Cd,0}} \times \sqrt{\frac{W}{S}} \right)^{0.5} \times \frac{1.155}{L/D_{\text{max}}}
+\]
+\[
+= \left(0.9 \times \frac{243.29}{6.2 \times 9.81} - \left( \frac{2}{1.225} \times \sqrt{\frac{0.047}{3 \times 0.04}} \times \sqrt{(137.81)^{0.5}} \times \frac{1.155}{11.5} \right) \right) = 2.4 \, \text{m/s}
+\]
+Power required at $(R/C)_{\text{max}}$
+\[
+\frac{\eta_p}{w} = 2 + \left[ \left( \frac{2}{1.225} \times \sqrt{\frac{0.047}{3 \times 0.04}} \times \sqrt{137.81} \right)^{0.5} \right]
+\]
+\[
+P = 243.3 \, \text{W}
+\]
+Assume $V_{\text{max}} = 30$ m/s
+Power required for cruise flight at $V_{\text{max}}$
+\[
+P_{\text{max}} = T \times V_{\text{max}} = 5.33 \times 30 = 160 \, \text{W}
+\]
+For Service ceiling of $1$ km
+\[
+\rho = 1.112
+\]
+\[
+P_{\text{req}} = \sqrt{\frac{2 \times W^3 \times CD^2}{\rho \times S \times Cl^3}}
+\]
+\[
+= \sqrt{\frac{2 \times (6.2 \times 9.81)^3}{1.112 \times 0.44 \times (11.5)^{1.5}}} = 153.65 \, \text{W}
+\]
+\[
+P = 153.65 \times \frac{1.255}{1.225} = 169.26 \, \text{W}
+\]
+From the above constraints power required is $243.3$ W, giving $10\%$ of buffer,
+\[
+\text{Power} = 243.3 + 10\% = 267.7 \, \text{W}
+\]
+
+
+
+\end{enumerate}
 
 \newpage
 
@@ -496,6 +794,7 @@ The github account having all the codes can be accessed as : -
 
 \newpage
 
+
 \section{Contributions}
 
 \subsection{Week 2}
@@ -528,26 +827,27 @@ Data Collection; Literature Survey
 
 \subsection{Week 3}
 
+
 \subsubsection{Abhijeet Mangela AE21B040}
 Changed the Mission Profile, Converted references to bibtex, Did some clean up of document, did the Preliminary weight estimate which was wrong last week, Power estimation for cruise and climb, Linked all files internally in Github for easy connectivity
 
 \subsubsection{Navin Yadav AE23M803}
-
+Analytical calculation, added calculation on latex 
 
 \subsubsection{Balamurugan S AE23M009}
-
+Data Collection; Literature Survey; Max L/D vs Sqrt(Wetted AR) Calculations and Plotting.
 
 
 \subsubsection{Samarth R Krishna AE23M032}
-
+Analytical calculation , added calculation on latex
 
 
 \subsubsection{Senthil B AE23M035}
-
+Data Collection; Image Processing using ImageJ; Max L/D vs Sqrt(Wetted AR) Calculations and Plotting.
 
 
 \subsubsection{Rajendran Anandhu Nair AE23M027}
-
+Data Collection; Image Processing using Fusion 360; Report writing for Reference and Wetted areas, Aspect ratios, Coefficient of lift, and Maximum Lift to drag ratio. 
 
 
 \section{Current estimates}
