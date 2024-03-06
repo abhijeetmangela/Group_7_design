@@ -19,6 +19,7 @@
 \usepackage[paper=A4]{typearea}
 \graphicspath{ {figures/} }
 \usepackage{array}
+\usepackage{bookmark}% faster updated bookmarks
 %\usepackage[a4paper,margin=1in]{geometry}
 
 
@@ -467,7 +468,8 @@ In our case, the design weight was 6.6102 kg after taking a 20 percent leverage 
 \section{Powerplant and Battery Selection}
 
 \subsection{\ Extensive Calculation of Aspect Ratio and Lift Coefficient}
-\\ For this week, we first started by calculating the wing reference area and wetted area of all our reference UAVs and then proceeded to calculate the reference aspect ratio as well as the wetted aspect ratio of all the UAVs. We have used ImageJ and Fusion 360 software for estimating the Reference area and wetted area of all the UAV We \\
+
+For this week, we first started by calculating the wing reference area and wetted area of all our reference UAVs and then proceeded to calculate the reference aspect ratio as well as the wetted aspect ratio of all the UAVs. We have used ImageJ and Fusion 360 software for estimating the Reference area and wetted area of all the UAV We \\
  The aspect ratio of a UAV's wings is crucial as it directly influences its aerodynamic performance and efficiency. Higher aspect ratios generally result in lower induced drag and better lift-to-drag ratios, enabling improved endurance and range, essential factors in UAV design optimization.
 \\ The aspect ratio ($AR$) of a rectangular wing aircraft is calculated using the formula:
 \[
@@ -475,8 +477,10 @@ AR = \frac{{\text{Wingspan}}}{{\text{Mean aerodynamic chord}}}\]
 
 Where Wingspan is the distance between the wingtips and the Mean aerodynamic chord is the average chord length of the wing.
 
-\\ By using steady-level conditions where Lift = Weight, we have calculated the Lift Coefficient at cruise conditions.
+By using steady-level conditions where Lift = Weight, we have calculated the Lift Coefficient at cruise conditions.
+
 When the lift force ($L$) of an aircraft equals its weight ($W$), the coefficient of lift ($C_L$) can be calculated using the formula:
+
 \[
 C_{L_{cruise}} = \frac{L}{\frac{1}{2} \times \rho \times V^2 \times S_{\text{ref}}}
 \]
@@ -526,14 +530,13 @@ Solving for $C_{L_{\text{cruise}}}$:
 C_{L_{\text{cruise}}} = \frac{44.15}{\frac{1}{2} \times 1.225 \times 16^2 \times 0.507} = 0.556
 \]
 
-Therefore, the coefficient of lift for cruise conditions is approximately $0.556$.\\
-\\ \\
+Therefore, the coefficient of lift for cruise conditions is approximately 0.556.
 
 Now we have
 \begin{itemize}
-    \item${\text{Aspect Ratio (AR)}}_{\text{ref}}$ & = 3.085 \\
-    \item e &= 0.7 [for rectangular wing]
-\end{itemize} \\
+    \item${\text{Aspect Ratio (AR)}}_{\text{ref}}$ = 3.085
+    \item e = 0.7 [for rectangular wing]
+\end{itemize} 
 
 For minimum drag condition
 
@@ -550,10 +553,10 @@ k = \frac{1}{{\pi \cdot 0.7 \cdot 3.085}}
 
 Calculating \( k \):
 \[
-k \= \frac{1}{{\pi \cdot 0.7 \cdot 3.085}} \approx \frac{1}{\num{6.810}} \approx 0.1466
+k = \frac{1}{\pi \cdot 0.7 \cdot 3.085} \approx \frac{1}{\text{6.810}} \approx 0.1466
 \]
 
-Therefore, the value of \( k \) is approximately \(0.1475\).\\
+Therefore, the value of \( k \) is approximately \(0.1475\).
 
 Now we have the values of $C_L$ and $k$
 \begin{align*}
@@ -595,7 +598,7 @@ Calculating \( L/D_{\text{max}} \):
 \frac{L}{D_{\text{max}}} \ =  \frac{1}{2\sqrt{0.1475 \cdot 0.046}} = 6.103
 \]
 
-\\For minimum drag lift-to-drag ratio (\( L/D_{\text{minimum drag}} \)), it's the same as \( L/D_{\text{max}} \) due to the assumption that \( L/D_{\text{max}} = L/D_{\text{minimum drag}} \).\\ 
+For minimum drag lift-to-drag ratio (\( L/D_{\text{minimum drag}} \)), it's the same as \( L/D_{\text{max}} \) due to the assumption that \( L/D_{\text{max}} = L/D_{\text{minimum drag}} \).
 
 Therefore, both \( L/D_{\text{max}} \) and \( L/D_{\text{minimum drag}} \) are approximately \(6.103\).
 
@@ -611,24 +614,23 @@ SI no &
   \begin{tabular}[c]{@{}c@{}}$AR_{ref}$\end{tabular} &
   \begin{tabular}[c]{@{}c@{}}Wetted AR\end{tabular} &
   \begin{tabular}[c]{@{}c@{}}$C_{L}{cruise}$\end{tabular} &
-  \begin{tabular}[c]{@{}c@{}}L/D_{max}\end{tabular} \\  \hline
+  \begin{tabular}[c]{@{}c@{}}$\text{L/D}_{max}$\end{tabular} \\  \hline
 1 & Wingtraone                & 4.5 & 16 & 3.085       & 1.874 &   0.556  & 6.103  \\ \hline
 2 & Albatross                & 10  & 18.89   & 11.688         & 5.939   & 0.583 & 22.047 \\ \hline
 3 & Azimut   2    & 9   & 13.89   & 5.776         & 2.992   & 0.690    &  9.198   \\ \hline
 4 & Birdeye  600        & 8.5   & 20.57    & 8.948 & 4.474   & 0.452   & 21.772 \\ \hline
 5 & Rafael Skylite BR & 8   & 30.56   & 9.969       & 5.145     & 0.608  & 18.024 \\ \hline
 6 & Bluebird  Boomerang             & 9.5 & 22.12   & 5.948         & 3.118  & 0.640  & 10.219 \\ \hline
-\end{tabular}%
+\end{tabular}
 }
 \caption{Data part two}
 \label{Data part two}
 \end{table}
 
-\begin{document}
 \begin{figure}
     \centering
     \includegraphics{graph.png}
-    \caption{(L/D)_{max} \text {v/s} $\sqrt{AR_{wet}}$ }
+    \caption{$\text{(L/D)}_{max}$ \text{v/s} $\sqrt{AR_{wet}}$ }
     \label{fig:enter-label}
 \end{figure}
 
@@ -811,18 +813,18 @@ So, the total battery capacity required for the aircraft is approximately $22351
 
 \subsubsection{Battery and Motor Selection}
 
-\subsubsubsection{Battery Selection}
+\subsubsection{Battery Selection}
 
 To meet the power requirements with a tolerance of 1000 mAh, we have selected a MaxAmps Lithium Polymer (LiPo) battery with a capacity of 6500mAh operating at a voltage of 14.8V.
 
-\begin{figure}[!ht]
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.7\textwidth]{LIPO.jpg}
     \caption{LiPo Battery}
     \label{fig:battery}
 \end{figure}
 
-\begin{table}[!ht]
+\begin{table}[h]
     \centering
     \caption{MaxAmps Lithium Battery Specifications}
     \begin{tabular}{|l|l|}
@@ -851,16 +853,17 @@ To meet the power requirements with a tolerance of 1000 mAh, we have selected a 
 \subsubsection{Motor and Propeller selection}
 
 We have selected AT 2317 Long Shaft KV 1440 Motor with APC 8x6 propeller to meet the above calculated power requirements and voltage capacity. All the specifications are mentioned below.
-\\Selecting the right propeller is crucial for efficient performance and optimal thrust generation. We have selected an APC 8x6 propeller that is compatible with our motor.\\
 
-\begin{figure}[!ht]
+Selecting the right propeller is crucial for efficient performance and optimal thrust generation. We have selected an APC 8x6 propeller that is compatible with our motor.\\
+
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.3\textwidth]{motorr.jpg}
     \caption{AT2317 LONG SHAFT KV 1440 MOTOR}
     \label{fig:motor}
 \end{figure}
 
-\begin{figure}[!ht]
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{motor specifications.png}
     \caption{MOTOR SPECIFICATIONS}
@@ -868,14 +871,14 @@ We have selected AT 2317 Long Shaft KV 1440 Motor with APC 8x6 propeller to meet
 \end{figure}
 
 
-\begin{figure}[!ht]
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{propeller.jpg}
     \caption{APC 8x6 PROPELLER}
     \label{fig:propeller}
 \end{figure}
 
-\begin{figure}[!ht]
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.6\textwidth]{propeller specifications.png}
     \caption{PROPELLER SPECIFICATIONS}
@@ -884,9 +887,18 @@ We have selected AT 2317 Long Shaft KV 1440 Motor with APC 8x6 propeller to meet
 
 \newpage
 
+\clearpage
+
+
 \section{Wing Loading}
 
 \subsection{Stall Criteria}
+According to \cite{stall1} Stall speed is the minimum speed at which the airplane remains controllable during it's flight for a steady cruise. This is the point where the $C_L$ of the plane is maximum i.e. $C_{L_{\text{max}}}$
+
+At this speed the Angle of attack of the aircraft becomes so large that the flow begins to separate at the top of the airfoil resulting in a drop of lift if we increase the angle of attack beyond that.
+
+
+
 
 
 \subsubsection{Flaps}
@@ -930,7 +942,19 @@ The GitHub account having all the codes can be accessed as: -
 \end{enumerate}
 
 \subsection{Week 3}
+\begin{enumerate}
+    \item The Weight estimation was redone
+    \item Power was estimated for different phases 
+\end{enumerate}
 
+\subsection{Week 4}
+\begin{enumerate}
+    \item Power calculations were recalculated.
+    \item Battery was selected.
+    \item Motor and propeller was selected.
+\end{enumerate}
+
+\subsection{}
 \newpage
 
 
