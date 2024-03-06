@@ -95,7 +95,7 @@ India
 \section{Introduction}
 
 \subsection{Objective}
-The primary objective of this design project is to design and fly a fixed wing UAV that can survey wildlife and monitor plastic free zones/environment in amusement parks, zoos and wildlife sanctuaries.
+The primary objective of this design project is to design and fly a fixed-wing UAV that can survey wildlife and monitor plastic-free zones/environments in amusement parks, zoos, and wildlife sanctuaries.
 
 
 \subsection{Abstract}
@@ -109,13 +109,13 @@ When some maintenance issues arise in these sensors, we again have to send teams
 
 These complications can be reduced by using a fixed-wing UAV instead of ground sensors because the UAV is a moving object that can cover a larger area than a UAV sensor alone. Also, if some maintenance problem arises, it can be fixed when the UAV lands.
 
-The UAV will also carry out visual surveillance of the land it is flying. A direct flight will provide a better and more frequent information intake than satellite imagery.
+The UAV will also visually surveillance the land it is flying. A direct flight will provide a better and more frequent information intake than satellite imagery.
 
 \subsection{Mission Profile and requirements}
 
 \subsubsection{Mission Requirement}
-%Our objective is to detect the gases present near the aeroplane. It should detect elements including PM2.5, PM10, O3, NO2, SO2, CO, VOCs, H2S, NH3, HCl, CxHy, H2 and more.
-In the event of a crowd gathering, ensuring the cleanliness of a natural environment conducive to the dwelling of fauna is challenging. To overcome this problem steadfastly without affecting the crowd's morale, instead of acting as an entertainment element in satisfying the objective above, UAVs are identified as the best choices amidst these situations. 
+%Our objective is to detect the gases present near the airplane. It should detect elements including PM2.5, PM10, O3, NO2, SO2, CO, VOCs, H2S, NH3, HCl, CxHy, H2 and more.
+In a crowd gathering, ensuring the cleanliness of a natural environment conducive to the dwelling of fauna is challenging. To overcome this problem steadfastly without affecting the crowd's morale, instead of acting as an entertainment element in satisfying the objective above, UAVs are identified as the best choices amidst these situations. 
 
 
 The UAV will be equipped with air quality sensors and cameras to understand the terrain better. Thus, knowledge about plastics and unpleasant atmospheres will help develop a quick action plan for maintaining the flora and fauna from foreign hazards.
@@ -139,7 +139,7 @@ The UAV will be equipped with air quality sensors and cameras to understand the 
 \end{table}
 
 \subsubsection{Payload measure}
-The payload of UAVs consists of a camera and a sensor module used to measure air quality. The camera will be a Hontral B0BMV12VYJ HD Camera weighing 492 g. The sensor module comprises Arduino MKR Proto Large Shield TSX00002, weighing about 200 g and sensors such as MQ-7 CO Carbon Monoxide, MG811 Air Carbon Dioxide, etc., weighing about 320 g.
+The payload of UAVs consists of a camera and a sensor module used to measure air quality. The camera will be a Hontral B0BMV12VYJ HD Camera weighing 492 g. The sensor module comprises Arduino MKR Proto Large Shield TSX00002, weighing about 200 g, and sensors such as MQ-7 CO Carbon Monoxide, MG811 Air Carbon Dioxide, etc., weighing about 320 g.
 
 \subsection{Mission Profile}
 
@@ -152,7 +152,7 @@ The payload of UAVs consists of a camera and a sensor module used to measure air
 
 
 \subsubsection{Ground run}
-The take-off ground run distance is approximately 60 metres and estimated take-off velocity is 10 m/s. \cite{EgglestonUnknownTitle2015}
+The take-off ground run distance is approximately 60 meters, and the estimated take-off velocity is ten m/s. \cite{EgglestonUnknownTitle2015}
 
 $$ (V_{TO})_{_{Bricans \: Td100}} = 19 \: m/s$$
 $$ (W_{TO})_{_{Bricans \: Td100}} = 22.67 \: kg$$
@@ -164,7 +164,7 @@ $$ (V_{TO})_{_{des}} = (V_{TO})_{_{Bricans \: Td100}} \times \sqrt{\frac{(W_{TO}
 $$ = 19 \times \sqrt{\frac{5.6 \times 9.81}{22.67 \times 9.81}} = 9.94 \: m/s \approx 10 \: m/s $$
 
 \subsubsection{Climb \cite{1000_questions} }
-The UAV will climb at an estimated velocity of 17.6 m/s to operating altitude of 250 m AMSL. The rate of climb is about 3.06 m/s. Time spent here 81.7 s
+The UAV will climb at an estimated velocity of 17.6 m/s to an operating altitude of 250 m AMSL. The rate of climb is about 3.06 m/s. Time spent here: 81.7 s
 
 Calculation :- 
 $$ (V_{TO})_{_{des}} = 10 \: m/s \Rightarrow (V_{stall})_{_{des}} = \frac{(V_{TO})_{_{des}}}{1.2} = 8.33 \: m/s $$
@@ -172,22 +172,22 @@ $$ (V_{md})_{_{des}} = 1.6 \times V_{stall} = 13.33 \: m/s $$
 $$ (V_{ROC})_{_{max}} = 1.32 \times V_{md} = 17.6 \: m/s $$
 
 \subsubsection{Cruise \cite{alhajjaji2017design}}
-The UAV will perform aerial surveillance and environmentally monitor for areas of plastics and solid waste with an estimated cruise speed of 17 m/s for 20 km range. Time spent here is 1176 s.
+The UAV will perform aerial surveillance and environmentally monitor for areas of plastics and solid waste with an estimated cruise speed of 17 m/s for the 20 km range. Time spent here is 1176 s.
 
 \subsubsection{Descent to Mission Height}
-The UAV will descend to 150 m altitude AMSL to study air quality at a sinking speed of 12.92 m/s for 5 km range. Time spent here is 28 s.\\
+The UAV will descend to an altitude of 150 m AMSL to study air quality at a sinking speed of 12.92 m/s for a 5 km range. Time spent here is 28 s.\\
 
 Calculation: - 
 $$ (V_{cr,lo})_{_{design}} = 0.76 \times (V_{cr})_{_{des}} \;  (initial \: estimate) $$
 $$ = 12.92 \: m/s $$
 
 \subsubsection{Descent to land \cite{Anderson1}}
-The UAV will descend at an estimated velocity of 10.13 m/s. To close ground proximity, the UAV is gradually decelerated to an estimated touchdown velocity of 8.61 m/s. Time spent here is 80 s.
+The UAV will descend at an estimated velocity of 10.13 m/s. To close ground proximity, the UAV gradually decelerates to an estimated touchdown velocity of 8.61 m/s. Time spent here is 80 s.
 Calculation: - 
 $$(V_des)_{_{design}} = (V_{mg})_{_{design}} = (V_{mg})_{_{design}} \times 0.76 = 10.13 \: m/s $$
 
 \subsubsection{Landing run}
-The landing ground run distance is approximately 80 metres and estimated touchdown velocity is 8.61 m/s.
+The landing ground run distance is approximately 80 metres, and the estimated touchdown velocity is 8.61 m/s.
 
 Calculation: - 
 $$ (V_{TD})_{_{design}} = 0.85 \times (V_{des})_{_{design}} = 8.61 \: m/s  $$
@@ -340,9 +340,9 @@ Total Payload Estimate             & 1400 g \\ \hline
 
 
 \subsection{Empty weight estimation}
-The empty weight ratio can be estimated from the previous data. We have to fit the data in the curve of $y = A x^c$ with A and C as variables.
+The empty weight ratio can be estimated from the previous data. We have to fit the data in the $y = A x^c$ curve with A and C as variables.
 
-In our Data A is 1.3887 and C is -0.5155
+In our Data, A is 1.3887, and C is -0.5155
 
 \begin{figure}[h]
     \centering
@@ -357,12 +357,12 @@ The empty weight in our drone came out to be 3.1746 kg.
 
 \subsection{Battery weight estimation}
 
-Battery is an important criteria for design of any drone. We should optimise the battery weight in accordance with the Mission profile we have. That way we will not be carrying unnecessary dead weight with us.
+The battery is an essential criterion for the design of any drone. We should optimize the battery weight using the Mission profile we have. That way, we will not be carrying unnecessary dead weight with us.
 
-For calculating Battery weight estimation we have to first find out the total energy required for each Major phase on flight.
+For calculating Battery weight estimation, we must first find out the total energy required for each Major phase of flight.
 
 \subsubsection{Cruise}
-Now for a level flight,
+Now, for a level flight,
 $$ L = W \; \; , \; \; T = D$$
 
 $$ W = \frac{1}{2} \rho V^2 S C_L $$
@@ -381,27 +381,27 @@ Taking approximations and inputting mission profile conditions
 
 $$ P_R = f(W) $$
 
-We will consider Loitor phase as cruise too.
+We will consider the Loitor phase as a cruise, too.
 
-For our cruise phase of 17 m/s we will need a power of 63.42 W.
+For our cruise phase of 17 m/s, we will need a power of 63.42 W.
 
 \subsubsection{Climb }
-Power required for climb is given by 
+The power required for climb is given by 
 $$ P = W \times R.O.C + P_R $$
 
-Climbing is also the portion where we need a good amount of power. For our estimated weight we need a preliminary power of 87 W.
+Climbing is also the portion where we need a good amount of power. For our estimated weight, we need a preliminary power of 87 W.
 
 \subsubsection{Descent}
-Power required for descent is 
+The power required for descent is 
 $$ P = P_R - W \times Rate\: of\: descent$$
-We need to take care that the power does not go negative here or make it zero while estimating energy. The power actually consumed will be taken care by the extra allowance which we give.
+We need to ensure the power does not go negative here or make it zero while estimating energy. The extra allowance we give will take care of the power consumed.
 
 \subsubsection{Take off and Landing}
-The Segments of take off and landing do not take that much time in general. Also it is harder to get an accurate estimate of the energy spent in takeoff and landing due to the carrying power needs. So we will take a excess power of 20 percent to account for the errors in different power situations.
+The Segments of take-off and Landing do not take that much time. Also, estimating the energy spent in takeoff and Landing is harder due to the carrying power needs. So, we will take an excess power of 20 percent to account for the errors in different power situations.
 
 \subsubsection{Battery type selection \cite{Lipobattery}}
 
-We will use a lithium polymer battery for our aircraft. Some of the advantages offered by a lithium polymer battery is that it is less likely to leak away and are still rivals Lithium ion battery in terms of energy density. It is more bulkier by volume but by weight it is comparable.
+We will use a lithium polymer battery for our aircraft. Some of the advantages offered by a lithium polymer battery are that it is less likely to leak away and still rivals Lithium-ion batteries in terms of energy density. It is bulkier by volume, but by weight, it is comparable.
 
 \begin{figure}[h]
     \centering
@@ -410,25 +410,25 @@ We will use a lithium polymer battery for our aircraft. Some of the advantages o
     \label{Lithium Polymer battery}
 \end{figure}
 
-Lithium Polymer batteries are rechargeable  batteries which transmit electricity due to difference in charge between Cathode and Anode part of the battery. While pretty safe to handle care should be taken to not get the battery near any fore source or else it has a tendency to catch fire.
+Lithium Polymer batteries are rechargeable batteries that transmit electricity due to the difference in charge between the Cathode and Anode parts of the battery. While pretty safe to handle, care should be taken not to get the battery near any fore source, or else it tends to catch fire.
 
-We can estimate the energy in a battery by using this formula \cite{Lipobattery} :-
+We can estimate the energy in a battery by using this formula \cite{Lipobattery}:-
 
 $$ \text{Battery Capacity} = \sigma \times \text{M}_\text{battery} $$
 
-We used a commercially available battery to calculate battery energy density of it \cite{Batteryref}. The energy density came out to be 237600 J/kg.
+We used a commercially available battery to calculate the battery energy density of it \cite{Batteryref}. The energy density came out to be 237600 J/kg.
 
 \subsubsection{Battery weight}
 
-We can calculate the energy by multiplying power required times the amount of time spent in that phase. From energy we can get battery weight by dividing it with energy density. 
+We can calculate the energy by multiplying the power required by the time spent in that phase. From energy, we can get battery weight by dividing it by energy density. 
 
-In our case the battery weight came out to be 0.933 kg
+In our case, the battery weight came out to be 0.933 kg.
 
 %For lithium polymer batteries, the energy density is around 273600.
 
 \subsection{Total weight estimation}
 
-The total weight is given as :- 
+The total weight is given as:- 
 $$ W_0 = W_{pl} + W_{e} + W_{f} $$
 Where,
 \begin{itemize}
@@ -438,20 +438,20 @@ Where,
     \item [-] $W_{f}$ is the fuel weight (Battery in our case).
 \end{itemize}
 
-It can be transformed into :- 
+It can be transformed into:- 
 $$W_{0} = \frac{W_{pl}}{1 - \frac{W_{e}}{W_{0}} - \frac{W_{f}}{W_0}}$$
 
-If we have an initial approximation, we can run an iteration algorithm to find out design weight when we keep empty weight ratio as a variable.
+If we have an initial approximation, we can run an iteration algorithm to determine the design weight when we keep the empty weight ratio as a variable.
 
-%Generally we take an initial estimate to be 4 times the payload weight. Taking the correct initial weight is very important or the code may blow up.
+%Generally, we take an initial estimate to be four times the payload weight. Taking the correct initial weight is important,, or the code may blow up.
 
-In our case we use a special algorithm where we preserve the momentum of the descent from the previous iteration. This is done because otherwise the code will blow up and reach a negative value. 
+In our case, we use a special algorithm to preserve the momentum of the descent from the previous iteration. This is done because otherwise, the code will blow up and reach a negative value. 
 
 $$ W_o = W_{\text{Previous iteration}} + W_{\text{New iteration}} $$
 
-The code for the algorithm is mentioned below in the github reference.
+The code for the algorithm is mentioned below in the GitHub reference.
 
-In our case the design weight came out to be 6.6102 kg after taking a 20 percent leverage over the original weight.
+In our case, the design weight was 6.6102 kg after taking a 20 percent leverage over the original weight.
 
 \begin{figure}
     \centering
@@ -466,16 +466,16 @@ In our case the design weight came out to be 6.6102 kg after taking a 20 percent
 
 \section{Powerplant and Battery Selection}
 
-\subsection{\large Calculation of Aspect Ratio and Lift Coefficient}
-\\ For this week we first started by calculating the wing reference area, wetted area of all our reference UAV's and then proceed to calculate the reference aspect ratio as well as wetted aspect ratio of all the UAV. We have used ImageJ and Fusion 360 software for estimating Reference area and wetted area of all the UAV We \\
+\subsection{\ Extensive Calculation of Aspect Ratio and Lift Coefficient}
+\\ For this week, we first started by calculating the wing reference area and wetted area of all our reference UAVs and then proceeded to calculate the reference aspect ratio as well as the wetted aspect ratio of all the UAVs. We have used ImageJ and Fusion 360 software for estimating the Reference area and wetted area of all the UAV We \\
  The aspect ratio of a UAV's wings is crucial as it directly influences its aerodynamic performance and efficiency. Higher aspect ratios generally result in lower induced drag and better lift-to-drag ratios, enabling improved endurance and range, essential factors in UAV design optimization.
 \\ The aspect ratio ($AR$) of a rectangular wing aircraft is calculated using the formula:
 \[
 AR = \frac{{\text{Wingspan}}}{{\text{Mean aerodynamic chord}}}\]
 
-where Wingspan is the distance between the wingtips and the Mean aerodynamic chord is the average chord length of the wing.
+Where Wingspan is the distance between the wingtips and the Mean aerodynamic chord is the average chord length of the wing.
 
-\\ By using steady level conditions where Lift = Weight, we have calculated Lift Coefficient at cruise conditions.
+\\ By using steady-level conditions where Lift = Weight, we have calculated the Lift Coefficient at cruise conditions.
 When the lift force ($L$) of an aircraft equals its weight ($W$), the coefficient of lift ($C_L$) can be calculated using the formula:
 \[
 C_{L_{cruise}} = \frac{L}{\frac{1}{2} \times \rho \times V^2 \times S_{\text{ref}}}
@@ -495,7 +495,7 @@ AR = \frac{125^2}{5065} = \frac{15625}{5065} \ =  3.08
 \]
 
 So, the aspect ratio is 3.085.\\
-For cruise condition we know that Lift = Weight
+For cruise condition, we know that Lift = Weight.
 
 {Calculating Coefficient of Lift for Cruise Conditions}
 
@@ -631,134 +631,273 @@ SI no &
     \caption{(L/D)_{max} \text {v/s} $\sqrt{AR_{wet}}$ }
     \label{fig:enter-label}
 \end{figure}
-\textbf{Aerodynamic Design – Analytical}
 
-\begin{enumerate}
-    \item Chosen NACA 4415 Airfoil
-    \begin{itemize}
-        \item $Cl_{\text{max}} = 1.5$
-        \item $Cl_{\text{max}}$ (with efficiency factor) $= 0.9 \times Cl_{\text{max}} = 0.9 \times 1.5 = 1.35$
-    \end{itemize}
-    \item $V_{\text{stall}}$ is assumed to be $10$ m/s
-    \[
-    V_{\text{stall}} = \sqrt{\frac{2}{\rho} \left( \frac{w}{s} \right) \frac{1}{Cl_{\text{max}}}}
-    \]
-    \[
-    8.333 = \sqrt{\frac{2}{1.225} \left( \frac{w}{s} \right) \frac{1}{1.35}}
-    \]
-    $W/S = 57.417$ N/m\textsuperscript{2}
-    \item Iteration 0: assume $(L/D)_{\text{max}} = 10$
-    \[
-    \text{Reynold Number } Re = \frac{\rho v D}{\mu} = \frac{1.225 \times 10 \times 0.1}{1.48 \times 10^5} = 8.2 \times 10^5
-    \]
-    $C_{f,e} = 0.010$ (from graph)
-    \[
-    \frac{S_{\text{wet}}}{S_{\text{ref}}} = 4 \text{ (assumption)}
-    \]
-    \[
-    Cd,0 = \frac{S_{\text{wet}}}{S_{\text{ref}}} \times C_{f,e} = 4 \times 0.0105 = 0.04
-    \]
-    \[
-    (L/D)_{\text{max}} = \sqrt{\frac{1}{4Cd,oK}
-    \]
-    Assume $(L/D) = 10$
-    \[
-    K = 0.0625
-    \]
-    \[
-    A.R = \frac{1}{\pi e \cdot k} = \frac{1}{3.14 \cdot 0.7 \cdot 0.6725} = 7.28
-    \]
-    \[
-    A.R = \frac{b^2}{S} \quad b = \sqrt{A.R \cdot S} = 1.79 \text{ m}
-    \]
-    \item Iteration 1: put on graph of $S_{\text{wet}}$ vs. $(L/D)_{\text{max}}$
-    \[
-    Swet = 4 \times 0.44 = 1.76 \text{ m}^2
-    \]
-    For $Swet = 1.76$ we get, $A.R_{\text{wet}} = \frac{1.79 \times 1.79}{1.76} = 1.82$
-    For $A.R = 1.82$, $(L/D)_{\text{max}} = 11.5$
-    \item Iteration 2 taking $(L/D) = 11.5$
-    \[
-    K = \frac{1}{11.5^2} \times 0.4 \times 4 = 0.047
-    \]
-    For $A.R = \frac{1}{3.14} \times 0.7 \times 0.047 = 9.675$
-    \[
-    A.R = b^2/S \quad b = \sqrt{A.R \cdot S} = 2.06
-    \]
-    \item Rate of climb
-    \[
-    \frac{\eta_p}{w} = (R/C)_{\text{max}} + \left( 2 \times \frac{\sqrt{\frac{k}{3Cd,0}} \times \sqrt{\frac{W}{S}}}{\sqrt{\rho}} \right)
-    \]
-    \[
-    = 2 + \left[ 2 \times \frac{\sqrt{\frac{0.047}{3 \times 0.04}} \times \sqrt{137.81}}{\sqrt{1.225}} \right] \times \frac{1.55}{11.5}
-    \]
-    Assume $\eta_{pr} = 0.9$
-    \[
-    P = \frac{3.6 \times 6.2 \times 9.81}{0.9} = 243.29 \text{ W}
-    \]
-    \item Thrust at level Flight 
-    Assume cruise speed $17$ m/s
-    \[
-    T = D = \frac{1}{2} \rho V^2 S Cd,0 + 2K S \frac{\rho V^2}{(W/S)^2}
-    \]
-    \[
-    = 0.5 \times 1.225 \times 17^2 \times 0.44 \times 0.04+2 \times 0.047 \times 0.44 / 1.225 \times 17^2 \times (137.81)^2
-    \]
-    \[
-    = 5.33 \text{ N}
-    \]
-    \[
-    P = T V = 5.33 \times 17 = 90.68 \text{ W}
-    \]
-    8) Iteration for $V(R/C)_{\text{max}}$ and $(R/C)_{\text{max}}$
+\section {Power Loading for Different mission segments}
+
+\subsection {Power Loading for Climb}
+
+\begin{center}
+$L/D_{\text{max}} = 14.56067$
+\end{center}
+\begin{align*}
+L/D_{\text{max}} &= \frac{1}{2\sqrt{k \cdot C_{d0}}} \\
+C_{d0} &= \frac{1}{4} \left(\frac{L}{D}\right)^2 \cdot k \\
+C_{d0} &= 0.018606 \\
+\end{align*}
+\begin{center}
+$W/S = 92.65865 \, \text{N/m}^2$ \\
+$V_{\text{stall}} = 11.2 \, \text{m/s}$
+\end{center}
+\begin{align*}
+W/S &= \rho \cdot V_{\text{stall}}^2 \cdot \frac{C_{L_{\text{max, 3D}}}}{2} \\
+W/S &= 92.65865 \\
+\end{align*}
+\begin{center}
+$V_{\text{climb}} = 12.69456 \, \text{m/s}$ \\
+$V_{\text{takeoff}} = 13.44 \, \text{m/s}$
+\end{center}
+\begin{align*}
+S_{\text{rotation}} &= V_{\text{rotation}} \cdot t_{\text{rotation}} = 20.16 \, \text{m} \\
+R_{\text{rotation}} &= \frac{6.96 \cdot V_{\text{takeoff}}^2}{9.81} = 68.99719 \, \text{m} \\
+\theta_{\text{climb}} &= \sin^{-1}\left(\frac{S_{\text{rotation}}}{R_{\text{rotation}}}\right) = 13.0995^\circ \\
+\end{align*}
+\begin{center}
+$ROC_{\text{max}} = 2.8770757 \, \text{m/s}$ \\
+$\eta_{\text{prop}} = 0.8$
+\end{center}
+\begin{align*}
+\frac{P}{W}_{\text{climb}} &= \frac{ROC_{\text{max}} + \sqrt{\frac{2 \left(\frac{W}{S}\right) \cdot \left(\frac{k}{3C_{d0}}\right)^{1/2}}{\rho}}}{\sqrt{\frac{1.155}{L/D_{\text{max}}}}} \\
+\frac{P}{W}_{\text{climb}} &= 3.767996 \\
+\end{align*}
+\newpage
+\subsection {Power Loading for Cruise}
+
+\begin{center}
+$V_{\text{cruise}} = 17 \, \text{m/s}$
+\end{center}
+\begin{align*}
+\frac{T}{W}_{\text{cruise}} &= \frac{1}{(L/D)_{\text{cruise}}} = 0.068678 \\
+\frac{P}{W}_{\text{cruise}} &= \frac{T}{W}_{\text{cruise}} \cdot V_{\text{cruise}} = 1.167529 \\
+\frac{P}{W}_{\text{cruise}} &= 1.167529 \\
+\end{align*}
+
+\subsection {Power Loading for Descent}
+
+\begin{center}
+$V_{\text{approach}} = 14.56 \, \text{m/s}$ \\
+$V_{\text{flare}} = 13.776 \, \text{m/s}$
+\end{center}
+\begin{align*}
+\theta_{\text{descent}} &= \sin^{-1}\left(\frac{S_{\text{flare}}}{R_{\text{flare}}}\right) = 11.52162^\circ \\
+V_{\text{cruise to descent}} &= V_{\text{cruise}} \cdot \cos(\theta_{\text{descent}}) = 16.65 \, \text{m/s} \\
+V_{\text{average}} &= \frac{V_{\text{cruise to descent}} + V_{\text{approach}}}{2} = 15.605 \, \text{m/s} \\
+D_{\text{descent}} &= D_{\text{cruise}} \cdot \cos(\theta_{\text{descent}}) = 4.520132 \, \text{N} \\
+P_{\text{descent}} &= D_{\text{descent}} \cdot V_{\text{average}} = 70.53665 \, \text{W} \\
+\end{align*}
+\begin{center}
+$\frac{P}{W}_{\text{descent}} = 1.087755$
+\end{center}
+\subsection {Power Required for Climb}
+
+\begin{align*}
+\frac{P}{W}_{\text{climb}} &= 3.767996 \\
+P_{\text{climb}} &= \frac{P}{W}_{\text{climb}} \cdot W \\
+&= 3.767996 \times 64.84 \\
+&= 244.63 \, \text{W}
+\end{align*}
+
+\subsection {Power Required for Cruise}
+
+\begin{align*}
+\frac{P}{W}_{\text{cruise}} &= 1.167529 \\
+P_{\text{cruise}} &= \frac{P}{W}_{\text{cruise}} \cdot W \\
+&= 1.167529 \times 64.84 \\
+&= 75.70 \, \text{W}
+\end{align*}
+
+\subsection {Power Required for Descent}
+
+\begin{align*}
+\frac{P}{W}_{\text{descent}} &= 1.087755 \\
+P_{\text{descent}} &= \frac{P}{W}_{\text{descent}} \cdot W \\
+&= 1.087755 \times 64.84 \\
+&= 70.52 \, \text{W}
+\end{align*}
+
+\subsection {Power Required for Loiter}
+
+Since we have assumed that loitering would be done in cruise conditions, we will take all cruise condition values and calculate the power required for loitering.
+
+\begin{align*}
+\frac{P}{W}_{\text{loiter}} &= 1.167529 \\
+P_{\text{loiter}} &= \frac{P}{W}_{\text{loiter}} \cdot W \\
+&= 1.167529 \times 64.84 \\
+&= 75.70 \, \text{W}
+\end{align*}
+
+The total power required is the sum of the powers required for climb, cruise, descent, and loiter:
+
 \[
-V(R/C)_{\text{max}} = \left( \frac{2}{\rho} \times \sqrt{\frac{k}{3Cd,0}} \times \sqrt{\frac{W}{S}} \right)^{0.5}
+\text{Total Power Required} = P_{\text{climb}} + P_{\text{cruise}} + P_{\text{descent}} + P_{\text{loiter}}
 \]
 \[
-= \left( \frac{2}{1.225} \times \sqrt{\frac{0.047}{3 \times 0.04}} \times \sqrt{137.81} \right)^{0.5} = 11.87 \, \text{m/s}
-\]
-\[
-(R/C)_{\text{max}} = \eta_{pr} \frac{p}{w} - \left( \frac{2}{\rho} \times \sqrt{\frac{k}{3Cd,0}} \times \sqrt{\frac{W}{S}} \right)^{0.5} \times \frac{1.155}{L/D_{\text{max}}}
-\]
-\[
-= \left(0.9 \times \frac{243.29}{6.2 \times 9.81} - \left( \frac{2}{1.225} \times \sqrt{\frac{0.047}{3 \times 0.04}} \times \sqrt{(137.81)^{0.5}} \times \frac{1.155}{11.5} \right) \right) = 2.4 \, \text{m/s}
-\]
-Power required at $(R/C)_{\text{max}}$
-\[
-\frac{\eta_p}{w} = 2 + \left[ \left( \frac{2}{1.225} \times \sqrt{\frac{0.047}{3 \times 0.04}} \times \sqrt{137.81} \right)^{0.5} \right]
-\]
-\[
-P = 243.3 \, \text{W}
-\]
-Assume $V_{\text{max}} = 30$ m/s
-Power required for cruise flight at $V_{\text{max}}$
-\[
-P_{\text{max}} = T \times V_{\text{max}} = 5.33 \times 30 = 160 \, \text{W}
-\]
-For Service ceiling of $1$ km
-\[
-\rho = 1.112
-\]
-\[
-P_{\text{req}} = \sqrt{\frac{2 \times W^3 \times CD^2}{\rho \times S \times Cl^3}}
-\]
-\[
-= \sqrt{\frac{2 \times (6.2 \times 9.81)^3}{1.112 \times 0.44 \times (11.5)^{1.5}}} = 153.65 \, \text{W}
-\]
-\[
-P = 153.65 \times \frac{1.255}{1.225} = 169.26 \, \text{W}
-\]
-From the above constraints power required is $243.3$ W, giving $10\%$ of buffer,
-\[
-\text{Power} = 243.3 + 10\% = 267.7 \, \text{W}
+= 244.63 + 75.70 + 70.52 + 75.70 = 466.55 \, \text{W}
 \]
 
+Given that the power required for takeoff and Landing is negligible, we'll add a tolerance of 20\% to the total power value:
+
+\[
+\text{Final Total Power Required} = 466.55 + (0.20 \times 466.55) = 466.55 + 93.31 = 559.86 \, \text{W}
+\]
+\textbf{The total power required for the UAV is $559.86 \, \text{W}$.}
 
 
-\end{enumerate}
+\subsection {UAV powerplant selection}
+
+\subsubsection {Battery Capacity Calculation}
+
+For each mission segment, we will calculate the energy required in watt-hours by multiplying the power needed for that segment by its endurance time in hours.
+
+\begin{itemize}
+    \item Endurance for climb = 2 minutes = 0.0333 hours
+    \item Endurance for cruise = 12 minutes = 0.2 hours
+    \item Endurance for loiter = 10 minutes = 0.1667 hours
+    \item Endurance for descent = 2 minutes = 0.0333 hours
+    \item Endurance for takeoff and landing = 4 minutes = 0.0667 hours
+\end{itemize}
+
+\begin{align*}
+\text{Energy for climb} &= P_{\text{climb}} \times \text{Endurance for climb} \\
+&= 244.63 \times 0.0333 \\
+&= 8.15 \, \text{Wh} \\
+\\
+\text{Energy for cruise} &= P_{\text{cruise}} \times \text{Endurance for cruise} \\
+&= 75.70 \times 0.2 \\
+&= 15.14 \, \text{Wh} \\
+\\
+\text{Energy for loiter} &= P_{\text{loiter}} \times \text{Endurance for loiter} \\
+&= 75.70 \times 0.1667 \\
+&= 12.61 \, \text{Wh} \\
+\\
+\text{Energy for descent} &= P_{\text{descent}} \times \text{Endurance for descent} \\
+&= 70.52 \times 0.0333 \\
+&= 2.35 \, \text{Wh} \\
+\\
+\text{Energy for takeoff and landing} &= (\text{Final Total Power Required} \times 1.20) \times \text{Endurance for takeoff and landing} \\
+&= (559.86 \times 1.20) \times 0.0667 \\
+&= 44.45 \, \text{Wh} \\
+\end{align*}
+
+The total energy required is the sum of energies for all mission segments:
+
+\[
+\text{Total Energy Required} = 8.15 + 15.14 + 12.61 + 2.35 + 44.45 = 82.7 \, \text{Wh}
+\]
+
+To calculate battery capacity, we'll use the formula:
+
+\[
+\text{Capacity (mAh)} = \frac{\text{Energy Required (Wh)} \times \text{Flight Time (hours)}}{\text{Voltage (V)}} \times 1000
+\]
+
+Now, let's assume a typical lithium-ion battery voltage of 14.8V for calculation purposes.
+
+\begin{align*}
+\text{Battery Capacity} &= \frac{82.7 \times 1}{14.4} \times 1000 \\
+& = 5587.83 \, \text{mAh}
+\end{align*}
+
+So, the total battery capacity required for the aircraft is approximately $22351 \, \text{mAh}$.
+
+\subsubsection{Battery and Motor Selection}
+
+\subsubsubsection{Battery Selection}
+
+To meet the power requirements with a tolerance of 1000 mAh, we have selected a MaxAmps Lithium Polymer (LiPo) battery with a capacity of 6500mAh operating at a voltage of 14.8V.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.7\textwidth]{LIPO.jpg}
+    \caption{LiPo Battery}
+    \label{fig:battery}
+\end{figure}
+
+\begin{table}[!ht]
+    \centering
+    \caption{MaxAmps Lithium Battery Specifications}
+    \begin{tabular}{|l|l|}
+    \hline
+    \textbf{Specification} & \textbf{Value} \\ \hline
+    Brand & MaxAmps Lithium Batteries \\
+    Capacity & 6500mAh \\
+    Maximum Voltage & 16.8V \\
+    Minimum Voltage & 12V \\
+    Recommended Landing Voltage (Air) & 14V \\
+    Recommended Cut-off Voltage (Ground) & 12.8V \\
+    Chemistry & Lithium-Polymer (LiPo) \\
+    Maximum Continuous Discharge & 149.5A \\
+    Maximum Charge Current & 32.5A \\
+    Watt Hours & 96.2Wh \\
+    Energy Density & 151 Wh/kg \\
+    Main Lead Length (Custom lengths available) & 5.5" (140mm) \\
+    Balance Lead Length (Custom lengths available) & 5.5" (140mm) \\
+    Length & 5.43" (138mm) \\
+    Width & 1.77" (45mm) \\
+    Height & 1.88" (48mm) \\
+    Weight & 22.54oz (639g) \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsubsection{Motor and Propeller selection}
+
+We have selected AT 2317 Long Shaft KV 1440 Motor with APC 8x6 propeller to meet the above calculated power requirements and voltage capacity. All the specifications are mentioned below.
+\\Selecting the right propeller is crucial for efficient performance and optimal thrust generation. We have selected an APC 8x6 propeller that is compatible with our motor.\\
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.3\textwidth]{motorr.jpg}
+    \caption{AT2317 LONG SHAFT KV 1440 MOTOR}
+    \label{fig:motor}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{motor specifications.png}
+    \caption{MOTOR SPECIFICATIONS}
+    \label{fig:motor_specifications}
+\end{figure}
+
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{propeller.jpg}
+    \caption{APC 8x6 PROPELLER}
+    \label{fig:propeller}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.6\textwidth]{propeller specifications.png}
+    \caption{PROPELLER SPECIFICATIONS}
+    \label{fig:propeller_specifications}
+\end{figure}
 
 \newpage
 
+\section{Wing Loading}
+
+\subsection{Stall Criteria}
+
+
+\subsubsection{Flaps}
+
+\subsection{Cruise}
+
+\subsection{Loiter (Steady Turn)}
+
+\subsection{Climb}
+ 
+\newpage
 \textbf{\Huge{Appendix}}
 \appendix
 
@@ -770,7 +909,7 @@ From the above constraints power required is $243.3$ W, giving $10\%$ of buffer,
 
 \vspace{10 pt}
 
-The github account having all the codes can be accessed as : - 
+The GitHub account having all the codes can be accessed as: - 
 
 \href{https://github.com/abhijeetmangela/Group_7_design.git}{\text{https://github.com/abhijeetmangela/Group\textunderscore 7\textunderscore design.git}}
 
@@ -780,8 +919,8 @@ The github account having all the codes can be accessed as : -
 
 \subsection{Week 2}
 \begin{enumerate}
-    \item Data collection part was completely changed.
-    \item The general design of pdf was changed.
+    \item The Data collection part was completely changed.
+    \item The general design of the pdf was changed.
     \item More data was added along with a table for better comparison.
     \item Battery performance was estimated.
     \item Weight was estimated.
@@ -800,7 +939,7 @@ The github account having all the codes can be accessed as : -
 \subsection{Week 2}
 
 \subsubsection{Abhijeet Mangela AE21B040}
-Wrote full Latek report, Drew the mission profile with Inkscape and Autocad, Empty weight Fraction estimation, Final weight estimation with Senthil
+Wrote full Latek report, Drew the mission profile with Inkscape and Autocad, Empty weight Fraction estimation, and Final weight estimation with Senthil
 
 \subsubsection{Navin Yadav AE23M803}
 
@@ -816,7 +955,7 @@ Data Collection; Literature Survey
 
 \subsubsection{Senthil B AE23M035}
 
-Detailed Mission Profile; Preliminary Weight Estimation (only iteration) ; Battery weight estimation.
+Detailed Mission Profile; Preliminary Weight Estimation (only iteration); Battery weight estimation.
 
 \subsubsection{Rajendran Anandhu Nair AE23M027}
 
@@ -829,17 +968,17 @@ Data Collection; Literature Survey
 
 
 \subsubsection{Abhijeet Mangela AE21B040}
-Changed the Mission Profile, Converted references to bibtex, Did some clean up of document, did the Preliminary weight estimate which was wrong last week, Power estimation for cruise and climb, Linked all files internally in Github for easy connectivity
+Changed the Mission Profile, Converted references to BibTeX, Did some cleanup of document, did the Preliminary weight estimate, which was wrong last week, Power estimation for cruise and climb, Linked all files internally in Github for easy connectivity.
 
 \subsubsection{Navin Yadav AE23M803}
-Analytical calculation, added calculation on latex 
+The analytical calculation added calculation on latex 
 
 \subsubsection{Balamurugan S AE23M009}
 Data Collection; Literature Survey; Max L/D vs Sqrt(Wetted AR) Calculations and Plotting.
 
 
 \subsubsection{Samarth R Krishna AE23M032}
-Analytical calculation , added calculation on latex
+The analytical calculation added calculation on latex
 
 
 \subsubsection{Senthil B AE23M035}
@@ -847,7 +986,7 @@ Data Collection; Image Processing using ImageJ; Max L/D vs Sqrt(Wetted AR) Calcu
 
 
 \subsubsection{Rajendran Anandhu Nair AE23M027}
-Data Collection; Image Processing using Fusion 360; Report writing for Reference and Wetted areas, Aspect ratios, Coefficient of lift, and Maximum Lift to drag ratio. 
+Data Collection; Image Processing using Fusion 360; Report writing for Reference and Wetted areas, Aspect ratios, Coefficient of lift, and Maximum lift-to-drag ratio. 
 
 
 \section{Current estimates}
