@@ -635,43 +635,45 @@ SI no &
 \end{figure}
 
 \section {Power Loading for Different mission segments}
-
+Given:
+\begin{align*}
+& L/D_{\text{max}} = 14.56067 \quad (\text{Taken from average of } L/D_{\text{max}} \text{ of data collection}) \\
+& L/D_{\text{max}} = 30.249 \ln(\sqrt{AR_{\text{wet}}}) - 5.0483 \\
+& \sqrt{AR_{\text{wet}}} = 1.912198 \\
+& AR_{\text{wet}} = 3.6565 \\
+& \frac{S_{\text{wet}}}{S_{\text{ref}}} = 1.9626 \quad (\text{From Data Collection and plotting graph between} \\
+& \quad \text{ } \frac{S_{\text{wet}}}{S_{\text{ref}}} \text{ and } \sqrt{AR_{\text{wet}}}) \\
+& AR_{\text{ref}} = \frac{b^2}{S_{\text{ref}}} = \left(\frac{b^2}{S_{\text{wet}}}\right) \left(\frac{S_{\text{wet}}}{S_{\text{ref}}}\right) = AR_{\text{wet}} \left(\frac{S_{\text{wet}}}{S_{\text{ref}}}\right) = 3.6565 \times 1.9626 = 7.175 \\
+& e = 0.7 \quad (\text{for rectangular wing taken from NASA website}) \\
+& k = \frac{1}{\pi e AR_{\text{ref}}} = \frac{1}{\pi \times 0.7 \times 7.175} = 0.063377 \\
+& S_{\text{ref}} = 0.7 \text{ m}^2 \quad (\text{design requirement}) \\
+& b = \sqrt{AR_{\text{ref}} S_{\text{ref}}} = 2.241098 \text{ m} \\
+& c = \frac{b}{S_{\text{ref}}} = 0.312348 \text{ m} \\
+& L/D_{\text{max}} = \frac{1}{2\sqrt{k C_{d0}}} \\
+& C_{d0} = \frac{1}{4} \left(\frac{L}{D}\right)^2 k \\
+& C_{d0} = 0.018606 \\
+& \text{For NACA 4415 Airfoil:} \\
+& C_{L_{\text{max, 2D}}} = 1.3393 \quad (\text{from airfoiltools.com}) \\
+& C_{L_{\text{max, 3D}}} = 0.9 C_{L_{\text{max, 2D}}} = 1.2054 \\
+& V_{\text{stall}} = 11.2 \text{ m/s} \quad (\text{design requirement}) \\
+& V_{\text{stall}} = \sqrt{\frac{2(W/S)}{\rho C_{L_{\text{max, 3D}}}}} \\
+& \frac{W}{S} = \frac{\rho V_{\text{stall}}^2 C_{L_{\text{max, 3D}}}}{2} \\
+& \frac{W}{S} = 92.65865 \text{ N/m}^2 \\
+\end{align*}
 \subsection {Power Loading for Climb}
-
-\begin{center}
-$L/D_{\text{max}} = 14.56067$
-\end{center}
 \begin{align*}
-L/D_{\text{max}} &= \frac{1}{2\sqrt{k \cdot C_{d0}}} \\
-C_{d0} &= \frac{1}{4} \left(\frac{L}{D}\right)^2 \cdot k \\
-C_{d0} &= 0.018606 \\
+& V_{\text{climb}} = V_{\text{minimum power}} = \sqrt{\frac{2W}{\rho S}} \left(\frac{k}{3C_{d0}}\right)^{\frac{1}{4}} \\
+& V_{\text{climb}} = 12.69456 \text{ m/s} \\
+& V_{\text{takeoff}} = 1.2 V_{\text{stall}} = 1.2 \times 11.2 = 13.44 \text{ m/s} \\
+& S_{\text{rotation}} = V_{\text{rotation}} t_{\text{rotation}} = 13.44 \times 1.5 = 20.16 \text{ m} \quad (\text{ } t_{\text{rotation}} = 1.5 \text{ seconds for small airplanes - From JD Anderson}) \\
+& R_{\text{rotation}} = 6.96 \times \frac{V_{\text{takeoff}}^2}{9.81} = 68.99719 \text{ m} \\
+& \text{Climb angle} = \theta_{\text{c}} = \sin^{-1}\left(\frac{S_{\text{rotation}}}{R_{\text{rotation}}}\right) = 13.0995^\circ \\
+& \text{ROC}_{\text{max}} = V_{\text{climb\_ROCmax}} \sin(\theta_{\text{c}}) = 12.6945 \sin(13.09915^\circ) = 2.8770757 \text{ m/s} \\
+& \eta_{\text{prop}} \frac{P}{W} = \text{ROC}_{\text{max}} + \sqrt{\left(\frac{2(W/S) (k/3C_{d0})^{\frac{1}{2}}}{\rho}\right)^{\frac{1}{2}} \left(\frac{1.155}{(L/D)_{\text{max}}}\right)} \quad (\text{From JD ANDERSON}) \\
+& \eta_{\text{prop}} \frac{P}{W} = 3.014397 \\
+& \eta_{\text{prop}} = 0.8 \quad (\text{From JD Anderson}) \\
+& \left(\frac{P}{W}\right)_{\text{climb}} = \frac{3.014397}{0.8} = 3.767996
 \end{align*}
-\begin{center}
-$W/S = 92.65865 \, \text{N/m}^2$ \\
-$V_{\text{stall}} = 11.2 \, \text{m/s}$
-\end{center}
-\begin{align*}
-W/S &= \rho \cdot V_{\text{stall}}^2 \cdot \frac{C_{L_{\text{max, 3D}}}}{2} \\
-W/S &= 92.65865 \\
-\end{align*}
-\begin{center}
-$V_{\text{climb}} = 12.69456 \, \text{m/s}$ \\
-$V_{\text{takeoff}} = 13.44 \, \text{m/s}$
-\end{center}
-\begin{align*}
-S_{\text{rotation}} &= V_{\text{rotation}} \cdot t_{\text{rotation}} = 20.16 \, \text{m} \\
-R_{\text{rotation}} &= \frac{6.96 \cdot V_{\text{takeoff}}^2}{9.81} = 68.99719 \, \text{m} \\
-\theta_{\text{climb}} &= \sin^{-1}\left(\frac{S_{\text{rotation}}}{R_{\text{rotation}}}\right) = 13.0995^\circ \\
-\end{align*}
-\begin{center}
-$ROC_{\text{max}} = 2.8770757 \, \text{m/s}$ \\
-$\eta_{\text{prop}} = 0.8$
-\end{center}
-\begin{align*}
-\frac{P}{W}_{\text{climb}} &= \frac{ROC_{\text{max}} + \sqrt{\frac{2 \left(\frac{W}{S}\right) \cdot \left(\frac{k}{3C_{d0}}\right)^{1/2}}{\rho}}}{\sqrt{\frac{1.155}{L/D_{\text{max}}}}} \\
-\frac{P}{W}_{\text{climb}} &= 3.767996 \\
-\end{align*}
-\newpage
 \subsection {Power Loading for Cruise}
 
 \begin{center}
@@ -737,21 +739,22 @@ P_{\text{loiter}} &= \frac{P}{W}_{\text{loiter}} \cdot W \\
 &= 75.70 \, \text{W}
 \end{align*}
 
-The total power required is the sum of the powers required for climb, cruise, descent, and loiter:
+%The total power required is the sum of the powers required for climb, cruise, descent, and loiter:
 
-\[
-\text{Total Power Required} = P_{\text{climb}} + P_{\text{cruise}} + P_{\text{descent}} + P_{\text{loiter}}
-\]
-\[
-= 244.63 + 75.70 + 70.52 + 75.70 = 466.55 \, \text{W}
-\]
+%\[
+%\text{Total Power Required} = P_{\text{climb}} + P_{\text{cruise}} + %P_{\text{descent}} + P_{\text{loiter}}
+%\]
+%\[
+%= 244.63 + 75.70 + 70.52 + 75.70 = 466.55 \, \text{W}
+%\]
 
-Given that the power required for takeoff and Landing is negligible, we'll add a tolerance of 20\% to the total power value:
+%Given that the power required for takeoff and Landing is negligible, we'll add a tolerance of 20\% to the total power value:
 
-\[
-\text{Final Total Power Required} = 466.55 + (0.20 \times 466.55) = 466.55 + 93.31 = 559.86 \, \text{W}
-\]
-\textbf{The total power required for the UAV is $559.86 \, \text{W}$.}
+%\[
+%\text{Final Total Power Required} = 466.55 + (0.20 \times 466.55) = 466.55 + %93.31 = 559.86 \, \text{W}
+%\]
+%\textbf{The total power required for the UAV is $559.86 \, \text{W}$.}
+
 
 
 \subsection {UAV powerplant selection}
@@ -899,7 +902,7 @@ At this speed the Angle of attack of the aircraft becomes so large that the flow
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\linewidth]{Extra pics/Cllvsalpha.png}
+    \includegraphics[width=0.4\linewidth]{Extra pics/Cllvsalpha.png}
     \caption{Variation of $C_L$ with angle of attack ref- \cite{stallpic}}
     \label{Variation of $C_L$ with angle}
 \end{figure}
@@ -907,16 +910,59 @@ At this speed the Angle of attack of the aircraft becomes so large that the flow
 
 
 \subsubsection{Flaps}
-According to \cite{flap} we can decrease the $\text{V}_\text{stall}$ by adding flaps to our airplane. There are different arrangements which we can use for flaps.
+According to \cite{flap}, we can decrease the $\text{V}_\text{stall}$ by adding flaps to our aeroplane. There are different arrangements which we can use for flaps.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Extra pics/flap-types.jpg}
+    \caption{Basic types of flaps ref- \cite{flap} }
+    \label{Different Flap types}
+\end{figure}
+
+When we open the flap, we increase the wing's surface area. Also, we are increasing the wing's angle of attack by pushing the backward tip of the airfoil down without making any changes in the forward portion.
+
+This is very advantageous to us, especially during landing and take-off, which may make us able to make Short take-off and Landing possible. 
+
+Some flaps can even make the value of $C_{L_{max}}$ close to 4. But for our case, we will assume the $C_{L_{max}}$ to be 1.4. This is because we want to calculate S without any flaps, as we do not deploy flaps during cruise as they increase drag, which is not good for endurance.
+
+\subsection{ $\frac{W}{S}$ calculations }
+
+\subsubsection{Stall}
+
+According to our take-off speed based on the Mission profile which is 10 m/s we will take our stall speed to be 8.33 m/s
+
+At stall we know,
+$$W = \frac{1}{2} \rho V^2 S C_{L_{max}} $$
+
+So, $\frac{W}{S}$ comes out to be 59.5486. So taking our estimated weight the S comes out to be 1.0879.
+
+Since we are not dropping any payload or using any fuel, our $\frac{W}{S}$ will remain the same overall. But in case of turning one wing can have a higher loading than other to balance out forces. But the overall $\frac{W}{S}$ will remain the same.
+
+\subsubsection{Take off parameter}
+
+According to \cite{Raymer.2006}, he states the the Take off Parameter is given as:- 
+
+$$\text{TOP} = \frac{\frac{W}{S}}{ \sigma C_{L_{TO}} \left( \frac{P}{W} \right) }$$
+where,
+\begin{itemize}
+    \item[-] $\sigma$ is the density ratio which we will take as 1.
+    \item [-] $C_{L_{TO}}$ will be the Coefficient of lift at Take off 
+\end{itemize}
+
+We have taken the takeoff distance to be 80 m which comes out to be around 200 feet. Changing the previous equation :-
+
+$$ \frac{W}{S} = \text{TOP} \sigma C_{L_{TO}} \left( \frac{P}{W} \right) $$
+
+This equation will give us an estimate of the maximum $\frac{W}{S}$ which we can take for our aircraft.
+
+The TOP is given in ref \cite{Raymer.2006} page number 130 in the form of a graph. The graph was digitalized using Image processing and a Linear regression was taken as 
+
+\subsubsection{Landing distance}
+
+According to \cite{Andersondesign} Anderson states 
 
 
 
-\subsection{Cruise}
-
-\subsection{Loiter (Steady Turn)}
-
-\subsection{Climb}
- 
 \newpage
 \textbf{\Huge{Appendix}}
 \appendix
