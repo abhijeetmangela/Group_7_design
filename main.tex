@@ -57,7 +57,7 @@
 \begin{titlepage}
 \begin{center}
 
-\textbf{\huge Design project report Group 7 \\ \vspace{0.4 cm} Week 3} \\
+\textbf{\huge Design project report Group 7 \\ \vspace{0.4 cm} Week 4} \\
 
 \vspace{2 cm}
 
@@ -957,7 +957,7 @@ This equation will estimate the maximum $\frac{W}{S}$ which we can take for our 
 
 The TOP is given in ref \cite{Raymer.2006} page number 130 in the form of a graph. The graph was digitalized using Image processing, and a Linear regression was taken in Figure:-\ref{Image processed Take off parameter}. 
 
-We will take a power of 500 W for take off, which can be provided by out powerplant at 80 \% throttle. 
+We will take a power of 500 W for take-off, which can be provided by out power-plant at 80 \% throttle. 
 
 \newpage
 
@@ -969,11 +969,11 @@ We will take a power of 500 W for take off, which can be provided by out powerpl
 \end{figure}
 
 
-For our case, we calculated that the maximum Wing loading during take-off can be 352 $N/m^2$. This is sufficiently higher than the wing loading by Stall criteria so we can rest assured that our plane can take off properly.
+For our case, we calculated that the maximum Wing loading during take-off can be 352 $N/m^2$. This is sufficiently higher than the wing loading by Stall criteria, so we can rest assured that our plane can take off properly.
 
 \subsubsection{Landing distance}
 
-According to \cite{Raymer.2006} Chapter 5.3.5, Raymer states that Landing distance is the minimum distance that the plane will take to come to a halt.
+According to \cite{Raymer.2006} Chapter 5.3.5, Raymer states that Landing distance is the minimum distance the plane will take to come to a halt.
 
 It includes a clearing distance as well as a ground run distance. The landing distance heavily relies on $C_{L_{max}}$, which can be increased heavily by using flaps.
 
@@ -986,29 +986,36 @@ where,
     \item[-] $S_a$ is the 'Clearance Distance' we should take before the actual ground roll to stay clear of all objects. We will take it as 50 m.
 \end{itemize}
 
-Using this the Current landing estimate comes out to be 198.8 m along with the Clearance distance. It should be noted that the distance can be significantly shortened by using flaps more efficiently to increase the maximum coefficient of lift.
+Using this, the Current landing estimate comes out to be 198.8 m, along with the Clearance distance. It should be noted that the distance can be significantly shortened by using flaps more efficiently to increase the maximum lift coefficient.
 
-Also some methods like thrust reversion can be pondered upon in the design further up in the design process.
+Also, some methods, like thrust reversion, can be considered in the design process to reduce landing distance.
 
 
 \subsubsection{Cruise}
 
-Raymer in \cite{Raymer.2006} ch 5.3.7 discusses that for maximising range in cruise we would like a Wing loading which is generally much higher than what is required for a wing requires for stall speed. As a result making a wing based on this estimate is pretty unsafe and will drastically increase stall speed.
+Raymer in \cite{Raymer.2006} ch 5.3.7 discusses that for maximising range in cruise, we would like a Wing loading, which is generally much higher than what is required for a wing required for stall speed. As a result, making a wing based on this estimate is pretty unsafe and will drastically increase stall speed.
 
-The propeller aircraft will give us the maximum range when we have the highest L/D ratio. It is speed for it is when the parasitic drag is equal to Induced drag as shown in Chapter 17 of \cite{Raymer.2006}. Thus:-
+The propeller aircraft will give us the maximum range when we have the highest L/D ratio. It is speed when the parasitic drag equals Induced drag as shown in Chapter 17 of \cite{Raymer.2006}. Thus:-
 $$qSC_{D_o} = qS\frac{C_L^2}{\pi e AR}$$
 It will transform to give us:- 
 $$ C_L = \sqrt{C_{D_o} \pi e AR }$$
 
-This can be substituted back into Cruise equation for lift to get:-
+This can be substituted back into the Cruise equation for the lift to get:-
 $$ \frac{W}{S} = q \sqrt{C_{D_o} \pi e AR}$$
 where, q is $\frac{1}{2} \rho V^2 $
 
-For our cruise condition our Wing loading comes out to be 95.91 $N/m^2$. This is expected as for a very good cruise it will be best to have as small wing as possible to minimise drag which is impossible.
+For our cruise condition, our Wing loading comes out to be 95.91 $N/m^2$. This is expected for a perfect cruise, so it will be best to have as small a wing as possible to minimise impossible drag.
 
 \subsubsection{Loiter}
 
-According to Raymer in CH 5.3.8 of \cite{Raymer.2006} he states that the time of loiter will be most when the induced drag is 3 times the parasitic drag
+According to Raymer in CH 5.3.8 of \cite{Raymer.2006} he states that the time of loiter will be most when the induced drag is three times the parasitic drag. 
+$$C_L = 3 C_{D_o}$$
+
+Assuming Loiter to be steady, we compute the wing loading as:-
+$$\frac{W}{S} = q \sqrt{3C_{D_o} \pi e AR}$$
+For our case, the optimal wing loading is 242.42 $N/m^2$.
+
+Thus, We can infer that we must decrease our loiter speed to a low value to decrease the optimal wing loading in the next iteration. For example, for a loiter velocity of 15 m/s, we will get wing loading to be 130 $N/m^2$.
 
 \newpage
 \textbf{\Huge{Appendix}}
@@ -1052,10 +1059,10 @@ The GitHub account having all the codes can be accessed as: -
 \begin{enumerate}
     \item Power calculations were recalculated.
     \item Battery was selected.
-    \item Motor and propeller was selected.
+    \item Motor and propeller were selected.
+    \item Wing loading was done
 \end{enumerate}
 
-\subsection{}
 \newpage
 
 
@@ -1113,6 +1120,26 @@ Data Collection; Image Processing using ImageJ; Max L/D vs Sqrt(Wetted AR) Calcu
 \subsubsection{Rajendran Anandhu Nair AE23M027}
 Data Collection; Image Processing using Fusion 360; Report writing for Reference and Wetted areas, Aspect ratios, Coefficient of lift, and Maximum lift-to-drag ratio. 
 
+\subsection{Week 4}
+
+
+\subsubsection{Abhijeet Mangela AE21B040}
+Did Wing loading for stall criteria, effect of flaps, as well as all $\frac{W}{S}$ calculations for Stall, Takeoff, Landing, Cruise and loiter and wrote \LaTeX for it.
+
+\subsubsection{Navin Yadav AE23M803}
+
+\subsubsection{Balamurugan S AE23M009}
+
+
+\subsubsection{Samarth R Krishna AE23M032}
+
+
+
+\subsubsection{Senthil B AE23M035}
+Calculated power loading calculations for cruise climb descent,loitre and stall conditions. Also calculated and approximated some design parameters like wing reference area, maximum Lift to Drag Ratio ueing previously collected data.
+
+\subsubsection{Rajendran Anandhu Nair AE23M027}
+Calculated ba
 
 \section{Current estimates}
 
