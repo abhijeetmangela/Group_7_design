@@ -934,34 +934,81 @@ According to our take-off speed based on the Mission profile which is 10 m/s we 
 At stall we know,
 $$W = \frac{1}{2} \rho V^2 S C_{L_{max}} $$
 
-So, $\frac{W}{S}$ comes out to be 59.5486. So taking our estimated weight the S comes out to be 1.0879.
+So, $\frac{W}{S}$ comes out to be 59.5486 $N/m^2$. So, taking our estimated weight, the S comes out to be 1.0879 m.
 
-Since we are not dropping any payload or using any fuel, our $\frac{W}{S}$ will remain the same overall. But in case of turning one wing can have a higher loading than other to balance out forces. But the overall $\frac{W}{S}$ will remain the same.
+%Since we are not dropping any payload or using any fuel, our $\frac{W}{S}$ will remain the same overall. But in the case of turning, one wing can have a higher loading than the other to balance out forces. But the overall $\frac{W}{S}$ will remain the same.
 
 \subsubsection{Take off parameter}
 
-According to \cite{Raymer.2006}, he states the the Take off Parameter is given as:- 
+According to \cite{Raymer.2006}, Raymer states that the Takeoff Parameter is given as:- 
 
 $$\text{TOP} = \frac{\frac{W}{S}}{ \sigma C_{L_{TO}} \left( \frac{P}{W} \right) }$$
 where,
 \begin{itemize}
-    \item[-] $\sigma$ is the density ratio which we will take as 1.
-    \item [-] $C_{L_{TO}}$ will be the Coefficient of lift at Take off 
+    \item[-] $\sigma$ is the density ratio we will take as 1.
+    \item [-] $C_{L_{TO}}$ will be the Coefficient of lift at Takeoff 
 \end{itemize}
 
-We have taken the takeoff distance to be 80 m which comes out to be around 200 feet. Changing the previous equation :-
+We have taken the takeoff distance to be 80 m, which is around 200 feet. Changing the previous equation:-
 
-$$ \frac{W}{S} = \text{TOP} \sigma C_{L_{TO}} \left( \frac{P}{W} \right) $$
+$$ \frac{W}{S} = \text{TOP} \times \sigma C_{L_{TO}} \left( \frac{P}{W} \right) $$
 
-This equation will give us an estimate of the maximum $\frac{W}{S}$ which we can take for our aircraft.
+This equation will estimate the maximum $\frac{W}{S}$ which we can take for our aircraft.
 
-The TOP is given in ref \cite{Raymer.2006} page number 130 in the form of a graph. The graph was digitalized using Image processing and a Linear regression was taken as 
+The TOP is given in ref \cite{Raymer.2006} page number 130 in the form of a graph. The graph was digitalized using Image processing, and a Linear regression was taken in Figure:-\ref{Image processed Take off parameter}. 
+
+We will take a power of 500 W for take off, which can be provided by out powerplant at 80 \% throttle. 
+
+\newpage
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Codes/Week 2/Takeoffparam.png}
+    \caption{Image processed Take off parameter from \protect\cite{Raymer.2006} pg no 130}
+    \label{Image processed Take off parameter}
+\end{figure}
+
+
+For our case, we calculated that the maximum Wing loading during take-off can be 352 $N/m^2$. This is sufficiently higher than the wing loading by Stall criteria so we can rest assured that our plane can take off properly.
 
 \subsubsection{Landing distance}
 
-According to \cite{Andersondesign} Anderson states 
+According to \cite{Raymer.2006} Chapter 5.3.5, Raymer states that Landing distance is the minimum distance that the plane will take to come to a halt.
+
+It includes a clearing distance as well as a ground run distance. The landing distance heavily relies on $C_{L_{max}}$, which can be increased heavily by using flaps.
+
+It is given as:- 
+$$ S_{\text{Landing}} = 5*\left( \frac{W}{S} \right) \left( \frac{1}{\sigma C_{L_{\text{max}}}} \right) \: + \: S_a$$
+where,
+\begin{itemize}
+    \item [-] $\sigma$ is the density ratio we will take as 1.
+    \item[-] $C_{L_{\text{max}}} $ is the maximum Lift coefficient which we will take as 2 with flaps.
+    \item[-] $S_a$ is the 'Clearance Distance' we should take before the actual ground roll to stay clear of all objects. We will take it as 50 m.
+\end{itemize}
+
+Using this the Current landing estimate comes out to be 198.8 m along with the Clearance distance. It should be noted that the distance can be significantly shortened by using flaps more efficiently to increase the maximum coefficient of lift.
+
+Also some methods like thrust reversion can be pondered upon in the design further up in the design process.
 
 
+\subsubsection{Cruise}
+
+Raymer in \cite{Raymer.2006} ch 5.3.7 discusses that for maximising range in cruise we would like a Wing loading which is generally much higher than what is required for a wing requires for stall speed. As a result making a wing based on this estimate is pretty unsafe and will drastically increase stall speed.
+
+The propeller aircraft will give us the maximum range when we have the highest L/D ratio. It is speed for it is when the parasitic drag is equal to Induced drag as shown in Chapter 17 of \cite{Raymer.2006}. Thus:-
+$$qSC_{D_o} = qS\frac{C_L^2}{\pi e AR}$$
+It will transform to give us:- 
+$$ C_L = \sqrt{C_{D_o} \pi e AR }$$
+
+This can be substituted back into Cruise equation for lift to get:-
+$$ \frac{W}{S} = q \sqrt{C_{D_o} \pi e AR}$$
+where, q is $\frac{1}{2} \rho V^2 $
+
+For our cruise condition our Wing loading comes out to be 95.91 $N/m^2$. This is expected as for a very good cruise it will be best to have as small wing as possible to minimise drag which is impossible.
+
+\subsubsection{Loiter}
+
+According to Raymer in CH 5.3.8 of \cite{Raymer.2006} he states that the time of loiter will be most when the induced drag is 3 times the parasitic drag
 
 \newpage
 \textbf{\Huge{Appendix}}
