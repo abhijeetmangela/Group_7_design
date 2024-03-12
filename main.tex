@@ -384,13 +384,13 @@ $$ P_R = f(W) $$
 
 We will consider the Loitor phase as a cruise, too.
 
-For our cruise phase of 17 m/s, we will need a power of 63.42 W.
+For our cruise phase of 17 m/s, we will need a power of 84.35 W.
 
 \subsubsection{Climb }
 The power required for climb is given by 
 $$ P = W \times R.O.C + P_R $$
 
-Climbing is also the portion where we need a good amount of power. For our estimated weight, we need a preliminary power of 87 W.
+Climbing is also the portion where we need a good amount of power. For our estimated weight, we need a preliminary power of 251 W.
 
 \subsubsection{Descent}
 The power required for descent is 
@@ -465,7 +465,7 @@ In our case, the design weight was 6.6102 kg after taking a 20 percent leverage 
 
 \newpage
 
-\section{Powerplant and Battery Selection}
+\section{Calculation of Parameters}
 
 \subsection{\ Extensive Calculation of Aspect Ratio and Lift Coefficient}
 
@@ -788,9 +788,9 @@ For each mission segment, we will calculate the energy required in watt-hours by
 &= 70.52 \times 0.0333 \\
 &= 2.35 \, \text{Wh} \\
 \\
-\text{Energy for takeoff and landing} &= (\text{Final Total Power Required} \times 1.20) \times \text{Endurance for takeoff and landing} \\
-&= (559.86 \times 1.20) \times 0.0667 \\
-&= 44.45 \, \text{Wh} \\
+\text{Energy for takeoff and landing} &= (\text{Final Total Power Required} \times 0.20) \times \text{Endurance for takeoff and landing} \\
+&= (559.86 \times 0.20) \times 0.0667 \   \text{we take 20 percent buffer of total power}  \\
+&= 7.47 \, \text{Wh} \\
 \end{align*}
 
 The total energy required is the sum of energies for all mission segments:
@@ -802,27 +802,32 @@ The total energy required is the sum of energies for all mission segments:
 To calculate battery capacity, we'll use the formula:
 
 \[
-\text{Capacity (mAh)} = \frac{\text{Energy Required (Wh)} \times \text{Flight Time (hours)}}{\text{Voltage (V)}} \times 1000
+\text{Capacity (mAh)} = \frac{\text{Energy Required (Wh)}}{\text{Voltage (V)}} \times 1000
 \]
+
 
 Now, let's assume a typical lithium-ion battery voltage of 14.8V for calculation purposes.
 
-\begin{align*}
-\text{Battery Capacity} &= \frac{82.7 \times 1}{14.4} \times 1000 \\
-& = 5587.83 \, \text{mAh}
-\end{align*}
+\begin{align}
+\text{Battery Capacity} &= \frac{45.72}{14.8} \times 1000 \\
+& = 3089.18 \, \text{mAh}
+\end{align}
 
-So, the total battery capacity required for the aircraft is approximately $22351 \, \text{mAh}$.
+%Bro give powerplant weight - Propeller and motor weight
+%Write the answer here
+%
+
+So, the total battery capacity required for the aircraft is approximately $3089.18 \, \text{mAh}$.
 
 \subsubsection{Battery and Motor Selection}
 
 \subsubsection{Battery Selection}
 
-To meet the power requirements with a tolerance of 1000 mAh, we have selected a MaxAmps Lithium Polymer (LiPo) battery with a capacity of 6500mAh operating at a voltage of 14.8V.
+To meet the power requirements with a tolerance of about 1000 mAh, we have selected a MaxAmps Lithium Polymer (LiPo) battery with a capacity of 4000mAh operating at a voltage of 14.8V.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.7\textwidth]{LIPO.jpg}
+    \includegraphics[width=0.7\textwidth]{LiPo-4000-4S-14.8v-Battery-Pack.jpg}
     \caption{LiPo Battery}
     \label{fig:battery}
 \end{figure}
@@ -834,22 +839,22 @@ To meet the power requirements with a tolerance of 1000 mAh, we have selected a 
     \hline
     \textbf{Specification} & \textbf{Value} \\ \hline
     Brand & MaxAmps Lithium Batteries \\
-    Capacity & 6500mAh \\
+    Capacity & 4000mAh \\
     Maximum Voltage & 16.8V \\
     Minimum Voltage & 12V \\
     Recommended Landing Voltage (Air) & 14V \\
     Recommended Cut-off Voltage (Ground) & 12.8V \\
     Chemistry & Lithium-Polymer (LiPo) \\
-    Maximum Continuous Discharge & 149.5A \\
-    Maximum Charge Current & 32.5A \\
-    Watt Hours & 96.2Wh \\
+    Maximum Continuous Discharge & 128A \\
+    Maximum Charge Current & 20A \\
+    Watt Hours & 59.2Wh \\
     Energy Density & 151 Wh/kg \\
     Main Lead Length (Custom lengths available) & 5.5" (140mm) \\
     Balance Lead Length (Custom lengths available) & 5.5" (140mm) \\
-    Length & 5.43" (138mm) \\
-    Width & 1.77" (45mm) \\
-    Height & 1.88" (48mm) \\
-    Weight & 22.54oz (639g) \\ \hline
+    Length & 5.39" (138mm) \\
+    Width & 1.85" (45mm) \\
+    Height & 1.14" (48mm) \\
+    Weight & 388g \\ \hline
     \end{tabular}
 \end{table}
 
@@ -857,7 +862,7 @@ To meet the power requirements with a tolerance of 1000 mAh, we have selected a 
 
 We have selected AT 2317 Long Shaft KV 1440 Motor with APC 8x6 propeller to meet the above calculated power requirements and voltage capacity. All the specifications are mentioned below.
 
-Selecting the right propeller is crucial for efficient performance and optimal thrust generation. We have selected an APC 8x6 propeller that is compatible with our motor.\\
+Selecting the right propeller is crucial for efficient performance and optimal thrust generation. We have selected an APC 8x6 propeller that is compatible with our motor.
 
 \begin{figure}[h]
     \centering
@@ -869,7 +874,7 @@ Selecting the right propeller is crucial for efficient performance and optimal t
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{motor specifications.png}
-    \caption{MOTOR SPECIFICATIONS}
+    \caption{MOTOR SPECIFICATIONS \cite{enginebuy}}
     \label{fig:motor_specifications}
 \end{figure}
 
@@ -877,7 +882,7 @@ Selecting the right propeller is crucial for efficient performance and optimal t
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{propeller.jpg}
-    \caption{APC 8x6 PROPELLER}
+    \caption{APC 8x6 PROPELLER }
     \label{fig:propeller}
 \end{figure}
 
@@ -891,7 +896,20 @@ Selecting the right propeller is crucial for efficient performance and optimal t
 \newpage
 
 \clearpage
-
+\begin{table}[h]
+    \centering
+    \caption{Powerplant Components and Weights}
+    \label{tab:powerplant_weights}
+    \begin{tabular}{|l|c|}
+        \hline
+        \textbf{Powerplant Component} & \textbf{Weight (g)} \\
+        \hline
+        Battery & 388 \\
+        Motor & 80 \\
+        Propeller & 19 \\
+        \hline
+    \end{tabular}
+\end{table}
 
 \section{Wing Loading}
 
@@ -934,7 +952,7 @@ According to our take-off speed based on the Mission profile which is 10 m/s we 
 At stall we know,
 $$W = \frac{1}{2} \rho V^2 S C_{L_{max}} $$
 
-So, $\frac{W}{S}$ comes out to be 59.5486 $N/m^2$. So, taking our estimated weight, the S comes out to be 1.0879 m.
+So, $\frac{W}{S}$ comes out to be 107.5648 $N/m^2$. So, taking our estimated weight, the S comes out to be 1.0879 m.
 
 %Since we are not dropping any payload or using any fuel, our $\frac{W}{S}$ will remain the same overall. But in the case of turning, one wing can have a higher loading than the other to balance out forces. But the overall $\frac{W}{S}$ will remain the same.
 
@@ -958,8 +976,6 @@ This equation will estimate the maximum $\frac{W}{S}$ which we can take for our 
 The TOP is given in ref \cite{Raymer.2006} page number 130 in the form of a graph. The graph was digitalized using Image processing, and a Linear regression was taken in Figure:-\ref{Image processed Take off parameter}. 
 
 We will take a power of 500 W for take-off, which can be provided by out power-plant at 80 \% throttle. 
-
-\newpage
 
 \begin{figure}[h]
     \centering
@@ -1103,14 +1119,14 @@ Data Collection; Literature Survey
 Changed the Mission Profile, Converted references to BibTeX, Did some cleanup of document, did the Preliminary weight estimate, which was wrong last week, Power estimation for cruise and climb, Linked all files internally in Github for easy connectivity.
 
 \subsubsection{Navin Yadav AE23M803}
-The analytical calculation added calculation on latex 
+The analytical calculation and added these calculations on latex 
 
 \subsubsection{Balamurugan S AE23M009}
 Data Collection; Literature Survey; Max L/D vs Sqrt(Wetted AR) Calculations and Plotting.
 
 
 \subsubsection{Samarth R Krishna AE23M032}
-The analytical calculation added calculation on latex
+The analytical calculation (Drag Polar calculation, L/D max estimation, calculation of Thrust and Power required at different phases), and added these calculations on latex
 
 
 \subsubsection{Senthil B AE23M035}
@@ -1127,19 +1143,20 @@ Data Collection; Image Processing using Fusion 360; Report writing for Reference
 Did Wing loading for stall criteria, effect of flaps, as well as all $\frac{W}{S}$ calculations for Stall, Takeoff, Landing, Cruise and loiter and wrote \LaTeX for it.
 
 \subsubsection{Navin Yadav AE23M803}
+The analytical calculation and added these calculations on latex 
 
 \subsubsection{Balamurugan S AE23M009}
 
 
 \subsubsection{Samarth R Krishna AE23M032}
-
+The analytical calculation (Iterations and calculation of Power required at different phases), and added these calculations on latex
 
 
 \subsubsection{Senthil B AE23M035}
-Calculated power loading calculations for cruise climb descent,loitre and stall conditions. Also calculated and approximated some design parameters like wing reference area, maximum Lift to Drag Ratio ueing previously collected data.
+Calculated power loading calculations for cruise climb descent,loitre and stall conditions. Also calculated and approximated some design parameters like wing reference area, maximum Lift to Drag Ratio using previously collected data.
 
 \subsubsection{Rajendran Anandhu Nair AE23M027}
-Calculated ba
+Calculated battery capacity required for each mission segment based on their power requirements. Selected battery, motor and propeller required for the UAV. Wrote the power loading, battery capacity and powerplant selection part in LATEX. 
 
 \section{Current estimates}
 
