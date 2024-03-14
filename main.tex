@@ -176,7 +176,7 @@ $$ (V_{ROC})_{_{max}} = 1.32 \times V_{md} = 17.6 \: m/s $$
 The UAV will perform aerial surveillance and environmentally monitor for areas of plastics and solid waste with an estimated cruise speed of 17 m/s for the 20 km range. Time spent here is 1176 s.
 
 \subsubsection{Descent to Mission Height}
-The UAV will descend to an altitude of 150 m AMSL to study air quality at a sinking speed of 12.92 m/s for a 5 km range. Time spent here is 28 s.\\
+The UAV will descend to an altitude of 150 m AMSL to study air quality at a sinking speed of 12.92 m/s for a 5 km range. Time spent here is 28 s.
 
 Calculation: - 
 $$ (V_{cr,lo})_{_{design}} = 0.76 \times (V_{cr})_{_{des}} \;  (initial \: estimate) $$
@@ -1029,9 +1029,24 @@ $$C_L = 3 C_{D_o}$$
 
 Assuming Loiter to be steady, we compute the wing loading as:-
 $$\frac{W}{S} = q \sqrt{3C_{D_o} \pi e AR}$$
-For our case, the optimal wing loading is 242.42 $N/m^2$.
+For our case, the optimal wing loading is 166.12 $N/m^2$.
 
 Thus, We can infer that we must decrease our loiter speed to a low value to decrease the optimal wing loading in the next iteration. For example, for a loiter velocity of 15 m/s, we will get wing loading to be 130 $N/m^2$.
+
+\newpage
+
+\section{Second weight estimate}
+
+We got a more accurate solutions of values from the previous values. 
+
+From the Power loading we got weight of the battery as well as the propeller and motor configuration. So when we input these values in the formula for the weight estimate, we get:- 
+
+$$W_{0} = \frac{W_{pl}  +  W_{\text{battery}}+  W_{\text{Propeller}} + W_{\text{Motor}}}{1 - \frac{W_{e}}{W_{0}}}$$
+
+Where:-
+\begin{itemize}
+    \item[-] $W_{\text{battery}}$ is
+\end{itemize}
 
 \newpage
 \textbf{\Huge{Appendix}}
