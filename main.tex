@@ -19,6 +19,8 @@
 \usepackage[paper=A4]{typearea}
 \graphicspath{ {figures/} }
 \usepackage{array}
+\usepackage{placeins}
+\usepackage{afterpage}
 \usepackage{bookmark}% faster updated bookmarks
 %\usepackage[a4paper,margin=1in]{geometry}
 
@@ -57,28 +59,47 @@
 \begin{titlepage}
 \begin{center}
 
-\textbf{\huge Design project report Group 7 \\ \vspace{0.4 cm} Week 4} \\
+\textbf{\huge Design project report Group 7 \\ \vspace{0.5 cm} Week 5} \\
 
 \vspace{2 cm}
 
 \centering
-\includegraphics[width=0.5\textwidth]{IIT_Madras_Logo.svg.png}
+\includegraphics[width=0.4\textwidth]{IIT_Madras_Logo.svg.png}
 \label{fig:my_label}
 
-\vspace{1cm}
+\vspace{2 cm}
 
-\textbf{Abhijeet Mangela AE21B040 \\ Navin Yadav AE23M803 \\ Balamurugan S AE23M009 \\ Samarth R Krishna AE23M032 \\ Senthil B AE23M035 \\ Rajendran Anandhu Nair AE23M027 }
+\Large{Abhijeet Mangela AE21B040 \\ \vspace{0.2 cm} Navin Yadav AE23M803 \\ \vspace{0.2 cm} Balamurugan S AE23M009 \\ \vspace{0.2 cm} Samarth R Krishna AE23M032 \\ \vspace{0.2 cm} Senthil B AE23M035 \\ \vspace{0.2 cm} Rajendran Anandhu Nair AE23M027 }
 
-\vspace{0.5cm}
+\vspace{1.0 cm}
 
-\footnotesize Department of Aerospace Engineering \\
-IIT Madras \\
-India
+\textbf{\Large Department of Aerospace Engineering } \\ \vspace{0.2 cm}
+\textbf{\Large IIT Madras} \\ \vspace{0.2 cm}
+\textbf{\Large India} \\ 
 
 \normalsize
 
 \end{center}
 \end{titlepage}
+
+\newpage
+
+\vspace{\fill}
+\noindent
+
+\begin{midpage}
+    \centering
+\textbf{Abstract} \\ \vspace{0.5 cm}
+
+Air quality is an essential measure of the quality of life of any living being. A decrease in air quality is easily linked with a reduction in the life expectancy of various plants and animals.
+As a result, we are focused on working on a drone that will give us an insight into the air quality of a region. 
+We often have to measure air quality within a forest or a region where it is hard to go physically. As a result, we have to place expensive monitoring sensors at various challenging-to-reach locations. 
+When some maintenance issues arise in these sensors, we again have to send teams to repair the equipment.
+These complications can be reduced by using a fixed-wing UAV instead of ground sensors because the UAV is a moving object that can cover a larger area than a UAV sensor alone. Also, if some maintenance problem arises, it can be fixed when the UAV lands.
+The UAV will also visually surveillance the land it is flying. A direct flight will provide a better and more frequent information intake than satellite imagery.
+\end{midpage}
+
+\vspace{\fill}
 
 
 \newpage
@@ -92,32 +113,18 @@ India
 \listoftables
 \newpage
 
-
+\textbf{\Huge{Chapter 1}}
 \section{Introduction}
 
 \subsection{Objective}
-The primary objective of this design project is to design and fly a fixed-wing UAV that can survey wildlife and monitor plastic-free zones/environments in amusement parks, zoos, and wildlife sanctuaries.
+The main objective of this design project is to make 0a fixed-wing UAV that serves a multifaceted role in monitoring wildlife, detecting plastic pollution within designated zones, and assessing air quality, specifically targeting CO2, SO2, and other harmful gases, within amusement parks, zoos, and wildlife sanctuaries. Equipped with high-resolution cameras, infrared imaging technology, and advanced sensors, the UAV will conduct thorough wildlife surveys, identify plastic debris, and measure atmospheric conditions autonomously. By integrating these capabilities and employing data analytics techniques, the UAV will provide valuable insights for conservation efforts, environmental management, and visitor safety. This innovative solution underscores the potential of technology to address pressing environmental challenges while promoting sustainable practices in diverse ecosystems
 
-
-\subsection{Abstract}
-Air quality is an essential measure of the quality of life of any living being. A decrease in air quality is easily linked with a reduction in the life expectancy of various plants and animals.
-
-As a result, we are focused on working on a drone that will give us an insight into the air quality of a region. 
-
-We often have to measure air quality within a forest or a region where it is hard to go physically. As a result, we have to place expensive monitoring sensors at various challenging-to-reach locations. 
-
-When some maintenance issues arise in these sensors, we again have to send teams to repair the equipment.
-
-These complications can be reduced by using a fixed-wing UAV instead of ground sensors because the UAV is a moving object that can cover a larger area than a UAV sensor alone. Also, if some maintenance problem arises, it can be fixed when the UAV lands.
-
-The UAV will also visually surveillance the land it is flying. A direct flight will provide a better and more frequent information intake than satellite imagery.
 
 \subsection{Mission Profile and requirements}
 
 \subsubsection{Mission Requirement}
 %Our objective is to detect the gases present near the airplane. It should detect elements including PM2.5, PM10, O3, NO2, SO2, CO, VOCs, H2S, NH3, HCl, CxHy, H2 and more.
-In a crowd gathering, ensuring the cleanliness of a natural environment conducive to the dwelling of fauna is challenging. To overcome this problem steadfastly without affecting the crowd's morale, instead of acting as an entertainment element in satisfying the objective above, UAVs are identified as the best choices amidst these situations. 
-
+In the context of crowd gatherings, preserving the cleanliness and ecological balance of natural environments poses a significant challenge. To address this issue effectively without dampening the morale of the crowd, unmanned aerial vehicles (UAVs) emerge as a pragmatic solution. By outfitting these drones with cutting-edge air quality sensors and high-resolution cameras, a comprehensive understanding of the terrain and environmental conditions can be attained. This technological integration allows for real-time monitoring of pollutants and potential hazards, such as plastics, while also facilitating detailed terrain mapping to identify sensitive ecosystems and wildlife habitats. Leveraging advanced data analysis techniques, the information collected by UAVs can be processed swiftly to formulate proactive action plans aimed at mitigating risks to flora and fauna. Moreover, drones serve as educational tools, engaging the crowd through captivating aerial footage to promote environmental awareness and stewardship. Seamlessly integrating with existing crowd management strategies, UAVs ensure that environmental protection remains a priority without compromising the safety or experience of event attendees. This scalable and adaptable approach underscores the potential of technology to harmonize crowd gatherings with ecological preservation, fostering a sustainable and responsible approach to communal celebrations and events. 
 
 The UAV will be equipped with air quality sensors and cameras to understand the terrain better. Thus, knowledge about plastics and unpleasant atmospheres will help develop a quick action plan for maintaining the flora and fauna from foreign hazards.
 
@@ -196,6 +203,54 @@ $$ \text{Vertical component of } (V_{TD})_{_{design}} = 8.61 \times \sin{10^{\ci
 $$ = 1.495 \: m/s \leq 4 \: m/s \; \text{(For smooth landing)} $$
 
 
+\begin{figure}
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[width = 0.9\linewidth]{Aircraft pics/WingtraOne.png}
+        \caption{Wingtraone}
+        \label{Wingtra one}
+    \end{subfigure}
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[width = 0.8\linewidth]{Aircraft pics/Albatross.jpg}
+        \caption{Albatross}
+        \label{Albatross}
+    \end{subfigure}
+    \begin{subfigure}{.4\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{Aircraft pics/Azimut.jpg}
+    \caption{Azimut 2}
+    \label{Azimut 2}
+    \end{subfigure}
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[width = 0.9\linewidth]{Aircraft pics/Dragonfly.png}
+        \caption{Dragonfly Tango 2}
+        \label{Dragonfly Tango 2}
+    \end{subfigure}
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[width = 0.9\linewidth]{Aircraft pics/Nostroma.jpg}
+        \caption{Nostroma Defensa Cadambra}
+        \label{Nostromo Defence Cadambra}
+    \end{subfigure}
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[width = 0.9\linewidth]{Aircraft pics/spylite.png}
+        \caption{Spylite}
+        \label{Spylite}
+    \end{subfigure}
+    \centering
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[width = 0.9\linewidth]{Aircraft pics/Skylark.jpg}
+        \caption{Skylark}
+        \label{Skylark}
+    \end{subfigure}
+    \caption{List of drones studied}
+    \label{Drone pictures}
+\end{figure}
+
 
 \subsection{Data collection}
 
@@ -259,62 +314,17 @@ SI no &
 \end{table}
 
 
-\begin{figure}[h!]
-    \begin{subfigure}{.4\textwidth}
-        \centering
-        \includegraphics[width = 0.8\linewidth]{Aircraft pics/WingtraOne.png}
-        \caption{Wingtraone}
-        \label{Wingtra one}
-    \end{subfigure}
-    \begin{subfigure}{.4\textwidth}
-        \centering
-        \includegraphics[width = 0.8\linewidth]{Aircraft pics/Albatross.jpg}
-        \caption{Albatross}
-        \label{Albatross}
-    \end{subfigure}
-    \begin{subfigure}{.4\textwidth}
-    \centering
-    \includegraphics[width=0.8\linewidth]{Aircraft pics/Azimut.jpg}
-    \caption{Azimut 2}
-    \label{Azimut 2}
-    \end{subfigure}
-    \begin{subfigure}{.4\textwidth}
-        \centering
-        \includegraphics[width = 0.8\linewidth]{Aircraft pics/Dragonfly.png}
-        \caption{Dragonfly Tango 2}
-        \label{Dragonfly Tango 2}
-    \end{subfigure}
-    \begin{subfigure}{.4\textwidth}
-        \centering
-        \includegraphics[width = 0.8\linewidth]{Aircraft pics/Nostroma.jpg}
-        \caption{Nostroma Defensa Cadambra}
-        \label{Nostromo Defence Cadambra}
-    \end{subfigure}
-    \begin{subfigure}{.4\textwidth}
-        \centering
-        \includegraphics[width = 0.8\linewidth]{Aircraft pics/spylite.png}
-        \caption{Spylite}
-        \label{Spylite}
-    \end{subfigure}
-    \centering
-    \begin{subfigure}{.4\textwidth}
-        \centering
-        \includegraphics[width = 0.8\linewidth]{Aircraft pics/Skylark.jpg}
-        \caption{Skylark}
-        \label{Skylark}
-    \end{subfigure}
-    \caption{List of drones studied}
-    \label{Drone pictures}
-\end{figure}
-
-
 \vspace{\fill}
-
-\newpage
-
 
 %\Floatbarrier
 %\vspace{\vfill}
+
+\newpage
+
+\afterpage{\clearpage}
+
+
+\textbf{\Huge{Chapter 2}}
 
 \section{Preliminary Weight estimation}
 
@@ -340,10 +350,10 @@ Total Payload Estimate             & 1400 g \\ \hline
 \hfill
 
 
-\subsection{Empty weight estimation}
-The empty weight ratio can be estimated from the previous data. We have to fit the data in the $y = A x^c$ curve with A and C as variables.
 
-In our Data, A is 1.3887, and C is -0.5155
+\subsection{Empty weight estimation}
+The empty weight is the weight of the UAV without the battery and the payload, essentially the structural weight of the UAV. 
+This is the first weight calculation in the Design process. \\
 
 \begin{figure}[h]
     \centering
@@ -352,7 +362,14 @@ In our Data, A is 1.3887, and C is -0.5155
     \label{Empty Weight estimation}
 \end{figure}
 
-The empty weight in our drone came out to be 3.1746 kg.
+
+The empty weight ratio can be estimated from the previous data. 
+
+We have fitted the data in a $y = A x^c$ curve with A and C as variables.
+
+From our curve fit, we obtained A as 1.3887, and C as -0.5155
+
+Using the above equation, the empty weight of our UAV is 3.1746 kg.
 
 \newpage
 
@@ -463,32 +480,39 @@ In our case, the design weight was 6.6102 kg after taking a 20 percent leverage 
 
 \vfill
 
+\afterpage{\clearpage}
+
 \newpage
 
-\section{Calculation of Parameters}
+\textbf{\Huge{Chapter 3}}
 
-\subsection{\ Extensive Calculation of Aspect Ratio and Lift Coefficient}
+\section{Calculation of Aerodynamic Coefficients}
 
-For this week, we first started by calculating the wing reference area and wetted area of all our reference UAVs and then proceeded to calculate the reference aspect ratio as well as the wetted aspect ratio of all the UAVs. We have used ImageJ and Fusion 360 software for estimating the Reference area and wetted area of all the UAV We \\
- The aspect ratio of a UAV's wings is crucial as it directly influences its aerodynamic performance and efficiency. Higher aspect ratios generally result in lower induced drag and better lift-to-drag ratios, enabling improved endurance and range, essential factors in UAV design optimization.
-\\ The aspect ratio ($AR$) of a rectangular wing aircraft is calculated using the formula:
+\subsection{\ Calculation of Aspect Ratio and Lift Coefficient}
+
+We first start calculating the wing reference area and wetted area of all our reference UAVs and then proceeded to calculate the reference aspect ratio as well as the wetted aspect ratio of all the UAVs. We have used ImageJ and Fusion 360 software for estimating the Reference area and wetted area of all the UAV.\\
+
+\textbf{Wingspan} : It is the distance between the wingtips of the UAV.\\
+
+\textbf{Mean aerodynamic chord} : It is the average of the chord lengths across the cross sections of the wings.\\
+
+\textbf{Aspect Ratio} : The aspect ratio is crucial as it directly influences its aerodynamic performance and efficiency. Higher aspect ratios generally result in lower induced drag and better lift-to-drag ratios, enabling improved endurance and range, which are essential factors in UAV design optimization.
+
+The aspect ratio ($AR$) of a rectangular wing aircraft is calculated using the formula:
 \[
 AR = \frac{{\text{Wingspan}}}{{\text{Mean aerodynamic chord}}}\]
-
-Where Wingspan is the distance between the wingtips and the Mean aerodynamic chord is the average chord length of the wing.
-
-By using steady-level conditions where Lift = Weight, we have calculated the Lift Coefficient at cruise conditions.
-
+where wingspan is the distance between the wingtips and the Mean aerodynamic chord is the average chord length of the wing.\\
+By using steady-level conditions, where Lift = Weight, we have calculated the Lift Coefficient at cruise conditions.\\
 When the lift force ($L$) of an aircraft equals its weight ($W$), the coefficient of lift ($C_L$) can be calculated using the formula:
 
 \[
-C_{L_{cruise}} = \frac{L}{\frac{1}{2} \times \rho \times V^2 \times S_{\text{ref}}}
+C_{L_{cruise}} = \frac{W}{\frac{1}{2} \times \rho \times V^2 \times S_{\text{ref}}}
 \]
 where $\rho$ is the density of air, $V$ is the velocity of the aircraft, and $S_{\text{ref}}$ is the reference wing area.
 \subsubsection{Sample calculation of Aspect ratio and Lift Coefficient for cruise condition of Wingtraone UAV}
 From the data collection done in week 2, we have estimated cruise velocity for our UAV as $V_{cruise}$ = 16m/s
 \begin{itemize}
-  \item Wingspan ($b$) = 125 cm (got from data collection)
+  \item Wingspan ($b$) = 125 cm (obtained from data collection)
   \item Reference wing area ($S_{\text{ref}}$) = 5065 cm\textsuperscript{2} (estimated from image processing)
 \end{itemize} 
 
@@ -499,10 +523,6 @@ AR = \frac{125^2}{5065} = \frac{15625}{5065} \ =  3.08
 \]
 
 So, the aspect ratio is 3.085.\\
-For cruise condition, we know that Lift = Weight.
-
-{Calculating Coefficient of Lift for Cruise Conditions}
-
 
 Given:
 \begin{align*}
@@ -510,6 +530,53 @@ Given:
     \rho & = 1.225 \, \text{kg/m}^3 \\
     S_{\text{ref}} & = 0.507 \, \text{m}^2 \\
     v_{\text{cruise}} & = 16 \, \text{m/s}
+\end{align*}
+
+
+For cruise condition, we know that Lift = Weight.
+
+{Calculating Coefficient of Lift for Cruise Conditions}
+
+Estimation of $(L/D)_{\text{max}}$:
+
+For steady cruise conditions, we know:
+
+\begin{align}
+\left(\frac{T}{W}\right)_{\min} &= \frac{1}{(L/D)_{\text{max}}} \tag{3.3} \\
+\left(\frac{L}{D}\right)_{\text{max}} &= \sqrt{\frac{1}{\ 4CD_0 k}} = \sqrt{\frac{\pi e AR}{\ 4CD_0 k}} \tag{3.4}
+\end{align}
+
+Equation 3.3 has been used to determine $(L/D)_{\text{max}}$ for each of the aircraft. From Equation 3.3, it is evident that we need to determine $CD_0$ in order to obtain $(L/D)_{\text{max}}$.
+
+Since it is Steady Cruise, the Equations of motion and aerodynamic relations are as follows:
+
+\begin{align}
+L &= W_0g \tag{3.5} \\
+C_L &= \frac{2W_0g}{\rho V^2_{\text{cr}} c_r S_{\text{ref}}} \tag{3.6} \\
+C_D &= CD_0 + kC_L^2 \tag{3.7}
+\end{align}
+
+Equation 3.6 is used to determine $C_L$ for each of the aircraft. Input parameters such as $V_{\text{cr}}$ (Velocity in cruise) and $S_{\text{ref}}$ vary for each aircraft. $V_{\text{cr}}$ is obtained for each aircraft during the data collection phase and $S_{\text{ref}}$ is determined following the method stated in the above section.
+
+For $(L/D)_{\text{max}}$:
+
+$(L/D)_{\text{max}}$ and $AR_{\text{wet}}$ for each aircraft are obtained using Equations 3.4 and 3.3 respectively. The data obtained during this exercise is tabulated in Table 5.
+
+Substituting the given values:
+\[
+C_{D0} = 0.1475 \times (0.556)^2
+\]
+
+Calculating \( C_{D0} \):
+\[
+C_{D0} \ = 0.1475 \times (0.556)^2 \ = 0.0461
+\]
+
+Therefore, the minimum drag coefficient is approximately \(0.0461\).\\
+Now Let's calculate \( L/D_{\text{max}} \))
+\begin{align*}
+    k & = 0.1475 \\
+    C_{D0} & = 0.046
 \end{align*}
 
 Equating lift to weight for cruise conditions:
@@ -529,59 +596,6 @@ Solving for $C_{L_{\text{cruise}}}$:
 \[
 C_{L_{\text{cruise}}} = \frac{44.15}{\frac{1}{2} \times 1.225 \times 16^2 \times 0.507} = 0.556
 \]
-
-Therefore, the coefficient of lift for cruise conditions is approximately 0.556.
-
-Now we have
-\begin{itemize}
-    \item${\text{Aspect Ratio (AR)}}_{\text{ref}}$ = 3.085
-    \item e = 0.7 [for rectangular wing]
-\end{itemize} 
-
-For minimum drag condition
-
-
-We need to find the constant \( k \), which is given by:
-\[
-k = \frac{1}{\pi \cdot e \cdot \text{AR}_{\text{ref}}}
-\]
-
-Substituting the given values:
-\[
-k = \frac{1}{{\pi \cdot 0.7 \cdot 3.085}}
-\]
-
-Calculating \( k \):
-\[
-k = \frac{1}{\pi \cdot 0.7 \cdot 3.085} \approx \frac{1}{\text{6.810}} \approx 0.1466
-\]
-
-Therefore, the value of \( k \) is approximately \(0.1475\).
-
-Now we have the values of $C_L$ and $k$
-\begin{align*}
-    k & = 0.1475 \\
-    C_L & = 0.556
-\end{align*}
-
-For the minimum drag condition, \( C_{D0} = kC_L^2 \).
-
-Substituting the given values:
-\[
-C_{D0} = 0.1475 \times (0.556)^2
-\]
-
-Calculating \( C_{D0} \):
-\[
-C_{D0} \ = 0.1475 \times (0.556)^2 \ = 0.0461
-\]
-
-Therefore, the minimum drag coefficient is approximately \(0.0461\).\\
-Now Let's calculate \( L/D_{\text{max}} \))
-\begin{align*}
-    k & = 0.1475 \\
-    C_{D0} & = 0.046
-\end{align*}
 
 For maximum lift-to-drag ratio (\( L/D_{\text{max}} \)):
 \[
@@ -629,12 +643,14 @@ SI no &
 
 \begin{figure}
     \centering
-    \includegraphics{graph.png}
+    \includegraphics[width=0.8\linewidth]{graph.png}
     \caption{$\text{(L/D)}_{max}$ \text{v/s} $\sqrt{AR_{wet}}$ }
     \label{fig:enter-label}
 \end{figure}
 
-\section {Power Loading for Different mission segments}
+\newpage
+
+\section{Power Loading for Different mission segments}
 Given:
 \begin{align*}
 & L/D_{\text{max}} = 14.56067 \quad (\text{Taken from average of } L/D_{\text{max}} \text{ of data collection}) \\
@@ -911,6 +927,10 @@ Selecting the right propeller is crucial for efficient performance and optimal t
     \end{tabular}
 \end{table}
 
+\newpage
+
+\textbf{\Huge{Chapter 5}}
+
 \section{Wing Loading}
 
 \subsection{Stall Criteria}
@@ -924,24 +944,6 @@ At this speed the Angle of attack of the aircraft becomes so large that the flow
     \caption{Variation of $C_L$ with angle of attack ref- \cite{stallpic}}
     \label{Variation of $C_L$ with angle}
 \end{figure}
-
-
-
-\subsubsection{Flaps}
-According to \cite{flap}, we can decrease the $\text{V}_\text{stall}$ by adding flaps to our aeroplane. There are different arrangements which we can use for flaps.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\linewidth]{Extra pics/flap-types.jpg}
-    \caption{Basic types of flaps ref- \cite{flap} }
-    \label{Different Flap types}
-\end{figure}
-
-When we open the flap, we increase the wing's surface area. Also, we are increasing the wing's angle of attack by pushing the backward tip of the airfoil down without making any changes in the forward portion.
-
-This is very advantageous to us, especially during landing and take-off, which may make us able to make Short take-off and Landing possible. 
-
-Some flaps can even make the value of $C_{L_{max}}$ close to 4. But for our case, we will assume the $C_{L_{max}}$ to be 1.4. This is because we want to calculate S without any flaps, as we do not deploy flaps during cruise as they increase drag, which is not good for endurance.
 
 \subsection{ $\frac{W}{S}$ calculations }
 
@@ -1033,9 +1035,7 @@ For our case, the optimal wing loading is 166.12 $N/m^2$.
 
 Thus, We can infer that we must decrease our loiter speed to a low value to decrease the optimal wing loading in the next iteration. For example, for a loiter velocity of 15 m/s, we will get wing loading to be 130 $N/m^2$.
 
-\newpage
-
-\section{Second weight estimate}
+\subsection{Second weight estimate}
 
 We got a more accurate solutions of values from the previous values. 
 
@@ -1045,8 +1045,26 @@ $$W_{0} = \frac{W_{pl}  +  W_{\text{battery}}+  W_{\text{Propeller}} + W_{\text{
 
 Where:-
 \begin{itemize}
-    \item[-] $W_{\text{battery}}$ is
+    \item[-] $W_{\text{battery}}$ is battery weight which is 639 g.
+    \item[-] $W_{\text{Propeller}}$ is propeller weight which is 19 g
+    \item[-] $W_{\text{Motor}}$ is Motor weight which is 150 g.
+    \item[-] $\frac{W_{e}}{W_{0}}$ is the empty weight fraction from initial estimate.
 \end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.0\linewidth]{Codes//Week 2/weight_2.png}
+    \caption{Second weight estimate iteration}
+    \label{Second weight estimate iteration}
+\end{figure}
+
+According to our new estimate, the weight after tolerance is 6.38 kg.
+
+\afterpage{\clearpage}
+\newpage
+
+\textbf{\Huge{Chapter 6}}
+\section{Airfoil}
 
 \newpage
 \textbf{\Huge{Appendix}}
@@ -1131,7 +1149,7 @@ Data Collection; Literature Survey
 
 
 \subsubsection{Abhijeet Mangela AE21B040}
-Changed the Mission Profile, Converted references to BibTeX, Did some cleanup of document, did the Preliminary weight estimate, which was wrong last week, Power estimation for cruise and climb, Linked all files internally in Github for easy connectivity.
+Changed the Mission Profile in Latex, Converted references to BibTeX, Did some cleanup of document, did the Preliminary weight estimate, which was wrong last week, Power estimation for cruise and climb, Linked all files internally in Github for easy connectivity.
 
 \subsubsection{Navin Yadav AE23M803}
 The analytical calculation and added these calculations on latex 
@@ -1173,6 +1191,15 @@ Calculated power loading calculations for cruise climb descent,loitre and stall 
 \subsubsection{Rajendran Anandhu Nair AE23M027}
 Calculated battery capacity required for each mission segment based on their power requirements. Selected battery, motor and propeller required for the UAV. Wrote the power loading, battery capacity and powerplant selection part in LATEX. 
 
+
+\newpage
+
 \section{Current estimates}
+\begin{itemize}
+    \item Range- 20 Km
+    \item Endurance- 30 min
+    \item Payload- 1.4 kg
+    \item Total weight- 6.5 Kg
+\end{itemize}
 
 \end{document}
