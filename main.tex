@@ -5,6 +5,7 @@
 \usepackage{amssymb}
 \usepackage{multirow}
 \usepackage{caption}
+\usepackage{float}
 \usepackage{subcaption}
 \usepackage{hyperref}
 \usepackage{pgf}
@@ -1062,44 +1063,308 @@ According to our new estimate, the weight after tolerance is 6.38 kg.
 \newpage
 
 \textbf{\Huge{Chapter 6}}
-\section{Airfoil}
+\section{Wing Design}
+This section estimates the Lift Coefficient for the cruise phase in the UAV mission profile. Various airfoils are evaluated using data from reputable airfoil databases, followed by simulations conducted through the XFLR5 software. We scrutinize performance diagrams and explore multiple wing configurations, factoring in various design parameters such as chord length, span length, high lift devices (e.g., flaps), taper ratio, and sweep angle. Upon achieving performance plots closely aligning with our design specifications and considering practical feasibility, we finalize airfoil and wing configuration for representation.
+\vspace{5mm} 
+ 
 
-\subsection{Plots}
+\color{red}
+\subsection{\large Calculation of Design Lift Coeffient}
 
+      \text{\large \underline{ Cruise}}
+
+\color{black}
+The pivotal phase in the mission profile is the Cruise Phase, where the mini UAV operates at an altitude of 100 meters with a velocity of 18 m/s. We aim to select a wing that demonstrates optimal aerodynamic performance during this phase, specifically by maximizing the Lift-to-Drag ratio at the desired operating Lift Coefficient for the cruise. Initially, we calculate the Lift Coefficient in cruise condition \\
+Given:\\
+ Cruise Velocity: \( v_{\text{cruise}} = 17 \) m/s\\
+Density: \( \rho_{atm} = 1.225 \) kg/m³\\
+ Takeoff weight: \( W_0 = 62.58 \) N\\
+ Reference area: \(S = 0.7 m^2\) 
+
+We can calculate the Lift Coefficient for the cruise using the formula:
+
+\[
+C_{L_{\text{cruise}}} = \frac{W_0}{\frac{1}{2} \rho_{atm} v_{\text{cruise}}^2 S}    \tag{6.1} \]
+
+Thus, the lift coefficient for cruise is \( C_{L_{\text{cruise}}} = 0.5048 \). 
+\color{red}
+\subsection{Calculation of flow parameters}
+\color{black}
+Estimating flow parameters such as Reynolds number and Mach number for the cruise condition is essential in selecting the most suitable airfoil for our UAV. These parameters provide crucial insights into the aerodynamic behavior of the airfoil at the designated operating conditions, guiding the selection process toward optimal performance and efficiency. 
+\color{red}
+\begin{itemize}
+\item{\underline{Reynolds number}}
+\color{black}
+\\Reynolds number is a crucial parameter in airfoil selection as it helps determine the aerodynamic behavior of the airfoil under different flow conditions. It is defined as the ratio of inertial forces to viscous forces within a fluid flow regime and is instrumental in predicting flow patterns around an airfoil. In airfoil selection, the Reynolds number provides insights into the transition from laminar to turbulent flow, which significantly impacts the aerodynamic performance and efficiency of the airfoil.
+
+Given the parameters:
+
+ Chord length (\( c \)): 0.312347524 m\\
+ Cruise Speed (\( V_{\text{cr}} \)): 17 m/s\\
+ Atmospheric Density (\( \rho_{\text{atm}} \)): 1.2256 kg/m³\\
+ Atmospheric Viscosity (\( \mu_{\text{atm}} \)) at 15°C: \( 1.81 \times 10^{-5} \) Pa-s
+
+The Reynolds number (\( Re \)) can be calculated using the formula:
+
+\[
+Re = \frac{V_{\text{cr}} \cdot c}{\nu_{\text{atm}}} \tag{6.2}
+\]
+
+Where \( \nu_{\text{atm}} \) is the kinematic viscosity and is given by \( \frac{\mu_{\text{atm}}}{\rho_{\text{atm}}} \).
+
+Substituting the given values into the formula:
+
+\[
+Re = \frac{17 \times 0.312347524}{\frac{1.81 \times 10^{-5}}{1.2256}} \tag{6.3}
+\]
+
+\[
+Re = 359548.24
+\]
+
+Therefore, the Reynolds number for the given parameters is \( 359548.24 \). 
+\color{red}
+\item{\underline {Cruise Mach Number}}
+\color{black}
+\\Cruise Mach number is a crucial parameter in airfoil selection as it characterizes the relative speed of the aircraft to the speed of sound in the surrounding air. It is defined as the ratio of the aircraft's velocity to the speed of sound in the medium. Understanding the cruise Mach number is vital in airfoil selection as it helps determine the aerodynamic behavior of the airfoil at high velocities, particularly in transonic and supersonic flight regimes.
+
+Given the parameters:
+
+ Specific heat ratio (\( \gamma \)): 1.4\\
+ Air Gas Constant (\( R \)): 287.05287 J/kgK\\
+ Atmospheric Temperature at Mean Sea Level (\( T_{\text{atm}} \)): 288.15 K\\
+ Cruise velocity (\( V_{\text{cr}} \)): 17 m/s\\
+
+The speed of sound (\( a \)) can be calculated using the formula:
+
+\[
+a = \sqrt{\gamma R T_{\text{atm}}} \tag{6.4}
+\]
+And the cruise Mach number (\( M_{\text{cr}} \)) can be calculated as:
+
+\[
+M_{\text{cr}} = \frac{V_{\text{cr}}}{a} \tag{6.5}
+\]
+
+Substituting the given values into the formulas:
+
+\[
+a = \sqrt{1.4 \times 287.05287 \times 288.15}  = 340.3 \, \text{m/s}
+\]
+
+\[
+M_{\text{cruise}} = \frac{17}{340.3} = 0.0499 \tag{6.6}
+\]
+
+Therefore, the cruise Mach number for the given parameters is  0.0499.
+\end{itemize}
+\color{black}
+\textbf{ \large The parameters below are guiding our airfoil selection.}
+\begin{table}[h]
+\centering
+\begin{tabular}{ll}
+\hline
+Cruise Speed (m/s) & 17 \\
+CL\_cruise & 0.5048 \\
+Reynolds Number (Re) & 359,548.24 \\
+Cruise Mach Number (M.cruise) & 0.049956804 \\
+Maximum Lift-Drag Ratio (L/D)max & 14.56067 \\
+\hline
+\end{tabular}
+\end{table}\\
+\color{red}
+\subsection{ Airfoil selection}
+
+ \large \underline{SA7035 Airfoil}\\
+\color{black}
+We have selected the SA7035 airfoil for the above flow parameters, which is suitable for our UAV. The SA 7035 airfoil, developed by the German Aerospace Center (DLR), is highly favored in the UAV and light aircraft sectors for its exceptional aerodynamic properties. Renowned for its high lift-to-drag ratio and reliable stall behavior, it excels in various flight conditions, including cruising and maneuvering.
+
+Featuring a thick profile and optimized camber distribution, the SA 7035 generates ample lift while keeping drag levels low, ensuring efficient performance, especially during extended cruise phases. Its forgiving stall characteristics also enhance safety and maneuverability, appealing to pilots of all skill levels.
 \begin{figure}[h]
     \centering
-    \includegraphics[width = \linewidth]{Codes/Week 6/Airfoil.png}
-    \caption{Caption}
+    \includegraphics[width = 0.85\linewidth]{Codes/Week 6/Airfoil.png}
+    \caption{SA7035 Airfoil}
+    \label{fig:enter-label}
+    \end{figure}
+\begin{table}[h]
+\centering
+\caption{SA7035 Airfoil Parameters}
+\begin{tabular}{ll}
+\hline
+Max Cl/Cd & 71.2969 \\
+$\alpha_{\text{maxCl/Cd}}$ & 5 deg \\
+$C_{\text{Lmax}}$ & 1.2535 \\
+$\alpha_{\text{Stall}}$ & 12.25 deg \\
+Max thickness & 9.2\% at 27.9\% chord \\
+Max camber & 2.4\% at 41.9\% chord \\
+\hline
+\end{tabular}
+\end{table}
+\newpage
+We will now create graphs illustrating the relationship between Lift Coefficient ($C_L$) and Angle of Attack ($\alpha$), as well as the relationship between Drag Coefficient ($C_D$) and Angle of Attack ($\alpha$). We analyze these graphs to assess whether the airfoil meets the required performance criteria.
+\newpage
+\begin{figure}[H]
+    \centering
+     \includegraphics[scale = 0.8]{Codes/Week 6/Cl_alpha.png}
+    \caption{Coefficient of lift vs angle of attack}
     \label{fig:enter-label}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
-    \includegraphics[width = \linewidth]{Codes/Week 6/Cl_alpha.png}
-    \caption{Caption}
+    \includegraphics[scale = 0.8]{Codes/Week 6/Cd_alpha.png}
+    \caption{Coefficient of drag vs angle of attack}
     \label{fig:enter-label}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
-    \includegraphics[width = \linewidth]{Codes/Week 6/Cl_alpha.png}
-    \caption{Caption}
+    \includegraphics[scale = 0.8]{Codes/Week 6/Cl_Cd.png}
+    \caption{Coefficient of lift vs coefficient of drag}
     \label{fig:enter-label}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
-    \includegraphics[width = \linewidth]{Codes/Week 6/Cl_Cd.png}
-    \caption{Caption}
+    \includegraphics[scale = 0.8]{Codes/Week 6/Cl_Cd_ratio.png}
+    \caption{Cl/Cd vs angle of attack}
     \label{fig:enter-label}
 \end{figure}
+\newpage
 
-\begin{figure}
+We have established that the Lift Coefficient ($C_L$) during cruise conditions, which is 0.5048, is achieved at an angle of attack of 2.5 degrees. This value notably falls below the stall angle of attack, suggesting favorable performance attributes of the airfoil. Hence, this airfoil is considered preferable.
+
+\color{red}
+\subsection{Wing Configuration}
+
+Low-Wing Configuration:
+\color{black}
+\\- In the low-wing configuration, the wings are mounted below the aircraft's fuselage.
+\color{red}
+\\- Advantages:
+\color{black}
+ \\- Enhanced stability: Low-wing UAVs exhibit better lateral stability during flight, making them well-suited for missions requiring precision control, such as surveillance and mapping.
+\\  - Payload capacity: Placing the wings beneath the fuselage allows for larger payload capacity, as payloads can be mounted directly underneath without wing interference.
+\\  - Aerodynamic efficiency: Low-wing UAVs may benefit from reduced interference drag between the wings and the fuselage, improving overall aerodynamic efficiency and potentially longer endurance.
+\\  - Ground operations: The low-wing configuration facilitates easier ground operations, including launching and landing, especially in confined spaces, as the wings do not obstruct ground clearance.
+\color{red}
+\\- Disadvantages:
+\color{black}
+\\  - Vulnerability to ground debris: With the wings positioned beneath the fuselage, low-wing UAVs are more susceptible to damage from ground debris during takeoff and landing, which could potentially lead to damage to the wings or payload.
+ \\ - Limited ground clearance: Low-wing UAVs may have limited ground clearance, which could pose challenges when operating on rough terrain or uneven surfaces.
+\\  - Visibility: While low-wing configurations offer good visibility for the payload, certain types of sensors or cameras mounted on top of the fuselage may experience slightly reduced visibility.
+
+\color{red}
+Mid-Wing Configuration:
+\color{black}
+\\- In the mid-wing configuration, the wings are mounted at the midpoint of the fuselage.
+\color{red}
+\\- Advantages:
+\color{black}
+\\  - Balanced lift distribution: Mid-wing UAVs typically achieve a balanced lift distribution, enhancing stability and control during flight maneuvers.
+ \\ - Aerodynamic efficiency: Similar to low-wing configurations, mid-wing UAVs can benefit from reduced interference drag between the wings and the fuselage, contributing to overall aerodynamic efficiency.
+\\  - Visibility: Mid-wing designs provide good visibility for sensors and cameras mounted on the fuselage, allowing for effective surveillance and reconnaissance missions.
+\\  - Payload flexibility: The mid-wing configuration allows for flexible payload integration options, as payloads can be mounted on top of the fuselage without interference from the wings.
+ \\ - Ground clearance: Mid-wing UAVs typically have sufficient ground clearance for landing gear and other components, making them suitable for various terrain conditions.
+\color{red}
+\\- Disadvantages:
+\color{black}
+\\  - Complexity: Mid-wing configurations may involve more complex structural design and integration, especially when considering payload mounting and aerodynamic considerations.
+\\  - Maintenance accessibility: Accessing components on top of the fuselage, such as sensors or cameras, may require additional effort and time compared to configurations with lower wing wings.
+\\  - Vulnerability to damage: The mid-wing position exposes the wings to potential damage during ground operations, such as takeoff and landing, especially in rough terrain.
+ \\ - Weight distribution: Achieving optimal weight distribution in mid-wing UAVs can be challenging, as the payload and other components need to be carefully balanced to maintain stability and performance.
+
+\color{red}
+High-Wing Configuration:
+\color{black}
+\\- In the high-wing configuration, the wings are mounted above the aircraft's fuselage.
+\color{red}
+\\- Advantages:
+\color{black}
+\\  - Excellent visibility: High-wing UAVs provide unobstructed visibility for sensors, cameras, and other payloads mounted beneath the fuselage, facilitating effective surveillance and reconnaissance missions.
+\\  - Stability: High-wing configurations typically offer excellent inherent stability, especially during banking maneuvers, making them suitable for various applications, including aerial mapping and monitoring.
+\\  - Protection from ground debris: With the wings positioned above the fuselage, high-wing UAVs are less susceptible to damage from ground debris during takeoff and landing, enhancing durability and reliability. Our payload module will also be safe.
+\\  - Payload flexibility: High-wing designs allow flexible payload integration options, as payloads can be mounted beneath the fuselage without wing interference.
+ \\ - Ease of ground operations: High-wing UAVs often feature ample ground clearance, making takeoff and landing operations easier, especially in rough or uneven terrain.
+\color{red}
+\\- Disadvantages:
+\color{black}
+\\  - Aerodynamic interference: High-wing configurations may experience increased interference drag between the wings and the fuselage, potentially impacting overall aerodynamic efficiency and endurance.
+\\  - Limited maneuverability: High-wing UAVs offer stability but may have slightly reduced maneuverability compared to other configurations, which can be considered for specific mission profiles.
+\\  - Weight distribution: Achieving optimal weight distribution in high-wing UAVs can be challenging, as the payload and other components must be carefully balanced to maintain stability and performance.
+\\  - Complexity in payload integration: Mounting specific payloads, such as gimbals or sensors, beneath the fuselage of high-wing UAVs may require more complex integration and mounting solutions compared to configurations with the wings positioned lower.
+\vspace{5mm} 
+\\By considering all the wing configurations, we have decided to go with\textbf{ high wing configuration} for our UAV.
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{Codes/Week 6/Cl_Cd_ratio.png}
-    \caption{Caption}
+    \includegraphics[width=\linewidth]{Codes/Week 6/wing configuration.jpeg}
+    \caption{High Wing configuration}
     \label{fig:enter-label}
 \end{figure}
+\color{red}
+\subsection{Wing Design}
+\color{black}
+The following are the detailed wing parameters that were previously estimated.
+\begin{table}[H]
+\centering
+\begin{tabular}{l l}
+\textbf{Parameter} & \textbf{Value} \\
+\hline
+Reference Area (S) & 0.7 sq.m \\
+Wing Geometry & Rectangular Wing \\
+Aspect Ratio (AR) & 7.175 \\
+Wingspan (b) & 2.241093483 m \\
+Chord (c) & 0.312347524 m \\
+\end{tabular}
+\caption{Wing Parameters}
+\label{tab:wing_parameters}
+\end{table}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{3d_wing.png}
+    \caption{3D MODEL OF RECTANGULAR WING}
+    \label{fig:enter-label}
+    \end{figure}
+\color{red}
+ \large{\underline{Taper ratio}}
+\color{black}
+\vspace{5mm}
+\\Taper ratio refers to the ratio of the wingtip chord to the wing root chord, providing insight into the shape of the wing planform. A taper ratio of 1 indicates a rectangular wing, where the chord length remains constant from the wing root to the wingtip. This configuration is contrasted with tapered wings, where the chord decreases progressively from the root to the tip.
+
+Rectangular wings offer several advantages over tapered wings. Firstly, they provide more straightforward structural design and analysis due to their uniform geometry, facilitating ease of fabrication and reducing manufacturing complexities. Additionally, rectangular wings typically exhibit more predictable aerodynamic characteristics, especially at low speeds, simplifying flight performance analysis and enhancing overall stability. Moreover, the uniform chord distribution of rectangular wings often results in improved stall behavior and handling characteristics, making them preferable for specific applications, such as UAVs operating in varied flight conditions.
+
+ Given these considerations, the decision to adopt a rectangular wing configuration in which the\textbf{ Taper ratio = 1 }is taken.\\
+ \vspace{5mm}
+\color{red}
+
+\large{\underline{Wing Setting Angle $i_w$
+}}\\
+\color{black}
+The wing setting angle, denoted as \( i_w \), refers to the angle at which the wing is positioned relative to the aircraft's fuselage or horizontal reference plane. It plays a crucial role in determining an aircraft's aerodynamic performance and stability characteristics during flight. 
+
+A positive wing setting angle typically results in a nose-up attitude, generating more lift but potentially increasing drag. Conversely, a negative setting angle may reduce lift while enhancing aerodynamic efficiency. The optimal setting angle depends on various factors, including aircraft design, mission requirements, and flight conditions.
+
+In our wing design, as the desired lift coefficient has been achieved,  we are maintaining the wing setting angle at 0 degrees. This indicates that the wing is positioned parallel to the horizontal reference plane. This configuration also suggests an optimal balance between lift generation and drag minimization, aligning with the desired aerodynamic performance criteria for the aircraft's mission profile.\\
+\vspace{5mm}
+\color{red}
+\large{\underline{Wing Sweep and Geometric Twist}}\\
+\color{black}
+Wing sweep refers to the angle at which the wings are inclined backward from the root to the tip. This feature can enhance aerodynamic efficiency by reducing drag at high speeds, improving stability, and delaying the onset of compressibility effects. Geometric twist, on the other hand, involves varying the angle of incidence along the span of the wing, typically with a higher angle of incidence at the wing root and decreasing towards the wingtip. Geometric twist helps to optimize lift distribution and stall characteristics across the wing span.
+
+In our wing design, wing sweep and geometric twist are not utilized due to concerns related to fabrication complexity. Incorporating these features would require intricate structural design and manufacturing processes, potentially increasing production costs and time. Additionally, the introduction of wing sweep and twist could introduce structural challenges and compromises in aerodynamic performance.
+
+Furthermore, the decision not to employ winglets, which are small wing-like structures often added to the wingtips, is made to simplify the design and manufacturing process further. While winglets can reduce induced drag and improve fuel efficiency, their integration adds complexity to the wing design and may not provide significant benefits for the intended mission profile.\\
+\vspace{5mm}
+\color{red}
+\large{\underline{Ailerons}}\\
+\color{black}
+Ailerons are control surfaces typically located on the trailing edge of the wing near the wingtips. They are responsible for controlling the aircraft's roll motion by deflecting in opposite directions. When one aileron moves upward, the other moves downward, causing the aircraft to roll about its longitudinal axis.
+
+In our wing design, the placement of the ailerons is crucial for optimizing control effectiveness and aerodynamic performance. Therefore, the ailerons will be positioned at specific locations along the wing. Specifically, they will be located between \textbf{0.5 to 0.96 of the wing's span}, ensuring sufficient leverage for roll control across the entire wing length. Additionally, the ailerons will span from \textbf{0.8 to 1 of the wing's chord}, providing adequate surface area for effective control authority while maintaining aerodynamic efficiency.
+
+\vfill
+
+\clearpage
 
 \newpage
 \textbf{\Huge{Appendix}}
