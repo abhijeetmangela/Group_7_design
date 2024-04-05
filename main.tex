@@ -23,6 +23,8 @@
 \usepackage{placeins}
 \usepackage{afterpage}
 \usepackage{bookmark}% faster updated bookmarks
+\usepackage{xcolor}
+%\usepackage{cite}
 %\usepackage[a4paper,margin=1in]{geometry}
 
 
@@ -84,23 +86,21 @@
 \end{titlepage}
 
 \newpage
+\vspace*{\fill}
 
-\vspace{\fill}
-\noindent
-
-\begin{midpage}
-    \centering
-\textbf{Abstract} \\ \vspace{0.5 cm}
-
+%\begin{midpage}
+\begin{center}
+    \textbf{Abstract} \\ \vspace{0.5 cm}
+\end{center}
 Air quality is an essential measure of the quality of life of any living being. A decrease in air quality is easily linked with a reduction in the life expectancy of various plants and animals.
 As a result, we are focused on working on a drone that will give us an insight into the air quality of a region. 
 We often have to measure air quality within a forest or a region where it is hard to go physically. As a result, we have to place expensive monitoring sensors at various challenging-to-reach locations. 
 When some maintenance issues arise in these sensors, we again have to send teams to repair the equipment.
 These complications can be reduced by using a fixed-wing UAV instead of ground sensors because the UAV is a moving object that can cover a larger area than a UAV sensor alone. Also, if some maintenance problem arises, it can be fixed when the UAV lands.
-The UAV will also visually surveillance the land it is flying. A direct flight will provide a better and more frequent information intake than satellite imagery.
-\end{midpage}
+The UAV will also visually monitor the land it is flying. A direct flight will provide a better and more frequent information intake than satellite imagery.
+%\end{midpage}
 
-\vspace{\fill}
+\vspace*{\fill}
 
 
 \newpage
@@ -118,14 +118,15 @@ The UAV will also visually surveillance the land it is flying. A direct flight w
 \section{Introduction}
 
 \subsection{Objective}
-The main objective of this design project is to make a fixed-wing UAV that serves a multifaceted role in monitoring wildlife, detecting plastic pollution within designated zones, and assessing air quality, specifically targeting CO2, SO2, and other harmful gases, within amusement parks, zoos, and wildlife sanctuaries. Equipped with high-resolution cameras, infrared imaging technology, and advanced sensors, the UAV will conduct thorough wildlife surveys, identify plastic debris, and measure atmospheric conditions autonomously. By integrating these capabilities and employing data analytics techniques, the UAV will provide valuable insights for conservation efforts, environmental management, and visitor safety. This innovative solution underscores the potential of technology to address pressing environmental challenges while promoting sustainable practices in diverse ecosystems
+The main objective of this design project is to make a fixed-wing UAV that serves a multifaceted role in monitoring wildlife, detecting plastic pollution within designated zones, and assessing air quality, explicitly targeting CO2, SO2, and other harmful gases within amusement parks, zoos, and wildlife sanctuaries. Equipped with high-resolution cameras, infrared imaging technology, and advanced sensors, the UAV will conduct thorough wildlife surveys, identify plastic debris, and measure atmospheric conditions autonomously. By integrating these capabilities and employing data analytics techniques, the UAV will provide valuable insights for conservation efforts, environmental management, and visitor safety. This innovative solution underscores the potential of technology to address pressing environmental challenges while promoting sustainable practices in diverse ecosystems.
 
 
 \subsection{Mission Profile and requirements}
 
 \subsubsection{Mission Requirement}
 %Our objective is to detect the gases present near the airplane. It should detect elements including PM2.5, PM10, O3, NO2, SO2, CO, VOCs, H2S, NH3, HCl, CxHy, H2 and more.
-In the context of crowd gatherings, preserving the cleanliness and ecological balance of natural environments poses a significant challenge. To address this issue effectively without dampening the morale of the crowd, unmanned aerial vehicles (UAVs) emerge as a pragmatic solution. By outfitting these drones with cutting-edge air quality sensors and high-resolution cameras, a comprehensive understanding of the terrain and environmental conditions can be attained. This technological integration allows for real-time monitoring of pollutants and potential hazards, such as plastics, while also facilitating detailed terrain mapping to identify sensitive ecosystems and wildlife habitats. Leveraging advanced data analysis techniques, the information collected by UAVs can be processed swiftly to formulate proactive action plans aimed at mitigating risks to flora and fauna. Moreover, drones serve as educational tools, engaging the crowd through captivating aerial footage to promote environmental awareness and stewardship. Seamlessly integrating with existing crowd management strategies, UAVs ensure that environmental protection remains a priority without compromising the safety or experience of event attendees. This scalable and adaptable approach underscores the potential of technology to harmonize crowd gatherings with ecological preservation, fostering a sustainable and responsible approach to communal celebrations and events. 
+In crowd gatherings, preserving natural environments' cleanliness and ecological balance of natural environments poses a significant challenge. To address this issue effectively without dampening the crowd's morale, uncrewed aerial vehicles (UAVs) emerge as a pragmatic solution. By outfitting these drones with cutting-edge air quality sensors and high-resolution cameras, a comprehensive understanding of the terrain and environmental conditions can be attained. This technological integration allows real-time monitoring of pollutants and potential hazards, such as plastics, while facilitating detailed terrain mapping to identify sensitive ecosystems and wildlife habitats. Leveraging advanced data analysis techniques, the information collected by UAVs can be processed swiftly to formulate proactive action plans to mitigate risks to flora and fauna.
+Moreover, drones serve as educational tools, engaging the crowd through captivating aerial footage to promote environmental awareness and stewardship. Seamlessly integrating with existing crowd management strategies, UAVs ensure that environmental protection remains a priority without compromising the safety or experience of event attendees. This scalable and adaptable approach underscores the potential of technology to harmonize crowd gatherings with ecological preservation, fostering a sustainable and responsible approach to communal celebrations and events. 
 
 The UAV will be equipped with air quality sensors and cameras to understand the terrain better. Thus, knowledge about plastics and unpleasant atmospheres will help develop a quick action plan for maintaining the flora and fauna from foreign hazards.
 
@@ -148,7 +149,7 @@ The UAV will be equipped with air quality sensors and cameras to understand the 
 \end{table}
 
 \subsubsection{Payload measure}
-The payload of UAVs consists of a camera and a sensor module used to measure air quality. The camera will be a Hontral B0BMV12VYJ HD Camera weighing 492 g. The sensor module comprises Arduino MKR Proto Large Shield TSX00002, weighing about 200 g, and sensors such as MQ-7 CO Carbon Monoxide, MG811 Air Carbon Dioxide, etc., weighing about 320 g.
+Uncrewed Aerial Vehicles (UAVs) are equipped with a payload designed to perform various tasks with precision and efficiency. This payload typically includes a high-definition camera, such as the Hontral B0BMV12VYJ HD Camera, renowned for its clarity and reliability, weighing 492 grams. Complementing the visual data capture, a sensor module is integrated to measure air quality, a critical parameter for many applications. This module consists of the Arduino MKR Proto Large Shield TSX00002, providing a versatile platform for sensor integration, weighing approximately 200 grams. Additionally, the sensor array comprises vital components like the MQ-7 CO Carbon Monoxide sensor and the MG811 Air Carbon Dioxide sensor, collectively weighing around 320 grams. These sensors enable precise monitoring of environmental conditions, facilitating tasks such as pollution assessment, atmospheric research, and industrial monitoring.
 
 \subsection{Mission Profile}
 
@@ -161,7 +162,7 @@ The payload of UAVs consists of a camera and a sensor module used to measure air
 
 
 \subsubsection{Ground run}
-The take-off ground run distance is approximately 60 meters, and the estimated take-off velocity is ten m/s. \cite{EgglestonUnknownTitle2015}
+The ground run distance of approximately 60 meters indicates the runway length needed for the UAV to accelerate. The UAV achieves the necessary airspeed for lift-off with an estimated takeoff velocity of 10 m/s. These parameters signify the aircraft's ability to transition from ground movement to flight efficiently. Such performance metrics are crucial for operations in constrained or limited-space environments. Overall, these values underscore the UAV's agility and suitability for diverse mission requirements \cite{EgglestonUnknownTitle2015}
 
 $$ (V_{TO})_{_{Bricans \: Td100}} = 19 \: m/s$$
 $$ (W_{TO})_{_{Bricans \: Td100}} = 22.67 \: kg$$
@@ -172,26 +173,26 @@ $$ (V_{TO})_{_{des}} = (V_{TO})_{_{Bricans \: Td100}} \times \sqrt{\frac{(W_{TO}
 
 $$ = 19 \times \sqrt{\frac{5.6 \times 9.81}{22.67 \times 9.81}} = 9.94 \: m/s \approx 10 \: m/s $$
 
-\subsubsection{Climb \cite{1000_questions} }
-The UAV will climb at an estimated velocity of 17.6 m/s to an operating altitude of 250 m AMSL. The rate of climb is about 3.06 m/s. Time spent here: 81.7 s
+\subsubsection{Climb} 
+\cite{1000_questions}describes that the UAV will climb at an estimated velocity of 17.6 m/s to an operating altitude of 250 m AMSL. The rate of climb is about 3.06 m/s. Time spent here: 81.7 s
 
 Calculation :- 
 $$ (V_{TO})_{_{des}} = 10 \: m/s \Rightarrow (V_{stall})_{_{des}} = \frac{(V_{TO})_{_{des}}}{1.2} = 8.33 \: m/s $$
 $$ (V_{md})_{_{des}} = 1.6 \times V_{stall} = 13.33 \: m/s $$
 $$ (V_{ROC})_{_{max}} = 1.32 \times V_{md} = 17.6 \: m/s $$
 
-\subsubsection{Cruise \cite{alhajjaji2017design}}
-The UAV will perform aerial surveillance and environmentally monitor for areas of plastics and solid waste with an estimated cruise speed of 17 m/s for the 20 km range. Time spent here is 1176 s.
+\subsubsection{Cruise }
+\cite{alhajjaji2017design} states that the UAV is tasked with conducting aerial surveillance and environmental monitoring, specifically targeting areas afflicted by plastic and solid waste accumulation. Operating at an estimated cruise speed of 17 m/s, it covers a range of 20 km. The UAV diligently surveys the designated areas throughout its mission duration, lasting 1176 seconds, utilizing its efficient speed and range capabilities to monitor and assess environmental conditions thoroughly.
 
 \subsubsection{Descent to Mission Height}
 The UAV will descend to an altitude of 150 m AMSL to study air quality at a sinking speed of 12.92 m/s for a 5 km range. Time spent here is 28 s.
 
 Calculation: - 
-$$ (V_{cr,lo})_{_{design}} = 0.76 \times (V_{cr})_{_{des}} \;  (initial \: estimate) $$
+$$(V_{cr,lo})_{_{design}} = 0.76 \times (V_{cr})_{_{des}} \;  (initial \: estimate) $$
 $$ = 12.92 \: m/s $$
 
-\subsubsection{Descent to land \cite{Anderson1}}
-The UAV will descend at an estimated velocity of 10.13 m/s. To close ground proximity, the UAV gradually decelerates to an estimated touchdown velocity of 8.61 m/s. Time spent here is 80 s.
+\subsubsection{Descent to land }
+The UAV will descend at an estimated velocity of 10.13 m/s. To close ground proximity, the UAV gradually decelerates to an estimated touchdown velocity of 8.61 m/s. Time spent here is 80 s. By using formulas from \cite{Anderson1},
 Calculation: - 
 $$(V_des)_{_{design}} = (V_{mg})_{_{design}} = (V_{mg})_{_{design}} \times 0.76 = 10.13 \: m/s $$
 
@@ -207,7 +208,7 @@ $$ = 1.495 \: m/s \leq 4 \: m/s \; \text{(For smooth landing)} $$
 \begin{figure}
     \begin{subfigure}{.4\textwidth}
         \centering
-        \includegraphics[width = 0.9\linewidth]{Aircraft pics/WingtraOne.png}
+        \includegraphics[width = 0.5\linewidth]{Aircraft pics/WingtraOne.png}
         \caption{Wingtraone}
         \label{Wingtra one}
     \end{subfigure}
@@ -284,41 +285,6 @@ SI no &
 \label{Data part one}
 \end{table}
 
-% Please add the following required packages to your document preamble:
-% \usepackage{graphicx}
-\begin{table}[h]
-\centering
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
-\hline
-SI no &
-  UAV Name &
-  \begin{tabular}[c]{@{}c@{}}Service Ceiling\\ m\end{tabular} &
-  \begin{tabular}[c]{@{}c@{}}Maximum Ceiling\\ m\end{tabular} &
-  \begin{tabular}[c]{@{}c@{}}Cruise speed\\ km/hr\end{tabular} &
-  \begin{tabular}[c]{@{}c@{}}Max Speed\\ km/hr\end{tabular} &
-  \begin{tabular}[c]{@{}c@{}}Longitudinal Length\\ cm\end{tabular} &
-  \begin{tabular}[c]{@{}c@{}}Wing Span\\ cm\end{tabular} &
-  AR &
-  L/D \\ \hline
-1 & Wingtraone                & 120  & 2500   to 5000 & 35.8 &     &     & 125 & 1.838 &                \\ \hline
-2 & Albatross                 &      &                & 68   & 129 &     & 300 &       & 28:1   to 30:1 \\ \hline
-3 & Azimut   2                &      &                &      &     &     &     &       &                \\ \hline
-4 & Dragonfly   Tango 2       &      &                & 43.2 & 100 &     &     &       &                \\ \hline
-5 & Nostromo   Defensa Cabure & 4000 &                & 70   & 105 &     &     &       &                \\ \hline
-6 & SPY   LITE                &      &                &      & 120 & 135 & 275 &       &                \\ \hline
-7 & Skylark I-LEX             & 4572 &                & 37   & 74  & 220 & 300 &       &                \\ \hline
-\end{tabular}%
-}
-\caption{Additional data}
-\label{Data part 2}
-\end{table}
-
-
-\vspace{\fill}
-
-%\Floatbarrier
-%\vspace{\vfill}
 
 \newpage
 
@@ -364,24 +330,18 @@ This is the first weight calculation in the Design process. \\
 \end{figure}
 
 
-The empty weight ratio can be estimated from the previous data. 
-
-We have fitted the data in a $y = A x^c$ curve with A and C as variables.
-
-From our curve fit, we obtained A as 1.3887, and C as -0.5155
-
-Using the above equation, the empty weight of our UAV is 3.1746 kg.
+The process of estimating the empty weight ratio of a UAV involves fitting data into a mathematical curve using the equation $y = A x^c$, where A and C are variables. In this case, after conducting a curve fit, the values obtained were A = 1.3887 and C = -0.5155. By applying this curve fit equation, the empty weight of the UAV was calculated to be 3.1746 kg. This method allows for a quantitative estimation of the structural weight of the unmanned aerial vehicle based on the data analysis and mathematical modeling
 
 \newpage
 
 \subsection{Battery weight estimation}
 
-The battery is an essential criterion for the design of any drone. We should optimize the battery weight using the Mission profile we have. That way, we will not be carrying unnecessary dead weight with us.
-
-For calculating Battery weight estimation, we must first find out the total energy required for each Major phase of flight.
+Calculating the battery weight for a UAV  involves optimizing its weight based on the mission profile to avoid carrying unnecessary dead weight. To estimate the battery weight accurately, the first step is to determine the total energy required for each primary phase of flight. This entails analyzing the energy consumption during different flight phases such as takeoff, climb, cruise, hover, and landing. By understanding the energy demands at each stage of the mission profile, designers can calculate the total energy needed for the entire flight. This information is crucial for selecting an appropriately sized battery that can provide the required energy without adding excessive weight to the uav, ensuring optimal performance and efficiency throughout the mission
+.
 
 \subsubsection{Cruise}
-Now, for a level flight,
+The power required for the cruise condition of a UAV is a critical parameter that ensures the aircraft maintains steady flight during this phase. In essence, during cruise, the UAV is in force equilibrium, where the thrust and drag forces are balanced. The thrust required for cruise at a specific airspeed follows the drag profile, ensuring that the total drag does not exceed the available thrust and and therefore, the power required for cruise is a crucial factor in determining the energy consumption and performance of the UAV during this phase of flight.
+For steady level we have ,
 $$ L = W \; \; , \; \; T = D$$
 
 $$ W = \frac{1}{2} \rho V^2 S C_L $$
@@ -402,21 +362,22 @@ $$ P_R = f(W) $$
 
 We will consider the Loitor phase as a cruise, too.
 
-For our cruise phase of 17 m/s, we will need a power of 84.35 W.
+For our cruise phase of 17 m/s, we will need a power of 84.35 W 
 
 \subsubsection{Climb }
-The power required for climb is given by 
+The power required for climb in a UAV is the energy needed to ascend vertically, considering factors like climb rate, airspeed, weight, and propulsion efficiency. It determines the additional power required to overcome gravity during ascent, optimizing performance and energy efficiency for climbing phases of flight.
+The power required for the climb is given by 
 $$ P = W \times R.O.C + P_R $$
 
-Climbing is also the portion where we need a good amount of power. For our estimated weight, we need a preliminary power of 251 W.
+During the climbing phase of flight, a significant amount of power is required to ascend vertically. In our case, for the estimated weight of the UAV, a preliminary power of 251 watts is needed to facilitate a successful climb. This power allocation is essential to overcome gravity and achieve the desired ascent rate, ensuring efficient and effective performance during the climbing segment of the UAV's flight.
 
 \subsubsection{Descent}
 The power required for descent is 
 $$ P = P_R - W \times Rate\: of\: descent$$
-We need to ensure the power does not go negative here or make it zero while estimating energy. The extra allowance we give will take care of the power consumed.
+To prevent negative power estimates, we include an extra allowance in our calculations to ensure power never drops below zero. This buffer safeguards against unexpected power variations, guaranteeing the UAV always has sufficient power for optimal performance during flight
 
 \subsubsection{Take off and Landing}
-The Segments of take-off and Landing do not take that much time. Also, estimating the energy spent in takeoff and Landing is harder due to the carrying power needs. So, we will take an excess power of 20 percent to account for the errors in different power situations.
+The Segments of takeoff and Landing do not take that much time. Also, estimating the energy spent in takeoff and landing is more complicated due to the need for carrying power. So, we will take an excess power of 20 percent to account for the errors in different power situations.
 
 \subsubsection{Battery type selection \cite{Lipobattery}}
 We will use a lithium polymer battery for our aircraft. Some of the advantages offered by a lithium polymer battery are that it is less likely to leak away and still rivals Lithium-ion batteries in terms of energy density. It is bulkier by volume, but by weight, it is comparable.
@@ -428,7 +389,7 @@ We will use a lithium polymer battery for our aircraft. Some of the advantages o
     \label{Lithium Polymer battery}
 \end{figure}
 
-Lithium Polymer batteries are rechargeable batteries that transmit electricity due to the difference in charge between the Cathode and Anode parts of the battery. While pretty safe to handle, care should be taken not to get the battery near any fore source, or else it tends to catch fire.
+Lithium Polymer batteries are rechargeable batteries that transmit electricity due to the charge difference between the battery's Cathode and Anode parts. While pretty safe to handle, care should be taken not to get the battery near any fore source, or else it tends to catch fire.
 
 We can estimate the energy in a battery by using this formula \cite{Lipobattery}:-
 
@@ -461,7 +422,7 @@ $$W_{0} = \frac{W_{pl}}{1 - \frac{W_{e}}{W_{0}} - \frac{W_{f}}{W_0}}$$
 
 If we have an initial approximation, we can run an iteration algorithm to determine the design weight when we keep the empty weight ratio as a variable.
 
-%Generally, we take an initial estimate to be four times the payload weight. Taking the correct initial weight is important,, or the code may blow up.
+%Generally, we take an initial estimate to be four times the payload weight. Correct initial weight is essential, or the code may blow up.
 
 In our case, we use a special algorithm to preserve the momentum of the descent from the previous iteration. This is done because otherwise, the code will blow up and reach a negative value. 
 
@@ -486,22 +447,44 @@ In our case, the design weight was 6.6102 kg after taking a 20 percent leverage 
 
 \textbf{\Huge{Chapter 3}}
 
-\section{Calculation of Aerodynamic Coefficients}
+\section{Powerplant and Motor Selection}
 
-\subsection{\ Calculation of Aspect Ratio and Lift Coefficient}
+\subsection { Aerodynamic Efficiency ${(L/D)}$}
+The ratio of Lift-to-Drag is an indication of the aerodynamic efficiency of the airplane. An airplane has a high L/D ratio if it produces a large amount of lift or a small amount of drag. There are few peculiar L/D ratios that correspond to certain flight operating conditions of importance such as at minimum drag, minimum power, maximum range and so on.
 
-We first start calculating the wing reference area and wetted area of all our reference UAVs and then proceeded to calculate the reference aspect ratio as well as the wetted aspect ratio of all the UAVs. We have used ImageJ and Fusion 360 software for estimating the Reference area and wetted area of all the UAV.\\
+\subsection { Calculation of Maximum Aerodynamic Efficiency ${(L/D)}_{max}$}
+Because under cruise conditions lift is equal to weight, a high lift aircraft can carry a large payload. And because under cruise conditions thrust is equal to drag, a low drag aircraft requires low thrust. Hence, it is clear that L/D ratio of an aircraft operating in cruise corresponds to Maximum Lift-to-Drag ratio ${L/D}_{max}$.
 
-\textbf{Wingspan} : It is the distance between the wingtips of the UAV.\\
+we are going to mostly use historical data The reason is that we cannot do anything better because we are at a stage in design where we cannot get the accurate value of this parameter because we have not even finalized the configuration. All we know is the type of the aircraft that we are designing.
 
-\textbf{Mean aerodynamic chord} : It is the average of the chord lengths across the cross sections of the wings.\\
+there are certain thumb rules available one simple guideline is
+as a function of the wing aspect ratio.
 
-\textbf{Aspect Ratio} : The aspect ratio is crucial as it directly influences its aerodynamic performance and efficiency. Higher aspect ratios generally result in lower induced drag and better lift-to-drag ratios, enabling improved endurance and range, which are essential factors in UAV design optimization.
+The subsonic value of ${(L/D)}$ is very strongly dependent upon the aircraft configuration.
+
+In level flight, we go for a condition that lift is equal to weight and hence, the ${(L/D)}$ will depend based mostly on the D because the L is
+almost constant.
+for subsonic aircraft, there are 2 main components of the drag or D. One is the parasite or Zero lift drag which is a function of the wetted area of the aircraft and the other is the induced or lift dependent drag, which is a function of the wingspan because it is a function of
+aspect ratio which is span square by area. 
+
+if we want to get a handle on both these aspects, the span as well as the wetted area.
+We should consider not just the aspect ratio, but the wetted aspect ratio. The wetted aspect
+ratio AR wet is defined as the square of the span divided by the wetted area of the aircraft.
+And the wetted area aspect ratio is a much better indicator of ${(L/D)_{max}}$
+Raymer, in his textbook has given this example, it is a very nice example, which shows that
+you could have a totally different shape, but you may have the same value of maximum LD.
+So,if the wetted aspect ratio of if the velocity ratio of 2 aircraft is similar, we can expect them to have the same or similar (LD)max values.
+
+\textbf{Wingspan}: It is the distance between the wingtips of the UAV.\\
+
+\textbf{Mean aerodynamic chord}: It is the average of the chord lengths across the cross sections of the wings.\\
+
+
 
 The aspect ratio ($AR$) of a rectangular wing aircraft is calculated using the formula:
 \[
 AR = \frac{{\text{Wingspan}}}{{\text{Mean aerodynamic chord}}}\]
-where wingspan is the distance between the wingtips and the Mean aerodynamic chord is the average chord length of the wing.\\
+where the wingspan is the distance between the wingtips and the Mean aerodynamic chord is the average chord length of the wing.\\
 By using steady-level conditions, where Lift = Weight, we have calculated the Lift Coefficient at cruise conditions.\\
 When the lift force ($L$) of an aircraft equals its weight ($W$), the coefficient of lift ($C_L$) can be calculated using the formula:
 
@@ -533,7 +516,7 @@ Given:
 \end{align*}
 
 
-For cruise condition, we know that Lift = Weight.
+For cruise conditions, we know that Lift = Weight.
 
 {Calculating Coefficient of Lift for Cruise Conditions}
 
@@ -546,7 +529,7 @@ For steady cruise conditions, we know:
 \left(\frac{L}{D}\right)_{\text{max}} &= \sqrt{\frac{1}{\ 4CD_0 k}} = \sqrt{\frac{\pi e AR}{\ 4CD_0 k}} \tag{3.4}
 \end{align}
 
-Equation 3.3 has been used to determine $(L/D)_{\text{max}}$ for each of the aircraft. From Equation 3.3, it is evident that we need to determine $CD_0$ in order to obtain $(L/D)_{\text{max}}$.
+Equation 3.3 has been used to determine $(L/D)_{\text{max}}$ for each of the aircraft. From Equation 3tovident that we need to determine $CD_0$ in order to obtain $(L/D)_{\text{max}}$.
 
 Since it is Steady Cruise, the Equations of motion and aerodynamic relations are as follows:
 
@@ -556,7 +539,7 @@ C_L &= \frac{2W_0g}{\rho V^2_{\text{cr}} c_r S_{\text{ref}}} \tag{3.6} \\
 C_D &= CD_0 + kC_L^2 \tag{3.7}
 \end{align}
 
-Equation 3.6 is used to determine $C_L$ for each of the aircraft. Input parameters such as $V_{\text{cr}}$ (Velocity in cruise) and $S_{\text{ref}}$ vary for each aircraft. $V_{\text{cr}}$ is obtained for each aircraft during the data collection phase and $S_{\text{ref}}$ is determined following the method stated in the above section.
+Equation 3.6 is used to determine $C_L$ for each of the aircraft. Input parameters such as $V_{\text{cr}}$ (Velocity in cruise) and $S_{\text{ref}}$ vary for each aircraft. $V_{\text{cr}}$ is obtained for each aircraft during the data collection phase, and $S_{\text{ref}}$ is determined following the method stated in the above section.
 
 For $(L/D)_{\text{max}}$:
 
@@ -645,15 +628,24 @@ SI no &
     \centering
     \includegraphics[width=0.8\linewidth]{graph.png}
     \caption{$\text{(L/D)}_{max}$ \text{v/s} $\sqrt{AR_{wet}}$ }
-    \label{fig:enter-label}
+    \label{Data Collection}
 \end{figure}
 
 \newpage
 
+\newpage
+\newpage
+\newpage
+\newpage
+
+\textbf{\Huge{Chapter 4}}
+
 \section{Power Loading for Different mission segments}
-Given:
+The power loading for different mission segments of a UAV involves analyzing the power requirements during various phases of flight, such as take off, climb, cruise, and descent. This analysis helps in understanding the energy demands at different stages of the UAV's operation, aiding in the optimization of propulsion systems and energy management strategies for efficient and effective flight performance
+
+ Given:
 \begin{align*}
-& L/D_{\text{max}} = 14.56067 \quad (\text{Taken from average of } L/D_{\text{max}} \text{ of data collection}) \\
+& L/D_{\text{max}} = 14.56067 \quad (\text{Taken from average of } L/D_{\text{max}} \text{ of data collection}) \\ 
 & L/D_{\text{max}} = 30.249 \ln(\sqrt{AR_{\text{wet}}}) - 5.0483 \\
 & \sqrt{AR_{\text{wet}}} = 1.912198 \\
 & AR_{\text{wet}} = 3.6565 \\
@@ -677,6 +669,7 @@ Given:
 & \frac{W}{S} = 92.65865 \text{ N/m}^2 \\
 \end{align*}
 \subsection {Power Loading for Climb}
+\textsc{}
 \begin{align*}
 & V_{\text{climb}} = V_{\text{minimum power}} = \sqrt{\frac{2W}{\rho S}} \left(\frac{k}{3C_{d0}}\right)^{\frac{1}{4}} \\
 & V_{\text{climb}} = 12.69456 \text{ m/s} \\
@@ -736,7 +729,6 @@ P_{\text{cruise}} &= \frac{P}{W}_{\text{cruise}} \cdot W \\
 \end{align*}
 
 \subsection {Power Required for Descent}
-
 \begin{align*}
 \frac{P}{W}_{\text{descent}} &= 1.087755 \\
 P_{\text{descent}} &= \frac{P}{W}_{\text{descent}} \cdot W \\
@@ -754,22 +746,25 @@ P_{\text{loiter}} &= \frac{P}{W}_{\text{loiter}} \cdot W \\
 &= 1.167529 \times 64.84 \\
 &= 75.70 \, \text{W}
 \end{align*}
+\subsection{Total Power Requirement}
 
-%The total power required is the sum of the powers required for climb, cruise, descent, and loiter:
+The total power requirement encompasses the cumulative power demands for climb, cruise, descent, and loiter phases of the UAV's operation:
 
-%\[
-%\text{Total Power Required} = P_{\text{climb}} + P_{\text{cruise}} + %P_{\text{descent}} + P_{\text{loiter}}
-%\]
-%\[
-%= 244.63 + 75.70 + 70.52 + 75.70 = 466.55 \, \text{W}
-%\]
+\[
+\text{Total Power Requirement} = P_{\text{climb}} + P_{\text{cruise}} + P_{\text{descent}} + P_{\text{loiter}}
+\]
+\[
+= 244.63 \, \text{W} + 75.70 \, \text{W} + 70.52 \, \text{W} + 75.70 \, \text{W} = 466.55 \, \text{W}
+\]
 
-%Given that the power required for takeoff and Landing is negligible, we'll add a tolerance of 20\% to the total power value:
+To accommodate potential variations and ensure operational reliability, a tolerance of 20\% is applied to the total power value:
 
-%\[
-%\text{Final Total Power Required} = 466.55 + (0.20 \times 466.55) = 466.55 + %93.31 = 559.86 \, \text{W}
-%\]
-%\textbf{The total power required for the UAV is $559.86 \, \text{W}$.}
+\[
+\text{Adjusted Total Power } = 466.55 \, \text{W} + (0.20 \times 466.55 \, \text{W}) = 466.55 \, \text{W} + 93.31 \, \text{W} = 559.86 \, \text{W}
+\]
+
+Hence, the finalized total power requirement for the UAV, accounting for the specified tolerance, amounts to \textbf{ 559.86  \text{W}. }
+
 
 
 
@@ -790,23 +785,19 @@ For each mission segment, we will calculate the energy required in watt-hours by
 \begin{align*}
 \text{Energy for climb} &= P_{\text{climb}} \times \text{Endurance for climb} \\
 &= 244.63 \times 0.0333 \\
-&= 8.15 \, \text{Wh} \\
-\\
+&= 8.15 \, \text{Wh} \\[10pt]
 \text{Energy for cruise} &= P_{\text{cruise}} \times \text{Endurance for cruise} \\
 &= 75.70 \times 0.2 \\
-&= 15.14 \, \text{Wh} \\
-\\
+&= 15.14 \, \text{Wh} \\[10pt]
 \text{Energy for loiter} &= P_{\text{loiter}} \times \text{Endurance for loiter} \\
 &= 75.70 \times 0.1667 \\
-&= 12.61 \, \text{Wh} \\
-\\
+&= 12.61 \, \text{Wh} \\[10pt]
 \text{Energy for descent} &= P_{\text{descent}} \times \text{Endurance for descent} \\
 &= 70.52 \times 0.0333 \\
-&= 2.35 \, \text{Wh} \\
-\\
-\text{Energy for takeoff and landing} &= (\text{Final Total Power Required} \times 0.20) \times \text{Endurance for takeoff and landing} \\
-&= (559.86 \times 0.20) \times 0.0667 \   \text{we take 20 percent buffer of total power}  \\
-&= 7.47 \, \text{Wh} \\
+&= 2.35 \, \text{Wh} \\[10pt]
+\text{Energy for takeoff and landing} &= (\text{Total power required} \times 0.20) \times \text{Endurance of takeoff and landing} \\
+&= (559.86 \times 0.20) \times 0.0667 \quad \text{(We take 20 \% buffer of total power)} \\
+&= 7.47 \, \text{Wh}
 \end{align*}
 
 The total energy required is the sum of energies for all mission segments:
@@ -829,11 +820,7 @@ Now, let's assume a typical lithium-ion battery voltage of 14.8V for calculation
 & = 3089.18 \, \text{mAh}
 \end{align}
 
-%Bro give powerplant weight - Propeller and motor weight
-%Write the answer here
-%
-
-So, the total battery capacity required for the aircraft is approximately $3089.18 \, \text{mAh}$.
+So, the total battery capacity required for the aircraft is \textbf{3089.18 mAh}.
 
 \subsubsection{Battery and Motor Selection}
 
@@ -876,9 +863,9 @@ To meet the power requirements with a tolerance of about 1000 mAh, we have selec
 
 \subsubsection{Motor and Propeller selection}
 
-We have selected AT 2317 Long Shaft KV 1440 Motor with APC 8x6 propeller to meet the above calculated power requirements and voltage capacity. All the specifications are mentioned below.
+We have selected AT 2317 Long Shaft KV 1440 Motor with APC 8x6 propeller to meet the above-calculated power requirements and voltage capacity. All the specifications are mentioned below.
 
-Selecting the right propeller is crucial for efficient performance and optimal thrust generation. We have selected an APC 8x6 propeller that is compatible with our motor.
+Selecting the right propeller is crucial for efficient performance and optimal thrust generation. We have chosen an APC 8x6 propeller that is compatible with our motor.
 
 \begin{figure}[h]
     \centering
@@ -926,16 +913,15 @@ Selecting the right propeller is crucial for efficient performance and optimal t
     \end{tabular}
 \end{table}
 
-\newpage
 
 \textbf{\Huge{Chapter 5}}
 
 \section{Wing Loading}
 
 \subsection{Stall Criteria}
-According to \cite{stall1} Stall speed is the minimum speed at which the airplane remains controllable during it's flight for a steady cruise. This is the point where the $C_L$ of the plane is maximum i.e. $C_{L_{\text{max}}}$
+According to \cite{stall1}, Stall speed is the minimum speed at which the airplane remains controllable during its flight for a steady cruise. This is the point where the $C_L$ of the plane is maximum i.e. $C_{L_{\text{max}}}$
 
-At this speed the Angle of attack of the aircraft becomes so large that the flow begins to separate at the top of the airfoil resulting in a drop of lift if we increase the angle of attack beyond that.
+At this speed, the aircraft's Angle of attack becomes so large that the flow begins to separate at the top of the airfoil, resulting in a drop in lift if we increase the Angle of attack beyond that.
 
 \begin{figure}[h]
     \centering
@@ -948,18 +934,18 @@ At this speed the Angle of attack of the aircraft becomes so large that the flow
 
 \subsubsection{Stall}
 
-According to our take-off speed based on the Mission profile which is 10 m/s we will take our stall speed to be 8.33 m/s
+According to our takeoff speed based on the Mission profile, which is ten m/s, we will take our stall speed to 8.33 m/s
 
-At stall we know,
+At the stall, we know,
 $$W = \frac{1}{2} \rho V^2 S C_{L_{max}} $$
 
 So, $\frac{W}{S}$ comes out to be 107.5648 $N/m^2$. So, taking our estimated weight, the S comes out to be 1.0879 m.
 
-%Since we are not dropping any payload or using any fuel, our $\frac{W}{S}$ will remain the same overall. But in the case of turning, one wing can have a higher loading than the other to balance out forces. But the overall $\frac{W}{S}$ will remain the same.
+%Since we are not dropping any payload or using any fuel, our $\frac{W}{S}$ will remain the same overall. However, in the case of turning, one wing can have a higher loading than the other to balance out forces. But the overall $\frac{W}{S}$ will remain the same.
 
 \subsubsection{Take off parameter}
 
-According to \cite{Raymer.2006}, Raymer states that the Takeoff Parameter is given as:- 
+According to \cite{Raymer2006}, Raymer states that the Takeoff Parameter is given as:- 
 
 $$\text{TOP} = \frac{\frac{W}{S}}{ \sigma C_{L_{TO}} \left( \frac{P}{W} \right) }$$
 where,
@@ -968,29 +954,29 @@ where,
     \item [-] $C_{L_{TO}}$ will be the Coefficient of lift at Takeoff 
 \end{itemize}
 
-We have taken the takeoff distance to be 80 m, which is around 200 feet. Changing the previous equation:-
+We have taken the takeoff distance to 80 m, around 200 feet. Changing the previous equation:-
 
 $$ \frac{W}{S} = \text{TOP} \times \sigma C_{L_{TO}} \left( \frac{P}{W} \right) $$
 
-This equation will estimate the maximum $\frac{W}{S}$ which we can take for our aircraft.
+This equation will estimate the maximum $\frac{W}{S}$ we can take for our aircraft.
 
-The TOP is given in ref \cite{Raymer.2006} page number 130 in the form of a graph. The graph was digitalized using Image processing, and a Linear regression was taken in Figure:-\ref{Image processed Take off parameter}. 
+The TOP is given in ref \cite{Raymer. 2006} page number 130 in the form of a graph. The graph was digitalized using Image processing, and a Linear regression was taken in Figure:-\ref{Image processed Take off parameter}. 
 
-We will take a power of 500 W for take-off, which can be provided by out power-plant at 80 \% throttle. 
+We will take a power of 500 W for takeoff, which can be provided by out power-plant at 80 \% throttle. 
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\linewidth]{Codes/Week 2/Takeoffparam.png}
-    \caption{Image processed Take off parameter from \protect\cite{Raymer.2006} pg no 130}
+    \caption{Image processed Take off parameter from \protect\cite{Raymer2006} pg no 130}
     \label{Image processed Take off parameter}
 \end{figure}
 
 
-For our case, we calculated that the maximum Wing loading during take-off can be 352 $N/m^2$. This is sufficiently higher than the wing loading by Stall criteria, so we can rest assured that our plane can take off properly.
+We calculated that the maximum Wing loading during takeoff can be 352 $N/m^2$ for our case. This is sufficiently higher than the wing loading by Stall criteria, so we can rest assured that our plane can take off properly.
 
 \subsubsection{Landing distance}
 
-According to \cite{Raymer.2006} Chapter 5.3.5, Raymer states that Landing distance is the minimum distance the plane will take to come to a halt.
+According to \cite{Raymer2006} Chapter 5.3.5, Raymer states that Landing distance is the minimum distance the plane will take to come to a halt.
 
 It includes a clearing distance as well as a ground run distance. The landing distance heavily relies on $C_{L_{max}}$, which can be increased heavily by using flaps.
 
@@ -1010,9 +996,9 @@ Also, some methods, like thrust reversion, can be considered in the design proce
 
 \subsubsection{Cruise}
 
-Raymer in \cite{Raymer.2006} ch 5.3.7 discusses that for maximising range in cruise, we would like a Wing loading, which is generally much higher than what is required for a wing required for stall speed. As a result, making a wing based on this estimate is pretty unsafe and will drastically increase stall speed.
+Raymer in \cite{Raymer2006} ch 5.3.7 discusses that for maximizing range in cruise, we would like a Wing loading, which is generally much higher than what is required for a wing required for stall speed. As a result, making a wing based on this estimate is pretty unsafe and will drastically increase stall speed.
 
-The propeller aircraft will give us the maximum range when we have the highest L/D ratio. It is speed when the parasitic drag equals Induced drag as shown in Chapter 17 of \cite{Raymer.2006}. Thus:-
+The propeller aircraft will give us the maximum range when we have the highest L/D ratio. It is speed when the parasitic drag equals Induced drag as shown in Chapter 17 of \cite{Raymer. 2006}. Thus:-
 $$qSC_{D_o} = qS\frac{C_L^2}{\pi e AR}$$
 It will transform to give us:- 
 $$ C_L = \sqrt{C_{D_o} \pi e AR }$$
@@ -1021,11 +1007,11 @@ This can be substituted back into the Cruise equation for the lift to get:-
 $$ \frac{W}{S} = q \sqrt{C_{D_o} \pi e AR}$$
 where, q is $\frac{1}{2} \rho V^2 $
 
-For our cruise condition, our Wing loading comes out to be 95.91 $N/m^2$. This is expected for a perfect cruise, so it will be best to have as small a wing as possible to minimise impossible drag.
+For our cruise condition, our Wing loading comes out to be 95.91 $N/m^2$. This is expected for a perfect cruise, so having as small a wing as possible to minimize impossible drag.
 
 \subsubsection{Loiter}
 
-According to Raymer in CH 5.3.8 of \cite{Raymer.2006} he states that the time of loiter will be most when the induced drag is three times the parasitic drag. 
+According to Raymer in CH 5.3.8 of \cite{Raymer. 2006} he states that the time of loiter will be most when the induced drag is three times the parasitic drag. 
 $$C_L = 3 C_{D_o}$$
 
 Assuming Loiter to be steady, we compute the wing loading as:-
@@ -1036,9 +1022,9 @@ Thus, We can infer that we must decrease our loiter speed to a low value to decr
 
 \subsection{Second weight estimate}
 
-We got a more accurate solutions of values from the previous values. 
+We got more accurate solutions of values from the previous values. 
 
-From the Power loading we got weight of the battery as well as the propeller and motor configuration. So when we input these values in the formula for the weight estimate, we get:- 
+From the Power loading, we got weight of the battery as well as the propeller and motor configuration. So when we input these values in the formula for the weight estimate, we get:- 
 
 $$W_{0} = \frac{W_{pl}  +  W_{\text{battery}}+  W_{\text{Propeller}} + W_{\text{Motor}}}{1 - \frac{W_{e}}{W_{0}}}$$
 
@@ -1064,7 +1050,7 @@ According to our new estimate, the weight after tolerance is 6.38 kg.
 
 \textbf{\Huge{Chapter 6}}
 \section{Wing Design}
-This section estimates the Lift Coefficient for the cruise phase in the UAV mission profile. Various airfoils are evaluated using data from reputable airfoil databases, followed by simulations conducted through the XFLR5 software. We scrutinize performance diagrams and explore multiple wing configurations, factoring in various design parameters such as chord length, span length, high lift devices (e.g., flaps), taper ratio, and sweep angle. Upon achieving performance plots closely aligning with our design specifications and considering practical feasibility, we finalize airfoil and wing configuration for representation.
+This section estimates the Lift Coefficient for the cruise phase in the UAV mission profile. Various airfoils are evaluated using data from reputable airfoil databases, followed by simulations conducted through the XFLR5 software. We scrutinize performance diagrams and explore multiple wing configurations, factoring in various design parameters such as chord length, span length, high lift devices (e.g., flaps), taper ratio, and sweep Angle. Upon achieving performance plots closely aligning with our design specifications and considering practical feasibility, we finalize airfoil and wing configuration for representation.
 \vspace{5mm} 
  
 
@@ -1184,7 +1170,7 @@ Featuring a thick profile and optimized camber distribution, the SA 7035 generat
     \centering
     \includegraphics[width = 0.85\linewidth]{Codes/Week 6/Airfoil.png}
     \caption{SA7035 Airfoil}
-    \label{fig:enter-label}
+    \label{SA7035 Airfoil}
     \end{figure}
 \begin{table}[h]
 \centering
@@ -1206,29 +1192,29 @@ We will now create graphs illustrating the relationship between Lift Coefficient
 \begin{figure}[H]
     \centering
      \includegraphics[scale = 0.8]{Codes/Week 6/Cl_alpha.png}
-    \caption{Coefficient of lift vs angle of attack}
-    \label{fig:enter-label}
+    \caption{Coefficient of lift vs Angle of attack}
+    \label{Coefficient of lift vs Angle of attack}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale = 0.8]{Codes/Week 6/Cd_alpha.png}
-    \caption{Coefficient of drag vs angle of attack}
-    \label{fig:enter-label}
+    \caption{Coefficient of drag vs Angle of attack}
+    \label{Coefficient of drag vs Angle of attack}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale = 0.8]{Codes/Week 6/Cl_Cd.png}
     \caption{Coefficient of lift vs coefficient of drag}
-    \label{fig:enter-label}
+    \label{Coefficient of lift vs coefficient of drag}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale = 0.8]{Codes/Week 6/Cl_Cd_ratio.png}
-    \caption{Cl/Cd vs angle of attack}
-    \label{fig:enter-label}
+    \caption{Cl/Cd vs Angle of attack}
+    \label{Cl/Cd vs Angle of attack}
 \end{figure}
 \newpage
 
@@ -1237,69 +1223,77 @@ We have established that the Lift Coefficient ($C_L$) during cruise conditions, 
 \color{red}
 \subsection{Wing Configuration}
 
-Low-Wing Configuration:
-\color{black}
-\\- In the low-wing configuration, the wings are mounted below the aircraft's fuselage.
-\color{red}
-\\- Advantages:
-\color{black}
- \\- Enhanced stability: Low-wing UAVs exhibit better lateral stability during flight, making them well-suited for missions requiring precision control, such as surveillance and mapping.
-\\  - Payload capacity: Placing the wings beneath the fuselage allows for larger payload capacity, as payloads can be mounted directly underneath without wing interference.
-\\  - Aerodynamic efficiency: Low-wing UAVs may benefit from reduced interference drag between the wings and the fuselage, improving overall aerodynamic efficiency and potentially longer endurance.
-\\  - Ground operations: The low-wing configuration facilitates easier ground operations, including launching and landing, especially in confined spaces, as the wings do not obstruct ground clearance.
-\color{red}
-\\- Disadvantages:
-\color{black}
-\\  - Vulnerability to ground debris: With the wings positioned beneath the fuselage, low-wing UAVs are more susceptible to damage from ground debris during takeoff and landing, which could potentially lead to damage to the wings or payload.
- \\ - Limited ground clearance: Low-wing UAVs may have limited ground clearance, which could pose challenges when operating on rough terrain or uneven surfaces.
-\\  - Visibility: While low-wing configurations offer good visibility for the payload, certain types of sensors or cameras mounted on top of the fuselage may experience slightly reduced visibility.
+%\documentclass{article}
 
-\color{red}
-Mid-Wing Configuration:
-\color{black}
-\\- In the mid-wing configuration, the wings are mounted at the midpoint of the fuselage.
-\color{red}
-\\- Advantages:
-\color{black}
-\\  - Balanced lift distribution: Mid-wing UAVs typically achieve a balanced lift distribution, enhancing stability and control during flight maneuvers.
- \\ - Aerodynamic efficiency: Similar to low-wing configurations, mid-wing UAVs can benefit from reduced interference drag between the wings and the fuselage, contributing to overall aerodynamic efficiency.
-\\  - Visibility: Mid-wing designs provide good visibility for sensors and cameras mounted on the fuselage, allowing for effective surveillance and reconnaissance missions.
-\\  - Payload flexibility: The mid-wing configuration allows for flexible payload integration options, as payloads can be mounted on top of the fuselage without interference from the wings.
- \\ - Ground clearance: Mid-wing UAVs typically have sufficient ground clearance for landing gear and other components, making them suitable for various terrain conditions.
-\color{red}
-\\- Disadvantages:
-\color{black}
-\\  - Complexity: Mid-wing configurations may involve more complex structural design and integration, especially when considering payload mounting and aerodynamic considerations.
-\\  - Maintenance accessibility: Accessing components on top of the fuselage, such as sensors or cameras, may require additional effort and time compared to configurations with lower wing wings.
-\\  - Vulnerability to damage: The mid-wing position exposes the wings to potential damage during ground operations, such as takeoff and landing, especially in rough terrain.
- \\ - Weight distribution: Achieving optimal weight distribution in mid-wing UAVs can be challenging, as the payload and other components need to be carefully balanced to maintain stability and performance.
 
-\color{red}
-High-Wing Configuration:
-\color{black}
-\\- In the high-wing configuration, the wings are mounted above the aircraft's fuselage.
-\color{red}
-\\- Advantages:
-\color{black}
-\\  - Excellent visibility: High-wing UAVs provide unobstructed visibility for sensors, cameras, and other payloads mounted beneath the fuselage, facilitating effective surveillance and reconnaissance missions.
-\\  - Stability: High-wing configurations typically offer excellent inherent stability, especially during banking maneuvers, making them suitable for various applications, including aerial mapping and monitoring.
-\\  - Protection from ground debris: With the wings positioned above the fuselage, high-wing UAVs are less susceptible to damage from ground debris during takeoff and landing, enhancing durability and reliability. Our payload module will also be safe.
-\\  - Payload flexibility: High-wing designs allow flexible payload integration options, as payloads can be mounted beneath the fuselage without wing interference.
- \\ - Ease of ground operations: High-wing UAVs often feature ample ground clearance, making takeoff and landing operations easier, especially in rough or uneven terrain.
-\color{red}
-\\- Disadvantages:
-\color{black}
-\\  - Aerodynamic interference: High-wing configurations may experience increased interference drag between the wings and the fuselage, potentially impacting overall aerodynamic efficiency and endurance.
-\\  - Limited maneuverability: High-wing UAVs offer stability but may have slightly reduced maneuverability compared to other configurations, which can be considered for specific mission profiles.
-\\  - Weight distribution: Achieving optimal weight distribution in high-wing UAVs can be challenging, as the payload and other components must be carefully balanced to maintain stability and performance.
-\\  - Complexity in payload integration: Mounting specific payloads, such as gimbals or sensors, beneath the fuselage of high-wing UAVs may require more complex integration and mounting solutions compared to configurations with the wings positioned lower.
+%\begin{document}
+
+{\color{red}\textbf{Low-Wing Configuration:}}
+
+{\color{black}
+\textbf{\textcolor{red}{Advantages:}}
+\begin{itemize}
+  \item Enhanced stability: Low-wing UAVs exhibit better lateral stability during flight, making them well-suited for missions requiring precision control, such as surveillance and mapping.
+  \item Payload capacity: Placing the wings beneath the fuselage allows for larger payload capacity, as payloads can be mounted directly underneath without wing interference.
+  \item Aerodynamic efficiency: Low-wing UAVs may benefit from reduced interference drag between the wings and the fuselage, improving overall aerodynamic efficiency and potentially longer endurance.
+  \item Ground operations: The low-wing configuration facilitates easier ground operations, including launching and landing, especially in confined spaces, as the wings do not obstruct ground clearance.
+\end{itemize}
+
+\textbf{\textcolor{red}{Disadvantages:}}
+\begin{itemize}
+  \item Vulnerability to ground debris: With the wings positioned beneath the fuselage, low-wing UAVs are more susceptible to damage from ground debris during takeoff and landing, which could potentially lead to damage to the wings or payload.
+  \item Limited ground clearance: Low-wing UAVs may have limited ground clearance, which could pose challenges when operating on rough terrain or uneven surfaces.
+  \item Visibility: While low-wing configurations offer good visibility for the payload, certain types of sensors or cameras mounted on top of the fuselage may experience slightly reduced visibility.
+\end{itemize}
+}
+
+{\color{red}\textbf{Mid-Wing Configuration:}}
+
+{\color{black}
+\textbf{\textcolor{red}{Advantages:}}
+\begin{itemize}
+  \item Balanced lift distribution: Mid-wing UAVs typically achieve a balanced lift distribution, enhancing stability and control during flight maneuvers.
+  \item Aerodynamic efficiency: Similar to low-wing configurations, mid-wing UAVs can benefit from reduced interference drag between the wings and the fuselage, contributing to overall aerodynamic efficiency.
+  \item Visibility: Mid-wing designs provide good visibility for sensors and cameras mounted on the fuselage, allowing for effective surveillance and reconnaissance missions.
+  \item Payload flexibility: The mid-wing configuration allows for flexible payload integration options, as payloads can be mounted on top of the fuselage without interference from the wings.
+  \item Ground clearance: Mid-wing UAVs typically have sufficient ground clearance for landing gear and other components, making them suitable for various terrain conditions.
+\end{itemize}
+
+\textbf{\textcolor{red}{Disadvantages:}}
+\begin{itemize}
+  \item Complexity: Mid-wing configurations may involve more complex structural design and integration, especially when considering payload mounting and aerodynamic considerations.
+  \item Maintenance accessibility: Accessing components on top of the fuselage, such as sensors or cameras, may require additional effort and time compared to configurations with lower wing wings.
+  \item Vulnerability to damage: The mid-wing position exposes the wings to potential damage during ground operations, such as takeoff and landing, especially in rough terrain.
+  \item Weight distribution: Achieving optimal weight distribution in mid-wing UAVs can be challenging, as the payload and other components need to be carefully balanced to maintain stability and performance.
+\end{itemize}
+}
+
+{\color{red}\textbf{High-Wing Configuration:}}
+
+{\color{black}
+\textbf{\textcolor{red}{Advantages:}}
+\begin{itemize}
+  \item Excellent visibility: High-wing UAVs provide unobstructed visibility for sensors, cameras, and other payloads mounted beneath the fuselage, facilitating effective surveillance and reconnaissance missions.
+  \item Stability: High-wing configurations typically offer excellent inherent stability, especially during banking maneuvers, making them suitable for various applications, including aerial mapping and monitoring.
+  \item Protection from ground debris: With the wings positioned above the fuselage, high-wing UAVs are less susceptible to damage from ground debris during takeoff and landing, enhancing durability and reliability. Our payload module will also be safe.
+  \item Payload flexibility: High-wing designs allow flexible payload integration options, as payloads can be mounted beneath the fuselage without wing interference.
+  \item Ease of ground operations: High-wing UAVs often feature ample ground clearance, making takeoff and landing operations easier, especially in rough or uneven terrain.
+\end{itemize}
+
+\textbf{\textcolor{red}{Disadvantages:}}
+\begin{itemize}
+  \item Aerodynamic interference: High-wing configurations may experience increased interference drag between the wings and the fuselage, potentially impacting overall aerodynamic efficiency and endurance.
+  \item Limited maneuverability: High-wing UAVs offer stability but may have slightly reduced maneuverability compared to other configurations, which can be considered for specific mission profiles.
+  \item Weight distribution: Achieving optimal weight distribution in high-wing UAVs can be challenging, as the payload and other components must be carefully balanced to maintain stability and performance.
+  \item Complexity in payload integration: Mounting specific
+\end{itemize}
 \vspace{5mm} 
-\\By considering all the wing configurations, we have decided to go with\textbf{ high wing configuration} for our UAV.
+By considering all the wing configurations, we have decided to go with\textbf{ high wing configuration} for our UAV.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{Codes/Week 6/wing configuration.jpeg}
     \caption{High Wing configuration}
-    \label{fig:enter-label}
+    \label{High Wing configuration}
 \end{figure}
 \color{red}
 \subsection{Wing Design}
@@ -1307,23 +1301,25 @@ High-Wing Configuration:
 The following are the detailed wing parameters that were previously estimated.
 \begin{table}[H]
 \centering
-\begin{tabular}{l l}
-\textbf{Parameter} & \textbf{Value} \\
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Parameters} & \textbf{Values} \\
 \hline
 Reference Area (S) & 0.7 sq.m \\
 Wing Geometry & Rectangular Wing \\
 Aspect Ratio (AR) & 7.175 \\
 Wingspan (b) & 2.241093483 m \\
 Chord (c) & 0.312347524 m \\
+\hline
 \end{tabular}
 \caption{Wing Parameters}
 \label{tab:wing_parameters}
 \end{table}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{3d_wing.png}
+    \includegraphics[width=1.0\linewidth]{3d_wing.png}
     \caption{3D MODEL OF RECTANGULAR WING}
-    \label{fig:enter-label}
+    \label{3D MODEL OF RECTANGULAR WING}
     \end{figure}
 \color{red}
  \large{\underline{Taper ratio}}
@@ -1334,33 +1330,170 @@ Chord (c) & 0.312347524 m \\
 Rectangular wings offer several advantages over tapered wings. Firstly, they provide more straightforward structural design and analysis due to their uniform geometry, facilitating ease of fabrication and reducing manufacturing complexities. Additionally, rectangular wings typically exhibit more predictable aerodynamic characteristics, especially at low speeds, simplifying flight performance analysis and enhancing overall stability. Moreover, the uniform chord distribution of rectangular wings often results in improved stall behavior and handling characteristics, making them preferable for specific applications, such as UAVs operating in varied flight conditions.
 
  Given these considerations, the decision to adopt a rectangular wing configuration in which the\textbf{ Taper ratio = 1 }is taken.\\
- \vspace{5mm}
-\color{red}
 
-\large{\underline{Wing Setting Angle $i_w$
-}}\\
-\color{black}
-The wing setting angle, denoted as \( i_w \), refers to the angle at which the wing is positioned relative to the aircraft's fuselage or horizontal reference plane. It plays a crucial role in determining an aircraft's aerodynamic performance and stability characteristics during flight. 
+\color{red}
+\large{\underline{Wing Setting Angle $i_w$}}\\
+\\ \color{black}
+The wing setting angle, denoted as \( i_w \), refers to the Angle at which the wing is positioned relative to the aircraft's fuselage or horizontal reference plane. It is crucial in determining an aircraft's aerodynamic performance and stability characteristics during flight.
 
 A positive wing setting angle typically results in a nose-up attitude, generating more lift but potentially increasing drag. Conversely, a negative setting angle may reduce lift while enhancing aerodynamic efficiency. The optimal setting angle depends on various factors, including aircraft design, mission requirements, and flight conditions.
 
-In our wing design, as the desired lift coefficient has been achieved,  we are maintaining the wing setting angle at 0 degrees. This indicates that the wing is positioned parallel to the horizontal reference plane. This configuration also suggests an optimal balance between lift generation and drag minimization, aligning with the desired aerodynamic performance criteria for the aircraft's mission profile.\\
-\vspace{5mm}
+As the desired lift coefficient has been achieved in our wing design,  we are maintaining the wing setting angle at 0 degrees. This indicates that the wing is positioned parallel to the horizontal reference plane. This configuration also suggests an optimal balance between lift generation and drag minimization, aligning with the desired aerodynamic performance criteria for the aircraft's mission profile.\\
+\\ \vspace{10mm}
 \color{red}
 \large{\underline{Wing Sweep and Geometric Twist}}\\
 \color{black}
-Wing sweep refers to the angle at which the wings are inclined backward from the root to the tip. This feature can enhance aerodynamic efficiency by reducing drag at high speeds, improving stability, and delaying the onset of compressibility effects. Geometric twist, on the other hand, involves varying the angle of incidence along the span of the wing, typically with a higher angle of incidence at the wing root and decreasing towards the wingtip. Geometric twist helps to optimize lift distribution and stall characteristics across the wing span.
+Wing sweep refers to the Angle at which the wings are inclined backward from the root to the tip. This feature can enhance aerodynamic efficiency by reducing drag at high speeds, improving stability, and delaying the onset of compressibility effects. On the other hand, a geometric twist involves varying the Angle of incidence along the span of the wing, typically with a higher angle of incidence at the wing root and decreasing towards the wingtip. Geometric twist helps to optimize lift distribution and stall characteristics across the wing span.
 
-In our wing design, wing sweep and geometric twist are not utilized due to concerns related to fabrication complexity. Incorporating these features would require intricate structural design and manufacturing processes, potentially increasing production costs and time. Additionally, the introduction of wing sweep and twist could introduce structural challenges and compromises in aerodynamic performance.
+In our wing design, wing sweep and geometric twist are not utilized due to concerns related to fabrication complexity. Incorporating these features would require intricate structural design and manufacturing processes, potentially increasing production costs and time. Additionally, wing sweep and twist could introduce structural challenges and compromises in aerodynamic performance.
 
-Furthermore, the decision not to employ winglets, which are small wing-like structures often added to the wingtips, is made to simplify the design and manufacturing process further. While winglets can reduce induced drag and improve fuel efficiency, their integration adds complexity to the wing design and may not provide significant benefits for the intended mission profile.\\
-\vspace{5mm}
+Furthermore, the decision not to employ winglets, which are small wing-like structures often added to the wingtips, is made to further simplify the design and manufacturing process. While winglets can reduce induced drag and improve fuel efficiency, their integration adds complexity to the wing design and may not benefit the intended mission profile significantly.\\
+\\ \vspace{5mm}
 \color{red}
 \large{\underline{Ailerons}}\\
 \color{black}
-Ailerons are control surfaces typically located on the trailing edge of the wing near the wingtips. They are responsible for controlling the aircraft's roll motion by deflecting in opposite directions. When one aileron moves upward, the other moves downward, causing the aircraft to roll about its longitudinal axis.
+Ailerons are control surfaces typically located on the wing's trailing edge near the wingtips. They control the aircraft's roll motion by deflecting in opposite directions. When one aileron moves upward, the other moves downward, causing the aircraft to roll about its longitudinal axis.
 
-In our wing design, the placement of the ailerons is crucial for optimizing control effectiveness and aerodynamic performance. Therefore, the ailerons will be positioned at specific locations along the wing. Specifically, they will be located between \textbf{0.5 to 0.96 of the wing's span}, ensuring sufficient leverage for roll control across the entire wing length. Additionally, the ailerons will span from \textbf{0.8 to 1 of the wing's chord}, providing adequate surface area for effective control authority while maintaining aerodynamic efficiency.
+In our wing design, placing the ailerons is crucial for optimizing control effectiveness and aerodynamic performance. Therefore, the ailerons will be positioned at specific locations along the wing. Specifically, they will be located between \textbf{0.5 to 0.96 of the wing's span}, ensuring sufficient leverage for roll control across the entire wing length. Additionally, the ailerons will span from \textbf{0.8 to 1 of the wing's chord}, providing adequate surface area for effective control authority while maintaining aerodynamic efficiency.
+\newpage
+\textbf{\Huge{Chapter 7}}
+\section{\underline{Fuselage Design}}
+\color{red}
+\subsection{Fuselage Length}
+\color{black}
+{The fuselage length in a UAV design is a crucial parameter that affects the overall performance and functionality of the aircraft. It is typically estimated based on the maximum takeoff weight (\(W_0\)) of the UAV. One common approach is to use empirical relationships derived from data on similar aircraft.}
+
+{The fuselage length (\(L\)) is often modeled using a power-law relationship with the maximum takeoff weight (\(W_0\)). This relationship can be expressed as:}
+
+\textbf{\[ L = a W_0^c \]}
+
+where:
+\begin{itemize}
+    \item \(L\) is the fuselage length,
+    \item \(W_0\) is the maximum takeoff weight,
+    \item \(a\) and \(c\) are parameters obtained through curve fitting.
+\end{itemize}
+\begin{table}[htbp]
+  \centering
+  \caption{\textbf{UAV Maximum Takeoff Weight (MTOW) and Fuselage Length}}
+  \begin{tabular}{|l|c|c|}
+    \hline
+    \textbf{UAV} & \textbf{MTOW (N)} & \textbf{Fuselage Length (m)} \\
+    \hline
+    Wingtraone & 44.145 & 0.66 \\
+    Albatross & 98.1 & 0.8 \\
+    Azimut 2 & 88.29 & 1.7 \\
+    Birdeye 600 & 83.385 & 1.2 \\
+    Rafael Skylite BR & 78.48 & 0.91 \\
+    Bluebird Boomerang & 93.195 & 0.95 \\
+    \hline
+  \end{tabular}
+\end{table}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Codes/Week 6/Fuselage length curve fit.jpg}
+    \caption{\textbf{Fuselage length Curve Fit}}
+    \label{Fuselage length curve fit}
+\end{figure}
+\color{red}
+\subsection{Curve Fitting and Parameter Estimation}
+\color{black}
+The parameters \(a\) and \(c\) are typically obtained by fitting the curve to empirical data. Once the best-fit curve is obtained, the values of \(a\) and \(c\) are determined. 
+
+In our case, after conducting curve fitting using MATLAB, we obtained the following parameter values:
+\[ a = 0.097577 \]
+\[ c = 0.53969 \] 
+\newpage
+\subsection{\textcolor{red}{Fuselage Length Calculation}}
+\color{black}
+For a given design weight \(W_0\), the fuselage length can be calculated using the relation obtained from curve fitting. 
+
+For a design weight(\(W_0 = 63.52\) N), the fuselage length (\(L\)) is calculated as follows:
+
+\[
+L = 0.3117 \times (63.52)^{0.6156} = 0.91 \, \text{m}
+\]
+
+This calculated fuselage length provides valuable insight into the overall dimensions and proportions of the UAV, aiding in the design and optimization process.
+\color{red}
+\subsection{Fuselage Sizing}
+\color{black}
+\vspace{10mm}
+\section{\underline{Tail Design}}
+\color{red}
+\subsection{Tail configuration}
+
+{\color{red}\textbf{Conventional Tail (T-tail):}}
+
+{\color{black}
+\textbf{\textcolor{red}{Advantages:}}
+\begin{itemize}
+  \item Provides better pitch control and stability.
+  \item Reduces the risk of tail strikes during takeoff and landing.
+  \item Simplifies the fuselage design by allowing a clean wing-to-fuselage junction.
+\end{itemize}
+
+\textbf{\textcolor{red}{Disadvantages:}}
+\begin{itemize}
+  \item May experience deep stall phenomenon, where the airflow over the tail is disrupted, leading to loss of control.
+  \item More complex control systems may be required to mitigate deep stall risks.
+  \item Increased structural complexity and weight due to the need for longer tail structures.
+\end{itemize}
+}
+
+{\color{red}\textbf{T-tail Configuration:}}
+
+{\color{black}
+\textbf{\textcolor{red}{Advantages:}}
+\begin{itemize}
+  \item Offers improved stability and control, especially at high angles of attack.
+  \item Reduces the risk of deep stall compared to conventional tail configurations.
+  \item Provides redundancy in case of damage to one tail surface.
+\end{itemize}
+
+\textbf{\textcolor{red}{Disadvantages:}}
+\begin{itemize}
+  \item Increased weight and drag compared to single-tail configurations.
+  \item Higher manufacturing and maintenance costs due to the complexity of two tail surfaces.
+  \item Can obstruct the airflow over the horizontal stabilizer, reducing efficiency.
+\end{itemize}
+}
+
+{\color{red}\textbf{H-tail Configuration:}}
+
+{\color{black}
+\textbf{\textcolor{red}{Advantages:}}
+\begin{itemize}
+  \item Offers excellent longitudinal stability and efficient pitch control.
+  \item Provides a balance between stability, control, and structural simplicity.
+  \item Pilots benefit from good pitch authority.
+\end{itemize}
+
+\textbf{\textcolor{red}{Disadvantages:}}
+\begin{itemize}
+  \item Risk of tail strikes during takeoff or landing.
+  \item Potential interference drag due to the presence of vertical tails.
+  \item Additional weight and drag compared to some other configurations.
+\end{itemize}
+}
+
+{\color{red}\textbf{V-tail Configuration:}}
+
+{\color{black}
+\textbf{\textcolor{red}{Advantages:}}
+\begin{itemize}
+  \item Offers reduced drag and weight compared to conventional tail configurations.
+  \item Provides efficient control in both pitch and yaw.
+  \item Simplifies the aircraft's structure and reduces radar cross-section in military applications.
+\end{itemize}
+
+\textbf{\textcolor{red}{Disadvantages:}}
+\begin{itemize}
+  \item Can experience control coupling issues, especially in certain flight regimes.
+  \item Requires more complex control systems to manage control interactions.
+  \item May be less effective at high angles of attack compared to other tail configurations.
+\end{itemize}
+
 
 \vfill
 
@@ -1372,8 +1505,8 @@ In our wing design, the placement of the ailerons is crucial for optimizing cont
 
 
 \section{References}
-
-\bibliographystyle{IEEEtran}
+\bibliographystyle{plainnat}
+%\bibliographystyle{IEEEtran}
 \bibliography{References}
 
 \vspace{10 pt}
@@ -1449,17 +1582,17 @@ Data Collection; Literature Survey
 
 
 \subsubsection{Abhijeet Mangela AE21B040}
-Changed the Mission Profile in Latex, Converted references to BibTeX, Did some cleanup of document, did the Preliminary weight estimate, which was wrong last week, Power estimation for cruise and climb, Linked all files internally in Github for easy connectivity.
+Changed the Mission Profile in Latex, Converted references to BibTeX, Did some cleanup of the document, did the Preliminary weight estimate, which was wrong last week, Power estimation for cruise and climb, and Linked all files internally in Github for easy connectivity.
 
 \subsubsection{Navin Yadav AE23M803}
-The analytical calculation and added these calculations on latex 
+The analytical calculation and added these calculations to the latex 
 
 \subsubsection{Balamurugan S AE23M009}
 Data Collection; Literature Survey; Max L/D vs Sqrt(Wetted AR) Calculations and Plotting.
 
 
 \subsubsection{Samarth R Krishna AE23M032}
-The analytical calculation (Drag Polar calculation, L/D max estimation, calculation of Thrust and Power required at different phases), and added these calculations on latex
+The analytical calculation (Drag Polar calculation, L/D max estimation, calculation of Thrust and Power required at different phases) and added these calculations to latex.
 
 
 \subsubsection{Senthil B AE23M035}
@@ -1473,23 +1606,23 @@ Data Collection; Image Processing using Fusion 360; Report writing for Reference
 
 
 \subsubsection{Abhijeet Mangela AE21B040}
-Did Wing loading for stall criteria, effect of flaps, as well as all $\frac{W}{S}$ calculations for Stall, Takeoff, Landing, Cruise and loiter and wrote \LaTeX for it.
+Did Wing loading for stall criteria, the effect of flaps, as well as all $\frac{W}{S}$ calculations for Stall, Takeoff, Landing, Cruise, and loiter and wrote \LaTeX for it.
 
 \subsubsection{Navin Yadav AE23M803}
-The analytical calculation and added these calculations on latex 
+The analytical calculation and added these calculations to the latex 
 
 \subsubsection{Balamurugan S AE23M009}
 
 
 \subsubsection{Samarth R Krishna AE23M032}
-The analytical calculation (Iterations and calculation of Power required at different phases), and added these calculations on latex
+The analytical calculation (Iterations and calculation of Power required at different phases) added these calculations to latex.
 
 
 \subsubsection{Senthil B AE23M035}
-Calculated power loading calculations for cruise climb descent,loitre and stall conditions. Also calculated and approximated some design parameters like wing reference area, maximum Lift to Drag Ratio using previously collected data.
+We calculated power loading for cruise climb descent, loiter, and stall conditions. We also calculated and approximated design parameters like wing reference area.
 
 \subsubsection{Rajendran Anandhu Nair AE23M027}
-Calculated battery capacity required for each mission segment based on their power requirements. Selected battery, motor and propeller required for the UAV. Wrote the power loading, battery capacity and powerplant selection part in LATEX. 
+Calculated battery capacity required for each mission segment based on their power requirements. A selected battery, motor, and propeller are required for the UAV. Wrote the power loading, battery capacity, and powerplant selection parts in LATEX. 
 
 
 \newpage
